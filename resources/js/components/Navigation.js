@@ -1,4 +1,5 @@
 import React from 'react';
+import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 
 const NavItem = props => {
   const pageURI = window.location.pathname+window.location.search
@@ -57,8 +58,8 @@ export default class Navigation extends React.Component  {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
 
-            <NavItem path="/" name="Photography" />
-            <NavItem path="/page2" name="Illustrations" />
+            <Link to="/">Home</Link>
+            <Link to="/blog">Test</Link>
             <NavItem path="/page3" name="3D Art" />
           </ul>
 

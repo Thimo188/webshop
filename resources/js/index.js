@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 import Home from './components/Home';
+import Navigation from './components/Navigation';
 
 
 export default class Index extends Component {
@@ -11,7 +12,8 @@ export default class Index extends Component {
             <div className="container">
                 <Router>
                     <div>
-                        <Route path="/" component={Home}/>
+                        <Route path="/" exact component={Home}/>
+                        <Route path="/blog" exact component={Navigation}/>
                     </div>
                 </Router>
             </div>

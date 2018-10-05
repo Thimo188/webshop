@@ -2635,6 +2635,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_router_dom__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Home__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Navigation__ = __webpack_require__(84);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2642,6 +2643,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -2670,7 +2672,8 @@ var Index = function (_Component) {
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         null,
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router_dom__["b" /* Route */], { path: '/', component: __WEBPACK_IMPORTED_MODULE_4__components_Home__["a" /* default */] })
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router_dom__["c" /* Route */], { path: '/', exact: true, component: __WEBPACK_IMPORTED_MODULE_4__components_Home__["a" /* default */] }),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router_dom__["c" /* Route */], { path: '/blog', exact: true, component: __WEBPACK_IMPORTED_MODULE_5__components_Navigation__["a" /* default */] })
                     )
                 )
             );
@@ -24709,7 +24712,7 @@ module.exports = function spread(callback) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HashRouter__ = __webpack_require__(66);
 /* unused harmony reexport HashRouter */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Link__ = __webpack_require__(23);
-/* unused harmony reexport Link */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_2__Link__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__MemoryRouter__ = __webpack_require__(67);
 /* unused harmony reexport MemoryRouter */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__NavLink__ = __webpack_require__(69);
@@ -24719,7 +24722,7 @@ module.exports = function spread(callback) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Redirect__ = __webpack_require__(73);
 /* unused harmony reexport Redirect */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Route__ = __webpack_require__(24);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_7__Route__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_7__Route__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Router__ = __webpack_require__(13);
 /* unused harmony reexport Router */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__StaticRouter__ = __webpack_require__(75);
@@ -27225,6 +27228,7 @@ module.exports = hoistNonReactStatics;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(58);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -27235,21 +27239,22 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
 var NavItem = function NavItem(props) {
   var pageURI = window.location.pathname + window.location.search;
   var liClassName = props.path === pageURI ? "nav-item active" : "nav-item";
   var aClassName = props.disabled ? "nav-link disabled" : "nav-link";
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    "li",
+    'li',
     { className: liClassName },
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      "a",
+      'a',
       { href: props.path, className: aClassName },
       props.name,
       props.path === pageURI ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        "span",
-        { className: "sr-only" },
-        "(current)"
+        'span',
+        { className: 'sr-only' },
+        '(current)'
       ) : ''
     )
   );
@@ -27270,7 +27275,7 @@ var NavDropdown = function (_React$Component) {
   }
 
   _createClass(NavDropdown, [{
-    key: "showDropdown",
+    key: 'showDropdown',
     value: function showDropdown(e) {
       e.preventDefault();
       this.setState(function (prevState) {
@@ -27280,26 +27285,26 @@ var NavDropdown = function (_React$Component) {
       });
     }
   }, {
-    key: "render",
+    key: 'render',
     value: function render() {
       var _this2 = this;
 
       var classDropdownMenu = 'dropdown-menu' + (this.state.isToggleOn ? ' show' : '');
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        "li",
-        { className: "nav-item dropdown" },
+        'li',
+        { className: 'nav-item dropdown' },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "a",
-          { className: "nav-link dropdown-toggle", href: "/", id: "navbarDropdown", role: "button", "data-toggle": "dropdown",
-            "aria-haspopup": "true", "aria-expanded": "false",
+          'a',
+          { className: 'nav-link dropdown-toggle', href: '/', id: 'navbarDropdown', role: 'button', 'data-toggle': 'dropdown',
+            'aria-haspopup': 'true', 'aria-expanded': 'false',
             onClick: function onClick(e) {
               _this2.showDropdown(e);
             } },
           this.props.name
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "div",
-          { className: classDropdownMenu, "aria-labelledby": "navbarDropdown" },
+          'div',
+          { className: classDropdownMenu, 'aria-labelledby': 'navbarDropdown' },
           this.props.children
         )
       );
@@ -27319,83 +27324,91 @@ var Navigation = function (_React$Component2) {
   }
 
   _createClass(Navigation, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        "nav",
-        { className: "navbar navbar-expand-lg navbar-light bg-light" },
+        'nav',
+        { className: 'navbar navbar-expand-lg navbar-light bg-light' },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "a",
-          { className: "navbar-brand", href: "/" },
-          "MUZE"
+          'a',
+          { className: 'navbar-brand', href: '/' },
+          'MUZE'
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "button",
-          { className: "navbar-toggler", type: "button", "data-toggle": "collapse", "data-target": "#navbarSupportedContent", "aria-controls": "navbarSupportedContent", "aria-expanded": "false", "aria-label": "Toggle navigation" },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", { className: "navbar-toggler-icon" })
+          'button',
+          { className: 'navbar-toggler', type: 'button', 'data-toggle': 'collapse', 'data-target': '#navbarSupportedContent', 'aria-controls': 'navbarSupportedContent', 'aria-expanded': 'false', 'aria-label': 'Toggle navigation' },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'navbar-toggler-icon' })
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "div",
-          { className: "collapse navbar-collapse", id: "navbarSupportedContent" },
+          'div',
+          { className: 'collapse navbar-collapse', id: 'navbarSupportedContent' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "ul",
-            { className: "navbar-nav mr-auto" },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(NavItem, { path: "/", name: "Photography" }),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(NavItem, { path: "/page2", name: "Illustrations" }),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(NavItem, { path: "/page3", name: "3D Art" })
+            'ul',
+            { className: 'navbar-nav mr-auto' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+              { to: '/' },
+              'Home'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+              { to: '/blog' },
+              'Test'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(NavItem, { path: '/page3', name: '3D Art' })
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "form",
-            { className: "form-inline my-2 my-lg-0 ml-auto" },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { className: "form-control mr-sm-2", type: "search", placeholder: "Search", "aria-label": "Search" }),
+            'form',
+            { className: 'form-inline my-2 my-lg-0 ml-auto' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control mr-sm-2', type: 'search', placeholder: 'Search', 'aria-label': 'Search' }),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "button",
-              { className: "btn btn-outline-success my-2 my-sm-0", type: "submit" },
-              "Search"
+              'button',
+              { className: 'btn btn-outline-success my-2 my-sm-0', type: 'submit' },
+              'Search'
             )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "ul",
-            { className: "navbar-nav mr-auto" },
+            'ul',
+            { className: 'navbar-nav mr-auto' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "a",
+              'a',
               null,
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "https://static.thenounproject.com/png/630729-200.png", height: "40", alt: "" })
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://static.thenounproject.com/png/630729-200.png', height: '40', alt: '' })
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               NavDropdown,
-              { name: "" },
+              { name: '' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "a",
-                { className: "dropdown-item", href: "/" },
-                "View Profile"
+                'a',
+                { className: 'dropdown-item', href: '/' },
+                'View Profile'
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "a",
-                { className: "dropdown-item", href: "/" },
-                "My Orders"
+                'a',
+                { className: 'dropdown-item', href: '/' },
+                'My Orders'
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "a",
-                { className: "dropdown-item", href: "/" },
-                "Subscriptions"
+                'a',
+                { className: 'dropdown-item', href: '/' },
+                'Subscriptions'
               ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "dropdown-divider" }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'dropdown-divider' }),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "a",
-                { className: "dropdown-item", href: "/" },
-                "Help"
+                'a',
+                { className: 'dropdown-item', href: '/' },
+                'Help'
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "a",
+              'a',
               null,
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "https://www.seoclerk.com/pics/want28565-1jLOM31435502711.png", height: "40", alt: "" })
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://www.seoclerk.com/pics/want28565-1jLOM31435502711.png', height: '40', alt: '' })
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "a",
+              'a',
               null,
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: "https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png", height: "40", alt: "" })
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png', height: '40', alt: '' })
             )
           )
         )

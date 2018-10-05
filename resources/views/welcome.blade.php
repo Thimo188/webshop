@@ -9,12 +9,12 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
-        <link href="/css/app.css" rel="stylesheet">
+        <link href="/css/App.css" rel="stylesheet">
     </head>
     <body>
-        <div id="example">
+        <div id="root"></div>
 
         </div>
-        <script src="/js/app.js"></script>
+        <script src="/js/App.js"></script>
     </body>
 </html>

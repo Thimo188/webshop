@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
+import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
+import Home from './components/Home';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+
+export default class Index extends Component {
+    render() {
+        return (
+            <div className="container">
+                <Router>
+                    <div>
+                        <Route path="/" component={Home}/>
+                    </div>
+                </Router>
+            </div>
+        );
+    }
+}
+if (document.getElementById('root')) {
+    ReactDOM.render(<Index />, document.getElementById('root'));
+}

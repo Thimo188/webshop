@@ -45,7 +45,7 @@ class NavDropdown extends React.Component {
 }
 
 
-export default class Example extends Component  {
+export default class Navigation extends React.Component  {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -87,5 +87,3 @@ export default class Example extends Component  {
     )
   }
 }
-
-export default Navigation;

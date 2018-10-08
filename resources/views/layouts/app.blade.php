@@ -30,7 +30,7 @@
 <body>
   <div id="app">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">MUZEN</a>
+      <a class="navbar-brand" href="{{ url('/')}}">MUZEN</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -55,20 +55,24 @@
           <img src="https://static.thenounproject.com/png/630729-200.png" height="40" alt=""/>
         </a>
         <div class="dropdown-menu">
-          <form class="px-4 py-3">
+          <form method="POST" action="{{ route('login') }}" class="px-4 py-3">
+              {{ csrf_field() }}
             <div class="form-group">
               <label for="exampleDropdownFormEmail1">Email address</label>
-              <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+              <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="email@example.com" required>
+              <!-- <input type="email" class="form-control" id="exampleDropdownFormEmail1" > -->
             </div>
             <div class="form-group">
               <label for="exampleDropdownFormPassword1">Password</label>
-              <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+              <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Password" required>
+              <!-- <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password"> -->
             </div>
             <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="dropdownCheck">
-              <label class="form-check-label" for="dropdownCheck">
-                Remember me
-              </label>
+                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                <label class="form-check-label" for="remember">
+                    {{ __('Remember Me') }}
+                </label>
             </div>
             <button type="submit" class="btn btn-primary">Sign in</button>
           </form>
@@ -77,7 +81,7 @@
           <a class="dropdown-item" href="#">Forgot password?</a>
         </div>
       </li>
-          <a><img src="https://www.seoclerk.com/pics/want28565-1jLOM31435502711.png" height="40" alt=""/></a>
+          <a href="{{ url('/cart')}}"><img src="https://www.seoclerk.com/pics/want28565-1jLOM31435502711.png" height="40" alt=""/></a>
           <a><img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="40" alt=""/></a>
         </ul>
       </div>

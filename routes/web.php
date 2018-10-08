@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () { return view('home'); });
+Route::get('/cart', 'CartController@index');
 
 Auth::routes();
 

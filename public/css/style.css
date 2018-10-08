@@ -30,15 +30,12 @@
 }
 // Vincent papi hier kan je je hoogte van carousel items veranderen
 .carousel-item{
-height: 300px;
+height: 400px;
 }
 .carousel-item img{
-    height: 300px;
+    height: 400px;
 }
 .footer ul li a {
-position: absolute;
-top: 0;
-left: 0;
 min-height: 300px;
 }
 .red{

@@ -51,84 +51,84 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
           @guest
-          <li class="nav-item dropdown right">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img src="https://static.thenounproject.com/png/630729-200.png" height="40" alt=""/>
-        </a>
-        <div class="dropdown-menu">
-          <form method="POST" action="{{ route('login') }}" class="px-4 py-3">
-              {{ csrf_field() }}
-            <div class="form-group">
-              <label for="exampleDropdownFormEmail1">Email address</label>
-              <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="email@example.com" required>
-              <!-- <input type="email" class="form-control" id="exampleDropdownFormEmail1" > -->
-            </div>
-            <div class="form-group">
-              <label for="exampleDropdownFormPassword1">Password</label>
-              <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Password" required>
-              <!-- <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password"> -->
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+          <li class="nav-item dropdown-expand-sm">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/538846-200.png" height="30" alt=""/>
+            </a>
+            <div class="dropdown-menu">
+              <form method="POST" action="{{ route('login') }}" class="px-4 py-3">
+                {{ csrf_field() }}
+                <div class="form-group">
+                  <label for="exampleDropdownFormEmail1">Email address</label>
+                  <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="email@example.com" required>
+                  <!-- <input type="email" class="form-control" id="exampleDropdownFormEmail1" > -->
+                </div>
+                <div class="form-group">
+                  <label for="exampleDropdownFormPassword1">Password</label>
+                  <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Password" required>
+                  <!-- <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password"> -->
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                <label class="form-check-label" for="remember">
+                  <label class="form-check-label" for="remember">
                     {{ __('Remember Me') }}
-                </label>
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign in</button>
+              </form>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">New around here? Sign up</a>
+              <a class="dropdown-item" href="#">Forgot password?</a>
             </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
-          </form>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">New around here? Sign up</a>
-          <a class="dropdown-item" href="#">Forgot password?</a>
-        </div>
-      </li>
-      @else
-        <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-          <a href="{{ url('/cart')}}"><img src="https://www.seoclerk.com/pics/want28565-1jLOM31435502711.png" height="40" alt=""/></a>
-          <a><img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="40" alt=""/></a>
-        </ul>
-      </div>
-    </nav>
-    <main class="py-4">
-      @yield('content')
-    </main>
-    <footer>
-  <div class="footer" id="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-          <h3> Quick Links </h3>
-          <ul>
-            <li> <a href="#"> F.A.Q </a> </li>
-            <li> <a href="#"> Contact </a> </li>
-            <li> <a href="#"> Orders & Delivery </a> </li>
-            <li> <a href="#"> Payments </a> </li>
-          </ul>
-        </div>
-      </div>
-      <!--/.row-->
+          </li>
+          @else
+          <li class="nav-item dropdown">
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+              {{ Auth::user()->name }} <span class="caret"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{{ route('logout') }}"
+              onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();">
+              {{ __('Logout') }}
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
+            </form>
+          </div>
+        </li>
+        @endguest
+        <a href="{{ url('/cart')}}"><img src="https://www.seoclerk.com/pics/want28565-1jLOM31435502711.png" height="37" alt=""/></a>
+        <a><img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="37" class="hello" alt=""/></a>
+      </ul>
     </div>
-    <!--/.container-->
-  </div>
-  <!--/.footer-->
+  </nav>
+  <main class="py-4">
+    @yield('content')
+  </main>
+  <footer>
+    <div class="footer" id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+            <h3> Quick Links </h3>
+            <ul>
+              <li> <a href="#"> F.A.Q </a> </li>
+              <li> <a href="#"> Contact </a> </li>
+              <li> <a href="#"> Orders & Delivery </a> </li>
+              <li> <a href="#"> Payments </a> </li>
+            </ul>
+          </div>
+        </div>
+        <!--/.row-->
+      </div>
+      <!--/.container-->
+    </div>
+    <!--/.footer-->
 
-  <!--/.footer-bottom-->
-</footer>
-  </div>
+    <!--/.footer-bottom-->
+  </footer>
+</div>
 </body>
 </html>

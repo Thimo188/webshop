@@ -13,11 +13,8 @@
 
 Route::get('/', function () { return view('homepage'); });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/cart', 'CartController@index');
 });
+
+Auth::routes();

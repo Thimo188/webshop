@@ -105,9 +105,8 @@
         <a><img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="37" class="hello" alt=""/></a>
     </div>
   </nav>
-  <main class="py-4">
-    @yield('content')
-  </main>
+  @yield('content')
+  
   <footer>
     <div class="footer" id="footer">
       <div class="container">

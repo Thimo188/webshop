@@ -10,14 +10,14 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100" src="https://static.vecteezy.com/system/resources/previews/000/192/828/non_2x/vector-abstract-landscape-illustration.jpg" alt="First slide">
+        <img class="d-block w-100" src="banner.jpg" alt="First slide">
         <div class="carousel-caption d-none d-md-block">
           <h3>Popular illustrations</h3>
           <p>Find the most popular illustrations right now!</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="https://images.pexels.com/photos/4827/nature-forest-trees-fog.jpeg?auto=compress&cs=tinysrgb&h=350 " alt="Second slide">
+        <img class="d-block w-100" src="banner.jpg" alt="Second slide">
 
         <div class="carousel-caption d-none d-md-block">
           <h3>Photos of nature</h3>
@@ -25,7 +25,7 @@
         </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="https://assets.pinshape.com/uploads/image/file/2633/container_elephant-3d-printing-2633.jpg" alt="Third slide">
+        <img class="d-block w-100" src="https://assets.pinshape.com/uploads/image/file/2633/container_elephant-3d-printing-2633.jp  g" alt="Third slide">
         <div class="carousel-caption d-none d-md-block">
           <h3>3D Collectibles</h3>
           <p>Small 3D prints to create for fun.</p>

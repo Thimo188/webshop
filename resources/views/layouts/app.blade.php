@@ -25,6 +25,7 @@
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
+<!-- Navbar -->
 
 </head>
 <body>
@@ -46,6 +47,7 @@
           <li class="nav-item">
             <a class="nav-link" href="#">3DArt</a>
           </li>
+          </ul>
           <form class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -53,7 +55,7 @@
           @guest
           <li class="nav-item dropdown-expand-sm">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/538846-200.png" height="30" alt=""/>
+              <img src="https://cdn1.iconfinder.com/data/icons/social-messaging-productivity-1-1/128/gender-male2-512.png" height="40" alt=""/>
             </a>
             <div class="dropdown-menu">
               <form method="POST" action="{{ route('login') }}" class="px-4 py-3">
@@ -101,7 +103,6 @@
         @endguest
         <a href="{{ url('/cart')}}"><img src="https://www.seoclerk.com/pics/want28565-1jLOM31435502711.png" height="37" alt=""/></a>
         <a><img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="37" class="hello" alt=""/></a>
-      </ul>
     </div>
   </nav>
   <main class="py-4">

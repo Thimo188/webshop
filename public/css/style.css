@@ -28,13 +28,27 @@
 	table#cart tfoot td .btn{display:block;}
 
 }
-// Vincent papi hier kan je je hoogte van carousel items veranderen
+
 .carousel-item{
-height: 500px;
+    height: 500px;
+}
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+.carousel-item .img-fluid {
+  width:100%;
+  height:100%;
+}
+.carousel-inner{
+    height: 600px;
 }
 
 li {
     list-style: none; /* Remove list bullets */
+}
+h3 {
+  padding-top: 40px;
 }
 .footer ul li a {
 min-height: 300px;
@@ -50,7 +64,13 @@ padding: 10px 40px 60px;
 margin: 10px 0px 60px;
 border: 1px solid GREY;
 }
-.
+
+.card-img-top {
+    width: 100%;
+    height: 20vw;
+    object-fit: cover;
+}
+
 /* footer */
 .full {
 width: 100%;

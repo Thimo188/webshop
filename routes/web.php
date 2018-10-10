@@ -15,8 +15,6 @@ Route::get('/', function () { return view('homepage'); });
 
 Route::get('/account','AccountController@index');
 
-Route::get('/sidemenu', 'SidemenuController@index');
-
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/cart', 'CartController@index');
 });

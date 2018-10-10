@@ -21,7 +21,7 @@
                             <ul class="container details">
                               <li><p><i class="fa fa-phone"></i> +91 90000 00000</p></li>
                               <li><p><i class="fa fa-envelope"></i> somerandom@email.com</p></li>
-                              <li><p><i class="fa fa-map-marker-alt"></i> Hyderabad</p></li>
+                              <li><p><i class="fas fa-map-marker-alt"></i> Hyderabad</p></li>
                               <li><p><span class="glyphicon glyphicon-new-window one" style="width:50px;"></span><a href="#">www.example.com</p></a>
                             </ul>
                         </div>

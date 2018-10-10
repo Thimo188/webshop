@@ -106,30 +106,51 @@
         <a><img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="37" class="hello" alt=""/></a>
     </div>
   </nav>
-  @yield('content')
 
-  <footer>
-    <div class="footer" id="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-            <h3> Quick Links </h3>
-            <ul>
-              <li> <a href="#"> F.A.Q </a> </li>
-              <li> <a href="#"> Contact </a> </li>
-              <li> <a href="#"> Orders & Delivery </a> </li>
-              <li> <a href="#"> Payments </a> </li>
-            </ul>
-          </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card bg-white border-white mt-5" id="sidemenu">
+          <div class="card-body">
+              <ul class="list-group">
+                <li class="mt-5 m-4 pb-4 border-0 list-group-item"><a href="/Statistics.js">STATISTICS</a></li>
+                <li class="m-4 pb-4 border-0 list-group-item"><a href="/Gallery.js">GALLERY</a></li>
+                <li class="m-4 pb-4 border-0 list-group-item"><a href="/Payments.js">PAYMENTS</a></li>
+                <li class="m-4 pb-4 border-0 list-group-item"><a href="{{url('/account')}}">ACCOUNT SETTINGS</a></li>
+                <li class="m-4 pb-4 border-0 list-group-item"><a href="LogOut.js">LOG OUT</a></li>
+              </ul>
+            </div>
         </div>
-        <!--/.row-->
       </div>
-      <!--/.container-->
+      <div class="col-md-9">
+        @yield('content')
+      </div>
     </div>
-    <!--/.footer-->
+  </div>
+</div>
 
-    <!--/.footer-bottom-->
-  </footer>
+<footer>
+  <div class="footer mt-5" id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+          <h3> Quick Links </h3>
+          <ul>
+            <li> <a href="#"> F.A.Q </a> </li>
+            <li> <a href="#"> Contact </a> </li>
+            <li> <a href="#"> Orders & Delivery </a> </li>
+            <li> <a href="#"> Payments </a> </li>
+          </ul>
+        </div>
+      </div>
+      <!--/.row-->
+    </div>
+    <!--/.container-->
+  </div>
+  <!--/.footer-->
+
+  <!--/.footer-bottom-->
+</footer>
 </div>
 </body>
 </html>

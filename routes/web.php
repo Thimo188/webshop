@@ -17,7 +17,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
-Route::group(['middleware' => 'auth'], function() {
+Route::get('/description', 'DescriptionController@index');
     Route::get('/cart', 'CartController@index');
+Route::group(['middleware' => 'auth'], function() {
+
 });

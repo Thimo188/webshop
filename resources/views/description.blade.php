@@ -23,12 +23,21 @@
              flat on Airbnb, you also have to work for 40 hours in the
              bookshop downstairs.
            </div>
+           <div class="col-md-6"
              <div class="col-md-6">
                <h2 class="product-price">$129.00</h2>
-               <div class="col-md-4">
-               <button class ="btn btn-lg btn-brand">
+             </div>
+               <div class="col-md-12">
+               <button class ="btn btn-lg">
                  Add to Cart
                </button>
+               <button class ="btn">
+                 <img
+                 src="images/description/heart.png"
+                 />
+               </button>
+                 <p class="descritpion">
+                   In Stock
             </div>
           </div>
          </div>

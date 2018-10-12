@@ -33,7 +33,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">
                   <span data-feather="bar-chart-2"></span>
-                  Account details
+                  Visitors
                 </a>
               </li>
             </ul>

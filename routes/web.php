@@ -13,6 +13,8 @@
 
 Route::get('/', function () { return view('homepage'); });
 
+Route::get('/photography', function () { return view('photography'); });
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/description', 'DescriptionController@index');

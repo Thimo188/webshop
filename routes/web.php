@@ -13,14 +13,18 @@
 
 Route::get('/', function () { return view('homepage'); });
 
+Route::get('/photography', function () { return view('photography'); });
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/description', 'DescriptionController@index');
+Route::get('/admin', 'AdminController@index');
 
+Route::get('/sidemenu', 'SidemenuController@index');
 Route::get('/account','AccountController@index');
-
+Route::get('/cart', 'CartController@index');
 Route::group(['middleware' => 'auth'], function() {
-    Route::get('/cart', 'CartController@index');
+
 });
 
 Auth::routes();

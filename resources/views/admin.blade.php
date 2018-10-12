@@ -27,19 +27,13 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">
                   <span data-feather="users"></span>
-                  Customers
+                  Users
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">
                   <span data-feather="bar-chart-2"></span>
                   Account details
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="layers"></span>
-                  Integrations
                 </a>
               </li>
             </ul>
@@ -95,7 +89,7 @@
                   <th>Position</th>
                   <th>Product Number</th>
                   <th>Name</th>
-                  <th>Profit per iteme</th>
+                  <th>Profit per item</th>
                   <th>Header</th>
                 </tr>
               </thead>
@@ -240,7 +234,7 @@
       var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-          labels: ["Current Month", "Last Month", "etc", "etc", "etc", "etc", "etc...."],
+          labels: ["etc..", "etc", "etc", "etc", "etc", "Last Month", "Current Month"],
           datasets: [{
             data: [10000, 20000, 30000, 40000, 3000, 10000, 20000],
             lineTension: 0,

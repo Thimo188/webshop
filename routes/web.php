@@ -13,10 +13,15 @@
 
 Route::get('/', function () { return view('homepage'); });
 
-Route::get('/account','AccountController@index');
+Route::get('/cart', 'CartController@index');
+
+
 
 Route::group(['middleware' => 'auth'], function() {
-    Route::get('/cart', 'CartController@index');
+    Route::get('/account','AccountController@index');
+    Route::get('/subscription','SubscriptionController@index');
+    Route::get('/statistics', 'StatisticsController@index');
+
 });
 
 Auth::routes();

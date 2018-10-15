@@ -110,14 +110,14 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3">
-        <div class="card bg-white border-white mt-5" style="height: 40rem;">
+        <div class="card bg-white border-white mt-5" style="height: 46rem;">
           <div class="card-body">
               <ul class="list-group">
-                <li class="mt-2 pb-1 border-0 list-group-item"><a href="/Statistics.js">STATISTICS</a></li>
-                <li class="pb-2 border-0 list-group-item"><a href="/Gallery.js">GALLERY</a></li>
-                <li class="pb-2 border-0 list-group-item"><a href="/Payments.js">PAYMENTS</a></li>
-                <li class="pb-2 border-0 list-group-item"><a href="{{url('/account')}}">ACCOUNT SETTINGS</a></li>
-                <li class="pb-2 border-0 list-group-item"><a href="LogOut.js">LOG OUT</a></li>
+                <li class="mt-2 pb-1 border-0 list-group-item"><a href="{{url('/statistics')}}">Statistics</a></li>
+                <li class="pb-2 border-0 list-group-item"><a href="/Gallery.js">Gallery</a></li>
+                <li class="pb-2 border-0 list-group-item"><a href="/Payments.js">Payments</a></li>
+                <li class="pb-2 border-0 list-group-item"><a href="{{url('/account')}}">Account Settings</a></li>
+                <li class="pb-2 border-0 list-group-item"><a href="{{url('/subscription')}}">Subscription</a></li>
               </ul>
             </div>
         </div>

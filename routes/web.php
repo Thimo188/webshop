@@ -19,8 +19,10 @@ Route::get('/description', 'DescriptionController@index');
 
 Route::get('/account','AccountController@index');
 
+Route::get('/cart', 'CartController@index');
+    
 Route::group(['middleware' => 'auth'], function() {
-    Route::get('/cart', 'CartController@index');
+
 });
 
 Auth::routes();

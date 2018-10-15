@@ -18,9 +18,7 @@ class CreateShippingMethodsTable extends Migration
             $table->string('name', 45);
             $table->string('deliverydays', 256);
             $table->string('deliveryspeed', 45);
-            $table->timestamps();
-
-            
+            $table->timestamps();            
         });
     }
 

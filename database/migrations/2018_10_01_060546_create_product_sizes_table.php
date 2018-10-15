@@ -20,6 +20,9 @@ class CreateProductSizesTable extends Migration
 			$table->text('description');
             $table->timestamps();
         });
+		Schema::table('product_sizes', function (Blueprint $table) {
+			$table->foreign('product_id')->references('id')->on('products')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+		});
     }
 
     /**

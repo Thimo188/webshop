@@ -19,7 +19,7 @@ class CreateProductImagesTable extends Migration
 			$table->string('file', 1024);
             $table->timestamps();
         });
-		Schema::table('product_sizes', function (Blueprint $table) {
+		Schema::table('product_images', function (Blueprint $table) {
 			$table->foreign('product_id')->references('id')->on('products')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 		});
     }

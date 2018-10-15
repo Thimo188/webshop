@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function () { return view('homepage'); });
+
 Route::get('/cart', 'CartController@index');
 
 
@@ -24,7 +25,7 @@ Route::get('/admin', 'AdminController@index');
 
 Route::get('upload', 'UploadController@index');
 Route::get('/sidemenu', 'SidemenuController@index');
-
+Route::get('/account','AccountController@index');
 Route::get('/cart', 'CartController@index');
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/account','AccountController@index');
@@ -32,7 +33,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/statistics', 'StatisticsController@index');
 
 
-Route::group(['middleware' => 'auth'], function() {
 
 });
 

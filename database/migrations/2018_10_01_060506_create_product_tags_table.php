@@ -19,7 +19,7 @@ class CreateProductTagsTable extends Migration
 			$table->string('name', 256);
             $table->timestamps();
         });
-		Schema::table('product_sizes', function (Blueprint $table) {
+		Schema::table('product_tags', function (Blueprint $table) {
 			$table->foreign('product_id')->references('id')->on('products')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 		});
     }

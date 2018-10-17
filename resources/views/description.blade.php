@@ -12,13 +12,9 @@
         />
     </div>
     <div class="col-md-6">
-       <h1>Eye on a trip</h1>
+       <h1>{{$product->product_name}}</h1>
            <p class="description">
-             Have you ever dreamed of running a bookshop?
-             You can have a go for a week at the Open Book Store in Wigton,
-             Scotland. In fact, if you book a holiday at the self-catering
-             flat on Airbnb, you also have to work for 40 hours in the
-             bookshop downstairs.
+             {{$product->product_description}}
            </p>
 <!-- WHO IS THE AUTHOR -->
            <p=class="description">

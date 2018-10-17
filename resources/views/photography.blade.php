@@ -15,105 +15,53 @@
 					<a class="dropdown-item" href="#">Separated link</a>
 				</div>
 			</div>
-		</div>			
-	</div>
-	<div class="row">
-		<div class="col-12 col-md-4 col-xl-3" id="sticky-sidebar">
-			<div class="card sticky-top">
-			<div class="card-body">
-				<h2>Filters</h2>
-				<h3>Categories</h3>
-				<ul class="list-group">
-					<li class="list-group-item active">Photography</li>
-					<li class="list-group-item">Illustration</li>
-					<li class="list-group-item">3D Art</li>
-				</ul>
-				<form>
-				  <div class="form-group">
-					<label for="formControlRange">Price</label>
-					<input type="range" class="form-control-range" id="formControlRange">
-				  </div>
-				</form>
-				<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-			</div>
-			</div>
 		</div>
-		<div class="col-12 col-md-8 col-xl-9">
-			<div class="row">
-				<div class="col-sm-6 col-lg-4 col-xl-3">
-					<div class="card h-100">
-						<img class="card-img-top" src="foto/test.jpg">
-						<div class="card-body">
-							<h4 class="card-title">Kunst</h4>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>							
+	</div>
+		<div class="container">
+		  <div class="row h-100 justify-content-center align-items-center">
+		    <div class="card-deck">
+					<div class="row">
+						<div class="col-12 col-md-4 col-xl-3" id="sticky-sidebar">
+							<div class="card sticky-top">
+							<div class="card-body">
+								<h2>Filters</h2>
+								<h3>Categories</h3>
+								<ul class="list-group">
+									<li class="list-group-item active">Photography</li>
+									<li class="list-group-item">Illustration</li>
+									<li class="list-group-item">3D Art</li>
+								</ul>
+								<form>
+									<div class="form-group">
+									<label for="formControlRange">Price</label>
+									<input type="range" class="form-control-range" id="formControlRange">
+									</div>
+								</form>
+								<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+							</div>
+							</div>
 						</div>
-					</div>
+		      @if(count($productspopular) > 0)
+		      @foreach($productspopular as $product)
+		      <div class="col-lg-3">
+		        <div class="card h-100">
+		          <img class="card-img-top" src="https://s3-us-west-2.amazonaws.com/lightstalking-assets/wp-content/uploads/2017/02/31171404/contrast-608131_1280.jpg" alt="Card image cap">
+		          <div class="card-body">
+		            <h5 class="card-title">{{$product->product_name}}</h5>
+		            <p class="card-text">{{$product->product_description}}</p>
+		          </div>
+		          <div class="card-footer">
+		            <a href="/description/{{$product->id}}" class="btn btn-primary">Visit Product</a>
+		          </div>
+		        </div>
+		      </div>
+		      @endforeach
+		      @else
+		      <p> no posts found </p>
+		      @endif
 				</div>
-				<div class="col-sm-6 col-lg-4 col-xl-3">
-					<div class="card h-100">
-						<img class="card-img-top" src="foto/test2.jpg">
-						<div class="card-body">
-							<h4 class="card-title">Kunst2</h4>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>							
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-lg-4 col-xl-3">
-					<div class="card h-100">
-						<img class="card-img-top" src="foto/test3.jpg">
-						<div class="card-body">
-							<h4 class="card-title">Kunst3</h4>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>								
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-lg-4 col-xl-3">
-					<div class="card h-100">
-						<img class="card-img-top" src="foto/test4.jpg">
-						<div class="card-body">
-							<h4 class="card-title">Kunst4</h4>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>							
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-lg-4 col-xl-3">
-					<div class="card h-100">
-						<img class="card-img-top" src="foto/test.jpg">
-						<div class="card-body">
-							<h4 class="card-title">Kunst</h4>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>							
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-lg-4 col-xl-3">
-					<div class="card h-100">
-						<img class="card-img-top" src="foto/test2.jpg">
-						<div class="card-body">
-							<h4 class="card-title">Kunst2</h4>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>							
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-lg-4 col-xl-3">
-					<div class="card h-100">
-						<img class="card-img-top" src="foto/test3.jpg">
-						<div class="card-body">
-							<h4 class="card-title">Kunst3</h4>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>							
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-lg-4 col-xl-3">
-					<div class="card h-100">
-						<img class="card-img-top" src="foto/test4.jpg">
-						<div class="card-body">
-							<h4 class="card-title">Kunst4</h4>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						</div>
-					</div>
+			</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
 @endsection

@@ -16,7 +16,7 @@ Route::get('/', 'HomepageController@index');
 Route::get('/cart', 'CartController@index');
 
 
-Route::get('/photography', function () { return view('photography'); });
+Route::get('/photography', 'PhotographyController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

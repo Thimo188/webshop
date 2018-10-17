@@ -36,7 +36,7 @@
                  </p>
                  <!-- PRODUCT TAGS -->
                  <p class="description">
-                   #red #colourful #eye #PHP #googlechrome
+                   {{$product->ProductTag['name']}}
                  </p>
           </div>
          </div>

@@ -8,6 +8,10 @@ class Product extends Model
 {
   public function ProductTag()
 {
-  return $this->hasOne('App\Product_Tag');
+  return $this->hasOne(Product_Tag::class);
+}
+public function ProductSizing()
+{
+return $this->hasOne(Product_Size::class);
 }
 }

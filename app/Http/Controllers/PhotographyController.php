@@ -7,18 +7,14 @@ use App\Product;
 use App\Product_Tag;
 use App\Product_Size;
 
-class HomepageController extends Controller
+class PhotographyController extends Controller
 {
   public function index() {
     $productspopular = Product::with('ProductSizing', 'ProductTag','ProductImages')
-    ->orderBy('product_name', 'desc')
-    ->take(4)
-    ->get();
-    $productslatest = Product::with('ProductSizing', 'ProductTag','ProductImages')
     ->orderBy('created_at', 'desc')
-    ->take(4)
-    ->get();
-    return view('homepage')->with('productspopular', $productspopular)->with('productslatest',$productslatest);
+    ->take(8)
+    ->paginate(7);
+    return view('photography')->with('productspopular', $productspopular);
   }
 
   public function show($id)

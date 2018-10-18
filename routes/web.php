@@ -29,7 +29,6 @@ Route::get('/cart/remove/{id}', 'CartController@Destroy');
 Route::get('/wishlist', 'WishlistController@index');
 Route::get('upload', 'UploadController@index');
 Route::get('/ordersadmin', 'Ordersadmin@index');
-
 Route::get('/sidemenu', 'SidemenuController@index');
 Route::get('/account','AccountController@index');
 Route::get('/cart', 'CartController@index');

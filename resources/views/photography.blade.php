@@ -56,7 +56,6 @@
 		        </div>
 		      </div>
 		      @endforeach
-					{{$productspopular->links()}}
 		      @else
 		      <p> no posts found </p>
 		      @endif

@@ -6,7 +6,7 @@
    <div class="col-md-6">
      <!-- The product image will be placed here -->
      <img
-        src="{{asset($product->ProductImages['file'])}}"
+        src="images/description/eye.jpg"
         alt="Colourful eye"
         class="responsive"
         />
@@ -36,7 +36,7 @@
                  </p>
                  <!-- PRODUCT TAGS -->
                  <p class="description">
-                   {{$product->ProductTag['name']}}
+                   #red #colourful #eye #PHP #googlechrome
                  </p>
           </div>
          </div>

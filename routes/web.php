@@ -11,24 +11,23 @@
 |
 */
 
-Route::get('/', function () { return view('homepage'); });
+Route::get('/', 'HomepageController@index');
 
 Route::get('/cart', 'CartController@index');
-
 
 
 Route::get('/photography', function () { return view('photography'); });
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/description', 'DescriptionController@index');
-
-/*pagina's lex*/
 Route::get('/admin', 'AdminController@index');
 Route::resource('/description', 'HomepageController');
 Route::get('/wishlist', 'WishlistController@index');
 Route::get('upload', 'UploadController@index');
+<<<<<<< HEAD
 Route::get('/ordersadmin', 'Ordersadmin@index');
+=======
+>>>>>>> parent of 5e29066... Merge branch 'dev' of https://github.com/Thimo188/webshop into dev
 Route::get('/sidemenu', 'SidemenuController@index');
 Route::get('/account','AccountController@index');
 Route::get('/cart', 'CartController@index');

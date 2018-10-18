@@ -16,11 +16,14 @@ class CreateCartsTable extends Migration
         Schema::create('carts', function (Blueprint $table) {
             $table->increments('id');
             $table->string('ip')->nullable();
-			$table->integer('user_id')->unsigned();
+			$table->integer('user_id')->unsigned()->nullable();
+			$table->integer('product_id')->unsigned();
+			$table->double('amount', 15, 2);
             $table->timestamps();
         });
         Schema::table('carts', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+			$table->foreign('product_id')->references('id')->on('carts')->onUpdate('RESTRICT')->onDelete('RESTRICT');
         });
     }
 

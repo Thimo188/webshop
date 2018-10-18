@@ -23,9 +23,9 @@
            <h2 class="product-price">$129.00</h2>
            <div class="row">
            </div>
-            <button class ="btn btn-lg btn-primary">
-              Add to Cart
-               </button>
+		  <a href="{{ url('/addToCart', $id) }}" class="btn btn-lg btn-primary">
+			  Add to Cart
+		  </a>
                <button class ="btn btn-sm btn-primary">
                  <img
                  src="images/description/heart.png"

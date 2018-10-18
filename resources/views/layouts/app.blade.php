@@ -39,7 +39,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Photography<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{{ url('photography')}}">Photography<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Illustrations</a>
@@ -80,7 +80,7 @@
                 <button type="submit" class="btn btn-primary">Sign in</button>
               </form>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">New around here? Sign up</a>
+              <a class="dropdown-item" href="{{ url('/register') }}">New around here? Sign up</a>
               <a class="dropdown-item" href="#">Forgot password?</a>
             </div>
           </li>

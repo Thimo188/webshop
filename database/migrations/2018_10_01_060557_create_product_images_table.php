@@ -15,10 +15,13 @@ class CreateProductImagesTable extends Migration
     {
         Schema::create('product_images', function (Blueprint $table) {
             $table->increments('id');
-			$table->integer('product_id');
+			$table->integer('product_id')->unsigned();
 			$table->string('file', 1024);
             $table->timestamps();
         });
+		Schema::table('product_images', function (Blueprint $table) {
+			$table->foreign('product_id')->references('id')->on('products')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+		});
     }
 
     /**

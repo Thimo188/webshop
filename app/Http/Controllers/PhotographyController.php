@@ -13,7 +13,7 @@ class PhotographyController extends Controller
     $productspopular = Product::with('ProductSizing', 'ProductTag','ProductImages')
     ->orderBy('created_at', 'desc')
     ->take(8)
-    ->get();
+    ->paginate(7);
     return view('photography')->with('productspopular', $productspopular);
   }
 

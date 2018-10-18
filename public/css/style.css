@@ -44,6 +44,12 @@
 .col-lg-3{
   padding-bottom: 30px;
 }
+
+.pagination{
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .carousel-item{
     height: 500px;
 }

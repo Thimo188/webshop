@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product_Tag extends Model
 {
-  public function Product()
+  public $table = 'product_tags';
+  public function Product1()
 {
-  return $this->belongsTo('App\Product');
+  return $this->belongsTo(Product::class);
 }
 }

@@ -1,6 +1,17 @@
 .table>tbody>tr>td, .table>tfoot>tr>td{
     vertical-align: middle;
 }
+
+@media screen and (min-width: 601px) {
+  #pep {
+      height: 300px;
+    }
+  .charlieshoogte {
+    height: 100%;
+  }
+}
+
+
 @media screen and (max-width: 600px) {
     table#cart tbody td .form-control{
 		width:20%;
@@ -13,6 +24,7 @@
 	.actions .btn-danger{
 		float:right;
 	}
+
 
 	table#cart thead { display: none; }
 	table#cart tbody td { display: block; padding: .6rem; min-width:320px;}
@@ -27,6 +39,15 @@
 	table#cart tfoot td{display:block; }
 	table#cart tfoot td .btn{display:block;}
 
+}
+
+.col-lg-3{
+  padding-bottom: 30px;
+}
+
+.pagination{
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .carousel-item{

@@ -22,7 +22,10 @@ Route::get('/photography', function () { return view('photography'); });
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/description', 'DescriptionController@index');
+
+/*pagina's lex*/
 Route::get('/admin', 'AdminController@index');
+Route::get('/ordersadmin', 'Ordersadmin@index');
 
 
 Route::get('/sidemenu', 'SidemenuController@index');

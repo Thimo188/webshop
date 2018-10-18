@@ -9,7 +9,7 @@ class Product_Image extends Model
   protected $table='product_images';
   protected $fillable=['product_id','file'];
 
-  public function product()
+  public function productimag()
   {
   return $this->belongsTo('App\Product');
   }

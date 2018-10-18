@@ -10,11 +10,12 @@ use App\Product_Size;
 class HomepageController extends Controller
 {
   public function index() {
-    $productspopular = Product::with('ProductSizing', 'ProductTag')
+    $productspopular = Product::with('ProductSizing', 'ProductTag','ProductImages')
     ->orderBy('product_name', 'desc')
     ->take(4)
     ->get();
-    $productslatest = Product::orderBy('created_at', 'desc')
+    $productslatest = Product::with('ProductSizing', 'ProductTag','ProductImages')
+    ->orderBy('created_at', 'desc')
     ->take(4)
     ->get();
     return view('homepage')->with('productspopular', $productspopular)->with('productslatest',$productslatest);

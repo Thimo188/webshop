@@ -10,8 +10,8 @@ use App\Product_Size;
 class PhotographyController extends Controller
 {
   public function index() {
-    $productspopular = Product::with('ProductSizing', 'ProductTag')
-    ->orderBy('product_name', 'desc')
+    $productspopular = Product::with('ProductSizing', 'ProductTag','ProductImages')
+    ->orderBy('created_at', 'desc')
     ->take(8)
     ->get();
     return view('photography')->with('productspopular', $productspopular);

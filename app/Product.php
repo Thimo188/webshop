@@ -15,4 +15,8 @@ class Product extends Model
   {
     return $this->hasOne(Product_Size::class);
   }
+  public function ProductImages()
+  {
+    return $this->hasOne(Product_Image::class);
+  }
 }

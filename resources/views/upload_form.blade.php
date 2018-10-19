@@ -26,7 +26,7 @@
 
     <div class="form-group">
 
-      <form action="/upload" method="post" enctype="multipart/form-data">
+      <form action="{{ url('/upload') }}" method="post" enctype="multipart/form-data">
       {{ csrf_field() }}
 
         <div class="col-md-6 mt-5">

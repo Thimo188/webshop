@@ -23,9 +23,9 @@
            <h2 class="product-price">$129.00</h2>
            <div class="row">
            </div>
-		  <a href="{{ url('/addToCart', $id) }}" class="btn btn-lg btn-primary">
-			  Add to Cart
-		  </a>
+            <button class ="btn btn-lg btn-primary">
+              Add to Cart
+               </button>
                <button class ="btn btn-sm btn-primary">
                  <img
                  src="images/description/heart.png"
@@ -36,7 +36,7 @@
                  </p>
                  <!-- PRODUCT TAGS -->
                  <p class="description">
-                   {{$product->ProductTag['name']}}
+                   #red #colourful #eye #PHP #googlechrome
                  </p>
           </div>
          </div>

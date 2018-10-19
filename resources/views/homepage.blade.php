@@ -45,21 +45,22 @@
   <h3> Popular items </h3>
   <div class="row h-100 justify-content-center align-items-center">
     <div class="card-deck">
-      @if(count($productspopular) > 0)
-      @foreach($productspopular as $product)
-      <div class="col-lg-3">
-        <div class="card h-100">
-          <img class="card-img-top" src="https://s3-us-west-2.amazonaws.com/lightstalking-assets/wp-content/uploads/2017/02/31171404/contrast-608131_1280.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">{{$product->product_name}}</h5>
-            <p class="card-text">{{$product->product_description}}</p>
-          </div>
-          <div class="card-footer">
-            <a href="/description/{{$product->id}}" class="btn btn-primary">Visit Product</a>
-          </div>
-        </div>
-      </div>
-      @endforeach
+
+      @if(!empty($productspopular))
+	      @foreach($productspopular as $product)
+	      <div class="col-lg-3">
+	        <div class="card h-100">
+	          <img class="card-img-top" src="{{asset($product->ProductImages['file'])}}" alt="Card image cap">
+	          <div class="card-body">
+	            <h5 class="card-title">{{$product->product_name}}</h5>
+	            <p class="card-text">{{$product->product_description}}</p>
+	          </div>
+	          <div class="card-footer">
+	            <a href="/description/{{$product->id}}" class="btn btn-primary">Visit Product</a>
+	          </div>
+	        </div>
+	      </div>
+	      @endforeach
       @else
       <p> no posts found </p>
       @endif
@@ -70,11 +71,11 @@
   <h3> Latest items </h3>
   <div class="row h-100 justify-content-center align-items-center">
     <div class="card-deck">
-      @if(count($productslatest) > 0)
+      @if(!empty($productslatest))
       @foreach($productslatest as $product)
       <div class="col-lg-3">
         <div class="card h-100">
-          <img class="card-img-top" src="https://www.whisky-online.com/images/products/6300-9041macallanmastersofphotographystevenkleinprint1.jpg" alt="Card image cap">
+          <img class="card-img-top" src="{{asset($product->ProductImages['file'])}}" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">{{$product->product_name}}</h5>
             <p class="card-text">{{$product->product_description}}</p>

@@ -18,7 +18,7 @@ Route::get('/photography', 'PhotographyController@index');
 
 Route::get('/', 'HomepageController@index');
 
-Route::get('/admin', 'AdminController@index');
+
 Route::resource('/description', 'HomepageController');
 Route::get('/addToCart/{id}', 'CartController@Create');
 Route::get('/cart/remove/{id}', 'CartController@Destroy');
@@ -34,9 +34,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/statistics', 'StatisticsController@index');
     Route::get('/upload', 'UploadController@index');
     Route::post('/upload', 'UploadController@store');
-
-
-
 });
-
+Route::group(['middleware' => 'admin'], function() {
+	Route::get('/admin', 'AdminController@index');
+});
 Auth::routes();

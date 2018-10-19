@@ -8,7 +8,7 @@ use App\Products;
 
 class DescriptionController extends Controller
 {
-    public function index() {
+  public function index() {
 		return view('description');
 	}
 }

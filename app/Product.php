@@ -1,12 +1,9 @@
 <?php
-
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
-
 class Product extends Model
 {
-  protected $fillable=['product_name', 'product_description'];
+  protected $fillable=['product_name', 'product_description', 'price'];
   public function ProductTag()
   {
     return $this->hasOne('App\Product_Tag');
@@ -18,5 +15,9 @@ class Product extends Model
   public function ProductImages()
   {
     return $this->hasOne(Product_Image::class);
+  }
+  public function ProductPrice()
+  {
+    return $this->hasOne('App\Order_Detail');
   }
 }

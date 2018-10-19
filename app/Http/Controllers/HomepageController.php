@@ -1,12 +1,9 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Product;
 use App\Product_Tag;
 use App\Product_Size;
-
 class HomepageController extends Controller
 {
   public function index() {
@@ -28,7 +25,6 @@ class HomepageController extends Controller
 	->get();
     return view('homepage', compact('productspopular', 'productslatest'));
   }
-
   public function show($id)
   {
     $product = Product::find($id);

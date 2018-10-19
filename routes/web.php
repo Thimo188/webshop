@@ -14,20 +14,17 @@
 Route::get('/cart', 'CartController@index');
 
 
-
 Route::get('/photography', 'PhotographyController@index');
 
 Route::get('/', 'HomepageController@index');
 
-Route::get('/description', 'DescriptionController@index');
-
-/*pagina's lex*/
 Route::get('/admin', 'AdminController@index');
 Route::resource('/description', 'HomepageController');
 Route::get('/addToCart/{id}', 'CartController@Create');
 Route::get('/cart/remove/{id}', 'CartController@Destroy');
 Route::get('/wishlist', 'WishlistController@index');
-Route::get('upload', 'UploadController@index');
+Route::get('/upload', 'UploadController@index');
+Route::post('/upload', 'UploadController@store');
 Route::get('/ordersadmin', 'Ordersadmin@index');
 Route::get('/sidemenu', 'SidemenuController@index');
 Route::get('/account','AccountController@index');

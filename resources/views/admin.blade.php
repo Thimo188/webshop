@@ -3,7 +3,7 @@
 
     <div class="container">
       <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-white border-white">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
@@ -13,7 +13,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="orders">
+                <a class="nav-link" href="#">
                   <span data-feather="file"></span>
                   Orders <span class="sr-only">(.....)</span>
                 </a>
@@ -234,9 +234,9 @@
       var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-          labels: ["Feb", "May", "June", "July", "Augustus", "September", "Oktober"],
+          labels: ["etc..", "etc", "etc", "etc", "etc", "Last Month", "Current Month"],
           datasets: [{
-            data: [100, 200, 300, 400, 300, 100, 200],
+            data: [10000, 20000, 30000, 40000, 3000, 10000, 20000],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#007bff',

@@ -11,6 +11,7 @@ use App\upload_form;
 use Illuminate\Support\Facades\Input;
 use App\Product;
 use App\Product_image;
+use App\Order_Detail;
 
 class UploadController extends Controller
 {
@@ -55,6 +56,7 @@ class UploadController extends Controller
         $product = new Product();
         $product->product_name=$validatedData['name'];
         $product->product_description=$validatedData['description'];
+        //$product->product_description=$validatedData['price'];
         $product->save();
 
         foreach ($validatedData['photos'] as $key => $image) {
@@ -65,6 +67,15 @@ class UploadController extends Controller
           $image->storeAs($FilePath, $filename);
           $product_image->file= 'storage/product/' . $filename;
           $product_image->save();
+          }
+
+
+      //  $order_detail = new Order_Detail();
+      //  $order_detail->product_price=$validatedData['price'];
+      //  $order_detail->product_id=$product->id;
+      //  $order_detail->save();
+
+
 
 
 
@@ -72,7 +83,7 @@ class UploadController extends Controller
         }
 
 
-      }
+
 
 
     /**

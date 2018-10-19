@@ -74,7 +74,7 @@
   </div>
 
   <h3>Latest items</h3>
-  <div class="row">
+  <div class="row h-100 justify-content-center align-items-center">
     @forelse($productslatest as $product)
       <div class="col-lg-3">
         <div class="card">
@@ -91,5 +91,6 @@
     @endforelse
   </div>
 </div>
+
 
 @endsection

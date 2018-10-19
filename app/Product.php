@@ -11,4 +11,12 @@ class Product extends Model
   {
   return $this->hasOne('App\Product_Tag');
   }
+  public function ProductPrice()
+  {
+    return $this->hasOne('App\Order_Detail');
+  }
+  public function ProductSizing()
+  {
+    return $this->hasOne('App\Product_Size');
+  }
 }

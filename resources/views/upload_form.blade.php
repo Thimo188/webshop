@@ -41,7 +41,7 @@
         <br />
 
         <div class="custom-file">
-          <input type="file" class="custom-file-input" name="photos[]" id="inputGroupFile02">
+          <input type="file" class="custom-file-input" name="photos[]" id="inputGroupFile02" multiple>
           <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
         </div>
         <br /><br />

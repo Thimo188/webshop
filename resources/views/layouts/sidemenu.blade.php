@@ -102,6 +102,7 @@
           </div>
         </li>
         @endguest
+        <a href="{{ url('/upload')}}"><img src="https://image.flaticon.com/icons/svg/16/16909.svg" height="37" alt=""/></a>
         <a href="{{ url('/cart')}}"><img src="https://www.seoclerk.com/pics/want28565-1jLOM31435502711.png" height="37" alt=""/></a>
         <a><img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="37" class="hello" alt=""/></a>
     </div>

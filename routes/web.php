@@ -23,8 +23,7 @@ Route::resource('/description', 'HomepageController');
 Route::get('/addToCart/{id}', 'CartController@Create');
 Route::get('/cart/remove/{id}', 'CartController@Destroy');
 Route::get('/wishlist', 'WishlistController@index');
-Route::get('/upload', 'UploadController@index');
-Route::post('/upload', 'UploadController@store');
+
 Route::get('/ordersadmin', 'Ordersadmin@index');
 Route::get('/sidemenu', 'SidemenuController@index');
 Route::get('/account','AccountController@index');
@@ -33,6 +32,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/account','AccountController@index');
     Route::get('/subscription','SubscriptionController@index');
     Route::get('/statistics', 'StatisticsController@index');
+    Route::get('/upload', 'UploadController@index');
+    Route::post('/upload', 'UploadController@store');
 
 
 

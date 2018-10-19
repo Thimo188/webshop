@@ -20,4 +20,5 @@ class Product extends Model
   {
     return $this->hasOne('App\Order_Detail');
   }
+
 }

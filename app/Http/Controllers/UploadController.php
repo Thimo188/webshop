@@ -50,7 +50,8 @@ class UploadController extends Controller
           'description' => 'required|max:300',
           'photos' => 'required',
           'photos.*' => 'image|mimes:jpeg,bmp,png,jpg',
-          'tags' => 'required'
+          'tags' => 'required',
+          'price' => 'required'
 
         ]);
 
@@ -58,7 +59,7 @@ class UploadController extends Controller
         $product = new Product();
         $product->product_name=$validatedData['name'];
         $product->product_description=$validatedData['description'];
-        //$product->product_price=$validatedData['price'];
+        $product->price=$validatedData['price'];
         $product->save();
 
 

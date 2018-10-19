@@ -16,7 +16,7 @@ Route::get('/cart', 'CartController@index');
 
 Route::get('/photography', 'PhotographyController@index');
 
-Route::get('/', 'HomepageController@index')->name('home');
+Route::get('/', 'HomepageController@index');
 
 Route::get('/admin', 'AdminController@index');
 Route::resource('/description', 'HomepageController');

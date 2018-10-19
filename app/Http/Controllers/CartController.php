@@ -49,7 +49,7 @@ class CartController extends Controller
 		return redirect(url('/cart'));
 	}
 	public function destroy($id) {
-		Cart::find($id)->delete();
+		Cart::findOrFail($id)->delete();
 		return redirect(url('/cart'));
 	}
 }

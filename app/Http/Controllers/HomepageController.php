@@ -7,19 +7,27 @@ use App\Product_Size;
 class HomepageController extends Controller
 {
   public function index() {
-    $productspopular = Product::with('ProductSizing', 'ProductTag','ProductImages')
-    ->orderBy('product_name', 'desc')
-    ->take(4)
-    ->get();
-    $productslatest = Product::with('ProductSizing', 'ProductTag','ProductImages')
-    ->orderBy('created_at', 'desc')
-    ->take(4)
-    ->get();
-    return view('homepage')->with('productspopular', $productspopular)->with('productslatest',$productslatest);
+    // $productspopular = Product::with('ProductSizing', 'ProductTag','ProductImages')
+    // ->orderBy('product_name', 'desc')
+    // ->take(4)
+    // ->get();
+    // $productslatest = Product::with('ProductSizing', 'ProductTag','ProductImages')
+    // ->orderBy('created_at', 'desc')
+    // ->take(4)
+    // ->get();
+	$productspopular = Product::with('ProductSizing', 'ProductTag','ProductImages')
+	->orderBy('product_name', 'desc')
+	->take(4)
+	->get();
+	$productslatest = Product::with('ProductSizing', 'ProductTag','ProductImages')
+	->orderBy('created_at', 'desc')
+	->take(4)
+	->get();
+    return view('homepage', compact('productspopular', 'productslatest'));
   }
   public function show($id)
   {
     $product = Product::find($id);
-    return view('description')->with('product', $product);
+    return view('description', compact('product', 'id'));
   }
 }

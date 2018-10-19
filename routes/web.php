@@ -18,17 +18,15 @@ Route::get('/cart', 'CartController@index');
 
 Route::get('/photography', 'PhotographyController@index');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomepageController@index')->name('home');
 
 Route::get('/admin', 'AdminController@index');
 Route::resource('/description', 'HomepageController');
-
-
-Route::get('/upload', 'UploadController@create')->name('upload.create');
-Route::post('/upload', 'UploadController@store');
-
-
-
+Route::get('/addToCart/{id}', 'CartController@Create');
+Route::get('/cart/remove/{id}', 'CartController@Destroy');
+Route::get('/wishlist', 'WishlistController@index');
+Route::get('upload', 'UploadController@index');
+Route::get('/ordersadmin', 'Ordersadmin@index');
 Route::get('/sidemenu', 'SidemenuController@index');
 Route::get('/account','AccountController@index');
 Route::get('/cart', 'CartController@index');

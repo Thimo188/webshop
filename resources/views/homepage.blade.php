@@ -75,7 +75,7 @@
       @foreach($productslatest as $product)
       <div class="col-lg-3">
         <div class="card h-100">
-          <img class="card-img-top" src="https://www.whisky-online.com/images/products/6300-9041macallanmastersofphotographystevenkleinprint1.jpg" alt="Card image cap">
+          <img class="card-img-top" src="{{asset($product->ProductImages['file'])}}" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">{{$product->product_name}}</h5>
             <p class="card-text">{{$product->product_description}}</p>

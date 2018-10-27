@@ -51,7 +51,7 @@
 		            <p class="card-text">{{$product->product_description}}</p>
 		          </div>
 		          <div class="card-footer">
-		            <a href="/description/{{$product->id}}" class="btn btn-primary">Visit Product</a>
+		            <a href="/description/{{$product->id}}" class="btn btn-primary">Visit</a>
 		          </div>
 		        </div>
 		      </div>

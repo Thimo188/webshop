@@ -7,7 +7,7 @@
      <!-- The product image will be placed here -->
      <img
         src="{{asset($product->ProductImages['file'])}}"
-        alt="Colourful eye"
+        alt="image not found"
         class="responsive"
         />
     </div>
@@ -26,6 +26,9 @@
 		  <a href="{{ url('/addToCart', $id) }}" class="btn btn-lg btn-primary">
 			  Add to Cart
 		  </a>
+      <a href="{{ Route('wishlist.add', $id) }}" class="btn btn-lg btn-primary">
+        Add to Wishlist
+      </a>
                <button class ="btn btn-sm btn-primary">
                  <img
                  src="images/description/heart.png"

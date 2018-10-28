@@ -13,7 +13,6 @@
 
 Route::get('/cart', 'CartController@index');
 
-
 Route::get('/photography', 'PhotographyController@index');
 
 Route::get('/', 'HomepageController@index');
@@ -22,12 +21,17 @@ Route::get('/', 'HomepageController@index');
 Route::resource('/description', 'HomepageController');
 Route::get('/addToCart/{id}', 'CartController@Create');
 Route::get('/cart/remove/{id}', 'CartController@Destroy');
-Route::get('/wishlist', 'WishlistController@index');
+
+// WISHLIST
+Route::resource('/wishlist', 'WishlistController');
+Route::get('/addToWishlist/{id}', 'WishlistController@store')->name('wishlist.add');
+Route::get('/removeWishlist/{id}', 'WishlistController@destroy')->name('wishlist.destroy');
 
 Route::get('/ordersadmin', 'Ordersadmin@index');
 Route::get('/sidemenu', 'SidemenuController@index');
 Route::get('/account','AccountController@index');
 Route::get('/cart', 'CartController@index');
+
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/account','AccountController@index');
     Route::get('/subscription','SubscriptionController@index');

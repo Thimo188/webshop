@@ -64,7 +64,7 @@
           <div class="card-body">
             <h5 class="card-title">{{ $product->product_name }}</h5>
             <p class="card-text">{{ $product->product_description }}</p>
-            <a href="{{ route('description.show', [$product->id]) }}" class="btn btn-primary">Go somewhere</a>
+            <a href="{{ route('description.show', [$product->id]) }}" class="btn btn-primary">Visit</a>
           </div>
         </div>
       </div>
@@ -82,7 +82,7 @@
           <div class="card-body">
             <h5 class="card-title">{{ $product->product_name }}</h5>
             <p class="card-text">{{ $product->product_description }}</p>
-            <a href="{{ route('description.show', [$product->id]) }}" class="btn btn-primary">Go somewhere</a>
+            <a href="{{ route('description.show', [$product->id]) }}" class="btn btn-primary">Visit</a>
           </div>
         </div>
       </div>

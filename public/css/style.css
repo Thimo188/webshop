@@ -96,6 +96,11 @@ nav {
     bottom: -300px;
     width: 100%;
 }
+.pagination{
+  width: 0;
+  margin: auto;
+  padding-top: 70px;
+}
 
 li {
     list-style: none; /* Remove list bullets */

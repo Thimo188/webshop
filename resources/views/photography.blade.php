@@ -94,5 +94,8 @@
 			}
 		});
 		</script>
+		<div class="text-center" id="pagination">
+			{!!$productspopular->render();!!}
+		</div>
 
 @endsection

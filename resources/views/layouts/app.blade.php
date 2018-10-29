@@ -28,6 +28,8 @@
   <link rel="stylesheet" href="{{ asset('css/ion.rangeSlider.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/ion.rangeSlider.skinFlat.css') }}" />
   <script src="{{ asset('js/ion.rangeSlider.min.js') }}"></script>
+  <script src="{{ asset('js/webshop.js') }}"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 
 <!-- Navbar -->
 
@@ -58,8 +60,8 @@
           </form> --}}
           @guest
           <li class="nav-item dropdown-expand-sm">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img src="https://cdn1.iconfinder.com/data/icons/social-messaging-productivity-1-1/128/gender-male2-512.png" height="40" alt=""/>
+            <a class="nav-link dropdown-toggle top" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-user-circle"></i>
             </a>
             <div class="dropdown-menu">
               <form method="POST" action="{{ route('login') }}" class="px-4 py-3">
@@ -106,14 +108,15 @@
           </div>
         </li>
         @endguest
-		<a href=""><i class="fas fa-search top"></i></a>
-        <a href="{{ url('/upload')}}"><i class="fas fa-plus-circle top"></i></a>
-        <a href="{{ url('/cart')}}"><i class="fas fa-shopping-cart top"></i></a>
-        <a href="{{ url('/wishlist')}}"><i class="far fa-heart top"></i></a>
+        <div class="right-menu">
+    		<li class="fancy nav-item"><p class="fancy" id="search">Search</p><a href=""><i class="fas fa-search top" id="searchicon"></i></a></li>
+            <li class="fancy nav-item"><p class="fancy" id="upload">Upload</p><a href="{{ url('/upload')}}"><i class="fas fa-plus-circle top" id="uploadicon"></i></a></li>
+            <li class="fancy nav-item"><p class="fancy" id="cart">Cart</p><a href="{{ url('/cart')}}"><i class="fas fa-shopping-cart top" id="carticon"></i></a></li>
+            <li class="fancy nav-item"><p class="fancy" id="wishlist">Wishlist</p><a href="{{ url('/wishlist')}}"><i class="far fa-heart top" id="wishlisticon"></i></a></li>
+        </div>
     </div>
   </nav>
   @yield('content')
-
   <footer>
     <div class="footer mt-5" id="footer">
       <div class="container">
@@ -138,4 +141,5 @@
   </footer>
 </div>
 </body>
+
 </html>

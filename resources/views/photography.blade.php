@@ -3,7 +3,7 @@
 @section('content')
 
 <div id="index" class="container">
-	<div id="search" class="row sticky-top">
+	{{-- <div id="search" class="row sticky-top">
 		<div class="input-group">
 			<div class="input-group-append">
 				<button class="btn btn-outline-secondary dropdown-toggle float-right" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort by</button>
@@ -16,13 +16,12 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> --}}
 		<div class="container">
-		  <div class="row h-100 justify-content-center align-items-center">
-		    <div class="card-deck">
-					<div class="row">
-						<div class="col-12 col-md-4 col-xl-3" id="sticky-sidebar">
-							<div class="card sticky-top">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="h-100">
+					    <div class="card">
 							<div class="card-body">
 								<h2>Filters</h2>
 								<h3>Categories</h3>
@@ -39,27 +38,31 @@
 								</form>
 								<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 							</div>
-							</div>
 						</div>
-		      @if(count($productspopular) > 0)
-		      @foreach($productspopular as $product)
-		      <div class="col-lg-3">
-		        <div class="card h-100">
-		          <img class="card-img-top" src="{{asset($product->ProductImages['file'])}}" alt="Card image cap">
-		          <div class="card-body">
-		            <h5 class="card-title">{{$product->product_name}}</h5>
-		            <p class="card-text">{{$product->product_description}}</p>
-		          </div>
-		          <div class="card-footer">
-		            <a href="/description/{{$product->id}}" class="btn btn-primary">Visit Product</a>
-		          </div>
-		        </div>
-		      </div>
-		      @endforeach
-		      @else
-		      <p> no posts found </p>
-		      @endif
 				</div>
+			</div>
+
+			<div class="col-md-9">
+				<div class="row">
+		      @forelse($productspopular as $product)
+			      <div class="col-md-4">
+			        <div class="card">
+			          <img class="card-img-top" src="{{asset($product->ProductImages['file'])}}" alt="Card image cap">
+			          <div class="card-body">
+			            <h5 class="card-title">{{$product->product_name}}</h5>
+			            <p class="card-text">{{$product->product_description}}</p>
+			          </div>
+			          <div class="card-footer">
+			            <a href="/description/{{$product->id}}" class="btn btn-primary">Visit</a>
+			          </div>
+			        </div>
+			      </div>
+		  	@empty
+		      	<p> no posts found </p>
+		  	@endforelse
+		  </div>
+	  </div>
+
 			</div>
 				</div>
 			</div>

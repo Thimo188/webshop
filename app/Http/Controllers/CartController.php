@@ -21,6 +21,7 @@ class CartController extends Controller
 	}
 	public function create($id) {
 		$ip = isset($_SERVER['HTTP_CLIENT_IP'])?$_SERVER['HTTP_CLIENT_IP']:isset($_SERVER['HTTP_X_FORWARDED_FOR'])?$_SERVER['HTTP_X_FORWARDED_FOR']:$_SERVER['REMOTE_ADDR'];
+
 		if(Auth::guest()) {
 			$cart = Cart::where('product_id', $id)->where('ip', $ip)->first();
 			if(!empty($cart)) {
@@ -41,6 +42,7 @@ class CartController extends Controller
 			} else {
 				$cart = new Cart;
 				$cart->ip = $ip;
+				$cart->user_id = Auth::user()->id;
 				$cart->product_id = $id;
 				$cart->amount = 1;
 				$cart->save();

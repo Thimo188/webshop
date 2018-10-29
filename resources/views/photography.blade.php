@@ -3,20 +3,6 @@
 @section('content')
 
 <div id="index" class="container">
-	{{-- <div id="search" class="row sticky-top">
-		<div class="input-group">
-			<div class="input-group-append">
-				<button class="btn btn-outline-secondary dropdown-toggle float-right" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort by</button>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">Action</a>
-					<a class="dropdown-item" href="#">Another action</a>
-					<a class="dropdown-item" href="#">Something else here</a>
-					<div role="separator" class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Separated link</a>
-				</div>
-			</div>
-		</div>
-	</div> --}}
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3">
@@ -24,19 +10,24 @@
 					    <div class="card">
 							<div class="card-body">
 								<h2>Filters</h2>
-								<h3>Categories</h3>
+								Search
+								<form>
+									<input type="text" placeholder="Search..." name="search" class="form-control">
+									<br/>
+									<input type="submit" value="Search" class="form-control">
+								</form>
+								<br/>
+								<label for='price'>Prijs:</label>
+								<input type="text" id="price" name="price_range" value="" />
+
+								Categories
 								<ul class="list-group">
 									<li class="list-group-item active">Photography</li>
 									<li class="list-group-item">Illustration</li>
 									<li class="list-group-item">3D Art</li>
 								</ul>
-								<form>
-									<div class="form-group">
-									<label for="formControlRange">Price</label>
-									<input type="range" class="form-control-range" id="formControlRange">
-									</div>
-								</form>
-								<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+
 							</div>
 						</div>
 				</div>
@@ -45,7 +36,7 @@
 			<div class="col-md-9">
 				<div class="row">
 		      @forelse($productspopular as $product)
-			      <div class="col-md-4">
+			      <div class="col-md-4 card-margin">
 			        <div class="card">
 			          <img class="card-img-top" src="{{asset($product->ProductImages['file'])}}" alt="Card image cap">
 			          <div class="card-body">
@@ -54,6 +45,7 @@
 			          </div>
 			          <div class="card-footer">
 			            <a href="/description/{{$product->id}}" class="btn btn-primary">Visit</a>
+						<p style="float: right">€ {{$product->price}}</p>
 			          </div>
 			        </div>
 			      </div>
@@ -67,4 +59,40 @@
 				</div>
 			</div>
 		</div>
+		<script>
+
+		$("#price").ionRangeSlider({
+			hide_min_max: true,
+			keyboard: true,
+			min: 0,
+			max: 100,
+			from: 0,
+			to: 100,
+			type: 'double',
+			step: 1,
+			prefix: "€",
+			grid: true,
+			onChange: function (data) {
+				from = data.from;
+				to = data.to;
+			},
+			onFinish: function(data) {
+				console.log(data);
+				$.ajaxSetup({
+				   headers: {
+					   'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+				   }
+				});
+				$.ajax({
+					url: "",
+					type: 'post',
+					data: {'from': data.from, 'to': data.to},
+					success: function() {
+						location.reload();
+					}
+				});
+			}
+		});
+		</script>
+
 @endsection

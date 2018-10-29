@@ -12,7 +12,7 @@
   <!-- Scripts -->
 
   <script src="{{ asset('js/app.js') }}"></script>
-  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
   <!-- Fonts -->
@@ -24,6 +24,10 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('css/normalize.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/ion.rangeSlider.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/ion.rangeSlider.skinFlat.css') }}" />
+  <script src="{{ asset('js/ion.rangeSlider.min.js') }}"></script>
 
 <!-- Navbar -->
 
@@ -48,10 +52,10 @@
             <a class="nav-link" href="#">3DArt</a>
           </li>
           </ul>
-          <form class="form-inline">
+          {{-- <form class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
+          </form> --}}
           @guest
           <li class="nav-item dropdown-expand-sm">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -86,7 +90,7 @@
           </li>
           @else
           <li class="nav-item dropdown">
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            <a id="navbarDropdown" class="nav-link dropdown-toggle top" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
               {{ Auth::user()->name }} <span class="caret"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -102,9 +106,10 @@
           </div>
         </li>
         @endguest
-        <a href="{{ url('/upload')}}"><img src="https://image.flaticon.com/icons/svg/16/16909.svg" height="37" alt=""/></a>
-        <a href="{{ url('/cart')}}"><img src="https://www.seoclerk.com/pics/want28565-1jLOM31435502711.png" height="37" alt=""/></a>
-        <a href="{{ url('/wishlist')}}"><img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="37" class="hello" alt=""/></a>
+		<a href=""><i class="fas fa-search top"></i></a>
+        <a href="{{ url('/upload')}}"><i class="fas fa-plus-circle top"></i></a>
+        <a href="{{ url('/cart')}}"><i class="fas fa-shopping-cart top"></i></a>
+        <a href="{{ url('/wishlist')}}"><i class="far fa-heart top"></i></a>
     </div>
   </nav>
   @yield('content')

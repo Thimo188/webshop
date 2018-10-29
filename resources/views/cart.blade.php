@@ -16,7 +16,7 @@
 					</thead>
 					<tbody>
 						@if(!empty($cartlines))
-							@foreach($cartlines as $cartline)
+							@forelse($cartlines as $cartline)
 								<tr>
 									<td data-th="Product">
 										<div class="row">
@@ -37,7 +37,9 @@
 										<a href="{{ url('/cart/remove', $cartline->id) }}" class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i></button>
 									</td>
 								</tr>
-							@endforeach
+							@empty
+								<tr><td>You have no products in your cart.</td></td>
+							@endforelse
 						@endif
 					</tbody>
 					<tfoot>

@@ -16,17 +16,54 @@
 									<br/>
 									<input type="submit" value="Search" class="form-control">
 								</form>
-								<br/>
+								<hr class="style10">
 								<label for='price'>Prijs:</label>
 								<input type="text" id="price" name="price_range" value="" />
-
-								Categories
-								<ul class="list-group">
-									<li class="list-group-item active">Photography</li>
-									<li class="list-group-item">Illustration</li>
-									<li class="list-group-item">3D Art</li>
-								</ul>
-
+								<hr class="style10">
+								<h6><strong>Styles:</strong></h6>
+								<div class="checkbox">
+									<label><input type="checkbox" value="">Journalism</label>
+								</div>
+								<div class="checkbox">
+									<label><input type="checkbox" value="">Surrealism</label>
+								</div>
+								<div class="checkbox">
+									<label><input type="checkbox" value="" >Fashion</label>
+								</div>
+								<div class="checkbox">
+									<label><input type="checkbox" value="" >Portraits</label>
+								</div>
+								<div class="checkbox">
+									<label><input type="checkbox" value="" >Street</label>
+								</div>
+								<hr class="style10">
+								<h6><strong>Colors:</strong></h6>
+								<div class="checkbox">
+									<label><input type="checkbox" value="">Black</label>
+								</div>
+								<div class="checkbox">
+									<label><input type="checkbox" value="">White</label>
+								</div>
+								<div class="checkbox">
+									<label><input type="checkbox" value="">Green</label>
+								</div>
+								<div class="checkbox">
+									<label><input type="checkbox" value="" >Red</label>
+								</div>
+								<div class="checkbox">
+									<label><input type="checkbox" value="" >Yellow</label>
+								</div>
+								<hr class="style10">
+								<h6><strong>Orientation:</strong></h6>
+								<div class="checkbox">
+									<label><input type="checkbox" value="">Portrait</label>
+								</div>
+								<div class="checkbox">
+									<label><input type="checkbox" value="">Landscape</label>
+								</div>
+								<div class="checkbox">
+									<label><input type="checkbox" value="">Square</label>
+								</div>
 
 							</div>
 						</div>

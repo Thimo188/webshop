@@ -26,14 +26,9 @@
 		  <a href="{{ url('/addToCart', $id) }}" class="btn btn-lg btn-primary">
 			  Add to Cart
 		  </a>
-      <a href="{{ Route('wishlist.add', $id) }}" class="btn btn-lg btn-primary">
-        Add to Wishlist
+      <a href="{{ Route('wishlist.add', $id) }}" class="btn btn-lg btn-light">
+        <img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="25" class="hello" alt=""/></a>
       </a>
-               <button class ="btn btn-sm btn-primary">
-                 <img
-                 src="images/description/heart.png"
-                 />
-               </button>
                  <p class="description">
                    In Stock
                  </p>

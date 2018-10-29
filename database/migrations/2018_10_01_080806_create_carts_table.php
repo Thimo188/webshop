@@ -23,7 +23,7 @@ class CreateCartsTable extends Migration
         });
         Schema::table('carts', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-			$table->foreign('product_id')->references('id')->on('carts')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+			$table->foreign('product_id')->references('id')->on('products')->onUpdate('RESTRICT')->onDelete('RESTRICT');
         });
     }
 

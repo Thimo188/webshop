@@ -72,9 +72,11 @@ nav {
   margin-right: auto;
 }
 
+/* Carousel items */
 .carousel-item{
     height: 500px;
 }
+
 .img-fluid {
     max-width: 100%;
     height: auto;
@@ -85,6 +87,14 @@ nav {
 }
 .carousel-inner{
     height: 600px;
+}
+/* end carousel items */
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: -300px;
+    width: 100%;
 }
 
 li {

@@ -55,8 +55,10 @@
 <!-- </div> -->
 
 <div class="container">
-  <h3>Populair items</h3>
-  <div class="row">
+    <div class="row">
+        <h3>Populair items</h3>
+    </div>
+    <div class="row">
     @forelse($productspopular as $product)
       <div class="col-lg-3">
         <div class="card" style="">
@@ -73,8 +75,10 @@
     @endforelse
   </div>
 
-  <h3>Latest items</h3>
-  <div class="row h-100 justify-content-center align-items-center">
+  <div class="row">
+      <h3>Latest items</h3>
+  </div>
+  <div class="row">
     @forelse($productslatest as $product)
       <div class="col-lg-3">
         <div class="card">

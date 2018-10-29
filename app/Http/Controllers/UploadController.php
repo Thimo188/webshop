@@ -79,6 +79,7 @@ class UploadController extends Controller
           }
 
 
+
       //  $order_detail = new Order_Detail();
       //  $order_detail->product_price=$validatedData['price'];
       //  $order_detail->product_id=$product->id;

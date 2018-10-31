@@ -17,7 +17,7 @@ Route::get('/photography', 'PhotographyController@index');
 
 Route::get('/', 'HomepageController@index');
 
-Route::get('/shipping', 'ShippingController@index');
+Route::resource('/address', 'AddressController');
 Route::resource('/description', 'HomepageController');
 Route::get('/addToCart/{id}', 'CartController@Create');
 Route::get('/cart/remove/{id}', 'CartController@Destroy');

@@ -40,10 +40,11 @@ class AddressController extends Controller
           'streetname'=>'required',
           'zipcode'=>'required',
           'place'=>'required',
-          'country_id'=>'required',
+          'country_id'=>'required'
         ]);
 
         $address = new Address();
+        $address->user_id = 1;
         $address->streetname=$validatedData['streetname'];
         $address->zipcode=$validatedData['zipcode'];
         $address->place=$validatedData['place'];

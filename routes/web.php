@@ -14,6 +14,8 @@
 Route::get('/cart', 'CartController@index');
 
 Route::get('/photography', 'PhotographyController@index');
+Route::get('/illustrations', 'IllustrationsController@index');
+Route::get('/3DArt', 'ThreeDArtController@index');
 
 Route::get('/', 'HomepageController@index');
 

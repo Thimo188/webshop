@@ -48,10 +48,10 @@
             <a class="nav-link" href="{{ url('/photography')}}">Photography<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Illustrations</a>
+            <a class="nav-link" href="{{ url('/illustrations')}}">Illustrations</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">3DArt</a>
+            <a class="nav-link" href="{{ url('3DArt')}}">3DArt</a>
           </li>
           </ul>
           {{-- <form class="form-inline">

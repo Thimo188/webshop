@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Auth;
 use App\Address;
+use App\Cart;
 
 class AddressController extends Controller
 {
@@ -15,7 +17,13 @@ class AddressController extends Controller
      */
     public function index()
     {
-        return view('address');
+		if(Auth::guest()) {
+			$ip = isset($_SERVER['HTTP_CLIENT_IP'])?$_SERVER['HTTP_CLIENT_IP']:isset($_SERVER['HTTP_X_FORWARDED_FOR'])?$_SERVER['HTTP_X_FORWARDED_FOR']:$_SERVER['REMOTE_ADDR'];
+			$cartlines = Cart::with('Product')->where('ip', $ip)->get();
+		} else {
+			$cartlines = Cart::with('Product')->where('user_id', Auth::user()->id)->get();
+		}
+        return view('address', compact('cartlines'));
     }
 
     /**
@@ -50,11 +58,6 @@ class AddressController extends Controller
         $address->place=$validatedData['place'];
         $address->country_id=$validatedData['country_id'];
         $address->save();
-        // $address = new Address([
-        //   'streetname'=>$request->get('streetname'),
-        //   'zipcode'=>$request->get('zipcode'),
-        //   'place'=>$request->get('place'),
-        //   'country_id'=>$request->get('country')
         return redirect('/address')->with('Success', 'You will receive an email regarding your order shortly');
     }
 

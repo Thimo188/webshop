@@ -15,32 +15,30 @@
 						</tr>
 					</thead>
 					<tbody>
-						@if(!empty($cartlines))
-							@forelse($cartlines as $cartline)
-								<tr>
-									<td data-th="Product">
-										<div class="row">
-											<div class="col-sm-3 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive"/></div>
-											<div class="col-sm-9">
-												<h4 class="nomargin">{{ $cartline->product->product_name}}</h4>
-												<p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
-											</div>
+						@forelse($cartlines as $cartline)
+							<tr>
+								<td data-th="Product">
+									<div class="row">
+										<div class="col-sm-3 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive"/></div>
+										<div class="col-sm-9">
+											<h4 class="nomargin">{{ $cartline->product->product_name}}</h4>
+											<p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
 										</div>
-									</td>
-									<td data-th="Price">€{{ number_format($cartline->product->price,2,",",".")}}</td>
-									<td data-th="Quantity">
-										<input type="number" class="form-control text-center" value="{{ $cartline->amount }}">
-									</td>
-									<td data-th="Subtotal" class="text-center">€{{ number_format($cartline->product->price * $cartline->amount,2,",",".") }}</td>
-									<td class="actions" data-th="">
-										<button class="btn btn-info btn-sm"><i class="fas fa-sync-alt"></i></button>
-										<a href="{{ url('/cart/remove', $cartline->id) }}" class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i></button>
-									</td>
-								</tr>
-							@empty
-								<tr><td>You have no products in your cart.</td></td>
-							@endforelse
-						@endif
+									</div>
+								</td>
+								<td data-th="Price">€{{ number_format($cartline->product->price,2,",",".")}}</td>
+								<td data-th="Quantity">
+									<input type="number" class="form-control text-center" value="{{ $cartline->amount }}">
+								</td>
+								<td data-th="Subtotal" class="text-center">€{{ number_format($cartline->product->price * $cartline->amount,2,",",".") }}</td>
+								<td class="actions" data-th="">
+									<button class="btn btn-info btn-sm"><i class="fas fa-sync-alt"></i></button>
+									<a href="{{ url('/cart/remove', $cartline->id) }}" class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i></button>
+								</td>
+							</tr>
+						@empty
+							<tr><td>You have no products in your cart.</td></td>
+						@endforelse
 					</tbody>
 					<tfoot>
 						<tr>

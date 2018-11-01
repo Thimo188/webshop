@@ -8,7 +8,7 @@
 			<h4 class="mb-3">Billing address</h4>
 		</div>
 		<div class="col-md-7">
-			<form method="post" action="{{ route('address.store') }}">
+			<form method="post" action="{{ route('payments.create') }}">
 				@csrf
 				<div class="row">
 					<div class="col-md-6 mb-3">

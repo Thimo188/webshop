@@ -6,7 +6,8 @@ use App\Product_Tag;
 use App\Product_Size;
 use App\Colors;
 use App\Product_Colors;
-class PhotographyController extends Controller
+
+class IllustrationsController extends Controller
 {
   public function index() {
     $productsview = Product::with('ProductSizing', 'ProductTag','ProductImages')
@@ -16,7 +17,7 @@ class PhotographyController extends Controller
     // $colorsview = Colors::with('ProductColors')
     // ->orderBy('name')
     // ->get();
-    return view('photography')->with('productsview', $productsview);//->with('colorsview',$colorsview);
+    return view('illustrations')->with('productsview', $productsview);//->with('colorsview',$colorsview);
   }
   public function show($id)
   {

@@ -15,7 +15,6 @@ class PaymentController extends Controller
 		$order->shipping_method = 1;
 		$order->save();
 
-		$this->preparePayment($order);
 
 		$payment = Mollie::api()->payments()->create([
 		'amount' => [

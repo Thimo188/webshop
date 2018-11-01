@@ -13,7 +13,12 @@ class Product extends Model
   {
   $array = $this->toArray();
 
-    return array('product_name' => $array['product_name'],'product_description' => $array['product_description']);
+    $array = [
+      'product_name' => $this->product_name,
+      'product_description' => $this->product_description,
+    ];
+
+    return $array;
   }
 
   protected $fillable=['product_name', 'product_description', 'price'];

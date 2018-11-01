@@ -10,8 +10,9 @@ class SearchController extends Controller
   public function search(Request $request)
   {
 
-      $productspopular=Product::search($request->search)->paginate(15);
-      return view('photography', compact('productspopular'));
+    $productspopular=Product::search($request->search)->paginate(15);
+    return view('photography', compact('productspopular'));
+
 
   }
 

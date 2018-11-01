@@ -16,23 +16,20 @@ class PaymentController extends Controller
 		$order->save();
 
 		$this->preparePayment($order);
+
+		$payment = Mollie::api()->payments()->create([
+		'amount' => [
+			'currency' => 'EUR',
+			'value' => '10.00', // You must send the correct number of decimals, thus we enforce the use of strings
+		],
+		'description' => 'Payment '.$order->ordernumber,
+		'webhookUrl' => route('webhooks.mollie'),
+		'redirectUrl' => route('home'),
+		]);
+
+		$payment = Mollie::api()->payments()->get($payment->id);
+
+		// redirect customer to Mollie checkout page
+		return redirect($payment->getCheckoutUrl(), 303);
 	}
-	public function preparePayment($order)
-	{
-	    $payment = Mollie::api()->payments()->create([
-	    'amount' => [
-	        'currency' => 'EUR',
-	        'value' => '10.00', // You must send the correct number of decimals, thus we enforce the use of strings
-	    ],
-	    'description' => 'Payment '.$order->ordernumber,
-	    'webhookUrl' => route('webhooks.mollie'),
-	    'redirectUrl' => route('home'),
-	    ]);
-
-	    $payment = Mollie::api()->payments()->get($payment->id);
-
-	    // redirect customer to Mollie checkout page
-	    return redirect($payment->getCheckoutUrl(), 303);
-	}
-
 }

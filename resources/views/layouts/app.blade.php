@@ -102,8 +102,8 @@
           </div>
         </li>
         @endguest
-        <a href="{{ url('/cart')}}"><img src="https://www.seoclerk.com/pics/want28565-1jLOM31435502711.png" height="37" alt=""/></a>
-        <a><img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="37" class="hello" alt=""/></a>
+        <a href="{{ url('/cart')}}"><i class="fas fa-shopping-cart" style="font-size: 30px;"></i></a> 
+        <a><i class="far fa-heart" style="font-size: 30px;"></i></a>
     </div>
   </nav>
   @yield('content')

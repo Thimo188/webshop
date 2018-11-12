@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container main">
 	<div class="row">
 		<div class="col-md-12">
 			<h4 class="mb-3">Billing address</h4>
@@ -79,25 +79,34 @@
 					<tr>
 						<td>{{$line->Product->product_name }}</td>
 						<td></td>
-						<td>{{$line->amount}}
-						<td>{{$line->Product->price * $line->amount}}
+						<td>{{number_format($line->amount,2,",",".")}}
+						<td class="subttl" value="{{ $line->Product->price * $line->amount}}">{{number_format($line->Product->price * $line->amount,2,",",".")}}
 					</tr>
 				@endforeach
 				<tr>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
 					<td>Excl. BTW:</td>
-					<td>1</td>
+					<td id="exbtw">1</td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
 					<td>Incl. BTW:</td>
-					<td>1</td>
+					<td id="inbtw">1</td>
 				</tr>
 			</table>
 		</div>
 	</div>
 </div>
-
+<script>
+var totalPrice = 0;
+$('.subttl').each(function(index) {
+	// alert($('#subttl').attr('value'));
+	// totalPrice = totalPrice + $('#subttl').val();
+	totalPrice += Number($(this).attr('value'));
+});
+$('#exbtw').text((totalPrice * 0.79).toFixed(2));
+$('#inbtw').text(totalPrice.toFixed(2));
+</script>
 @endsection

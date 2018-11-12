@@ -23,8 +23,10 @@ Route::resource('/address', 'AddressController');
 Route::post('/payment', 'PaymentController@createPayment')->name('payments.create');
 Route::get('/webhooks/mollie', 'WebhookController@mollie')->name('webhooks.mollie');
 Route::resource('/description', 'HomepageController');
+// Cart pages
 Route::get('/addToCart/{id}', 'CartController@Create');
 Route::get('/cart/remove/{id}', 'CartController@Destroy');
+Route::post('/cart/edit', 'AjaxController@updateCart');
 
 // WISHLIST
 Route::resource('/wishlist', 'WishlistController');

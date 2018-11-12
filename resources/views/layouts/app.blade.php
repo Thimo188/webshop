@@ -48,10 +48,10 @@
             <a class="nav-link" href="{{ url('/photography')}}">Photography<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Illustrations</a>
+            <a class="nav-link" href="{{ url('/illustrations')}}">Illustrations</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">3DArt</a>
+            <a class="nav-link" href="{{ url('3DArt')}}">3DArt</a>
           </li>
           </ul>
           {{-- <form class="form-inline">
@@ -93,14 +93,13 @@
           @else
           <li class="nav-item dropdown">
             <a id="navbarDropdown" class="nav-link dropdown-toggle top" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-              {{ Auth::user()->name }} <span class="caret"></span>
+              <i class="far fa-user-circle"></i> {{ Auth::user()->name }} <span class="caret"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{url('/account')}}">Account</a>
+              <a class="dropdown-item" href="{{url('/account')}}"><i class="fas fa-user"></i> Account</a>
               <a class="dropdown-item" href="{{ route('logout') }}"
               onclick="event.preventDefault();
-              document.getElementById('logout-form').submit();">
-              {{ __('Logout') }}
+              document.getElementById('logout-form').submit();"> <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
               @csrf

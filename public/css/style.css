@@ -19,6 +19,9 @@
 #product-description{
   border-style: double;
 }
+.main {
+	margin-top: 40px;
+}
 .top {
 	/* font-size: 20px; */
 	padding-left: 5px;

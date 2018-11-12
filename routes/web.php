@@ -23,8 +23,10 @@ Route::resource('/address', 'AddressController');
 Route::post('/payment', 'PaymentController@createPayment')->name('payments.create');
 Route::get('/webhooks/mollie', 'WebhookController@mollie')->name('webhooks.mollie');
 Route::resource('/description', 'HomepageController');
+// Cart pages
 Route::get('/addToCart/{id}', 'CartController@Create');
 Route::get('/cart/remove/{id}', 'CartController@Destroy');
+Route::post('/cart/edit', 'AjaxController@updateCart');
 
 // WISHLIST
 Route::resource('/wishlist', 'WishlistController');
@@ -36,6 +38,8 @@ Route::get('/sidemenu', 'SidemenuController@index');
 Route::get('/account','AccountController@index');
 Route::get('/cart', 'CartController@index');
 
+
+
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/account','AccountController@index');
     Route::get('/subscription','SubscriptionController@index');
@@ -43,6 +47,16 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/upload', 'UploadController@index');
     Route::post('/upload', 'UploadController@store');
 });
+
+//Route::get('/search', function (Request $request) {
+  //  return App\Product::search($request->search)->get();
+//});
+
+Route::get('/search',          'SearchController@search')->name('search');
+Route::get('product/{id}',  'SearchController@product');
+
+
+
 Route::group(['middleware' => 'admin'], function() {
 	Route::get('/admin', 'AdminController@index');
 });

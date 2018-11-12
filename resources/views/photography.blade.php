@@ -74,7 +74,7 @@
 							<img class="card-img-top" src="{{asset($product->ProductImages['file'])}}" alt="Card image cap">
 							<div class="card-body">
 								<h5 class="card-title">{{$product->product_name}}</h5>
-            		<p class="card-text">{{ str_limit($product->product_description, 80) }}</p>
+            					<p class="card-text">{{ str_limit($product->product_description, 80) }}</p>
 							</div>
 							<div class="card-footer">
 								<a href="/description/{{$product->id}}" class="btn btn-primary">Visit</a>

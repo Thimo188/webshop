@@ -1,6 +1,44 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container mt-5">
+<div class="card uper">
+  <div class="card-header">
+    Billing address
+  </div>
+  <div class="card-body">
+    @if ($errors->any())
+      <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+      </div><br />
+    @endif
+      <form method="post" action="{{ route('address.store') }}">
+          <div class="form-group">
+              @csrf
+              <label for="name">Streetname:</label>
+              <input type="text" class="form-control" name="streetname"/>
+          </div>
+          <div class="form-group">
+              <label for="price">Country :</label>
+              <input type="text" class="form-control" name="country_id"/>
+          </div>
+          <div class="form-group">
+              <label for="quantity">Place:</label>
+              <input type="text" class="form-control" name="place"/>
+          </div>
+          <div class="form-group">
+              <label for="quantity">Zipcode:</label>
+              <input type="text" class="form-control" name="zipcode"/>
+          </div>
+          <button type="submit" class="btn btn-primary">Add</button>
+      </form>
+  </div>
+</div>
+</div>
 
 <div class="container main">
 	<div class="row">

@@ -22,6 +22,7 @@ class CreateWishlistsTable extends Migration
         Schema::table('wishlists', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
             $table->foreign('product_id')->references('id')->on('products')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+
         });
     }
 

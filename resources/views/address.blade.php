@@ -4,7 +4,7 @@
 <div class="container mt-5">
 <div class="card uper">
   <div class="card-header">
-    Add Share
+    Billing address
   </div>
   <div class="card-body">
     @if ($errors->any())

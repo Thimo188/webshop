@@ -10,16 +10,18 @@ class Product extends Model
   use Searchable;
 
   public function toSearchableArray()
-  {
-  $array = $this->toArray();
 
-    $array = [
+
+  {
+  $record = $this->toArray();
+    $record = [
       'product_name' => $this->product_name,
       'product_description' => $this->product_description,
     ];
 
-    return $array;
+    return $record;
   }
+
 
   protected $fillable=['product_name', 'product_description', 'price'];
   public function ProductTag()

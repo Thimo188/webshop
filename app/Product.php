@@ -30,14 +30,19 @@ class Product extends Model
   }
   public function ProductSizing()
   {
-    return $this->hasOne(Product_Size::class);
+    return $this->hasOne('App\Product_Size');
   }
   public function ProductImages()
   {
-    return $this->hasOne(Product_Image::class);
+    return $this->hasOne('App\Product_Image');
   }
   public function ProductPrice()
   {
     return $this->hasOne('App\Order_Detail');
+  }
+  public function ProductColors()
+  {
+        # mag veranderd worden, werkt miss niet
+    return $this->hasOne('App\Product_Colors');
   }
 }

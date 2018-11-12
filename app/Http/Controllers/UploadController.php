@@ -77,7 +77,7 @@ class UploadController extends Controller
           $product_image->file= 'storage/product/' . $filename;
           $product_image->save();
           }
-
+          return redirect(url('/upload'));
 
 
       //  $order_detail = new Order_Detail();

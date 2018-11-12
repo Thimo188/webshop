@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWishlistsTable extends Migration
+class CreateProductColorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class CreateWishlistsTable extends Migration
      */
     public function up()
     {
-        Schema::create('wishlists', function (Blueprint $table) {
+        Schema::create('product_colors', function (Blueprint $table) {
             $table->increments('id');
-			$table->integer('user_id')->unsigned();
-			$table->integer('product_id')->unsigned();
+            $table->integer('color_id')->unsigned();
+            $table->integer('product_id')->unsigned();
             $table->timestamps();
         });
-        Schema::table('wishlists', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+        Schema::table('product_colors', function (Blueprint $table) {
+            $table->foreign('color_id')->references('id')->on('colors')->onUpdate('RESTRICT')->onDelete('RESTRICT');
             $table->foreign('product_id')->references('id')->on('products')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-
         });
     }
 
@@ -33,11 +32,11 @@ class CreateWishlistsTable extends Migration
      */
     public function down()
     {
-        Schema::table('wishlists', function(Blueprint $table)
+        Schema::table('product_colors', function(Blueprint $table)
         {
-            $table->dropForeign('user_id');
+            $table->dropForeign('colors_id');
             $table->dropForeign('product_id');
         });
-        Schema::dropIfExists('wishlists');
+        Schema::dropIfExists('product_colors');
     }
 }

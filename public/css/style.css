@@ -1,6 +1,45 @@
 .table>tbody>tr>td, .table>tfoot>tr>td{
     vertical-align: middle;
 }
+
+@media screen and (min-width: 601px) {
+  #pep {
+      height: 300px;
+    }
+  .charlieshoogte {
+    height: 100%;
+  }
+}
+.fancy {
+    display: inline;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/*description page border */
+#product-description{
+  border-style: double;
+}
+.top {
+	/* font-size: 20px; */
+	padding-left: 5px;
+	padding-right: 5px;
+	color: rgba(0, 0, 0, 0.5);
+}
+nav {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+#index {
+	margin-top: 25px;
+}
+.irs-from, .irs-to {
+	background: #227dc7 !important;
+}
+.irs-from::after, .irs-to::after {
+	border-top-color: #227dc7 !important;
+}
+.card-margin {
+	margin-bottom: 20px;
+}
 @media screen and (max-width: 600px) {
     table#cart tbody td .form-control{
 		width:20%;
@@ -29,9 +68,19 @@
 
 }
 
+.col-lg-3{
+  padding-bottom: 30px;
+}
+.pagination{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Carousel items */
 .carousel-item{
     height: 500px;
 }
+
 .img-fluid {
     max-width: 100%;
     height: auto;
@@ -43,12 +92,26 @@
 .carousel-inner{
     height: 600px;
 }
+/* end carousel items */
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: -100px;
+    width: 100%;
+}
+.pagination{
+  width: 0;
+  margin: auto;
+  padding-top: 70px;
+}
 
 li {
     list-style: none; /* Remove list bullets */
 }
 h3 {
   padding-top: 40px;
+  padding-bottom: 10px;
 }
 .footer ul li a {
 min-height: 300px;
@@ -139,4 +202,20 @@ padding-top: 6px;
 }
 .payments {
 font-size: 1.5em;
+}
+.responsive {
+width:100%;
+height:auto;
+}
+
+.imagePreview {
+    width: 100%;
+    height: 180px;
+    background-position: center center;
+  background:url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg);
+  background-color:#fff;
+    background-size: cover;
+  background-repeat:no-repeat;
+    display: inline-block;
+  box-shadow:0px -3px 6px 2px rgba(0,0,0,0.2);
 }

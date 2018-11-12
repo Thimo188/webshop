@@ -21,7 +21,7 @@
 
   <!-- Styles -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
@@ -90,7 +90,7 @@
               {{ Auth::user()->name }} <span class="caret"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{url('/sidemenu')}}">Account</a>
+              <a class="dropdown-item" href="{{url('/account')}}">Account</a>
               <a class="dropdown-item" href="{{ route('logout') }}"
               onclick="event.preventDefault();
               document.getElementById('logout-form').submit();">
@@ -102,22 +102,23 @@
           </div>
         </li>
         @endguest
-		<a href="{{ url('/cart')}}"><i class="fas fa-shopping-cart" style="font-size: 30px;"></i></a>
-        <a><i class="far fa-heart" style="font-size: 30px;"></i></a>
+        <a href="{{ url('/upload')}}"><img src="https://image.flaticon.com/icons/svg/16/16909.svg" height="37" alt=""/></a>
+        <a href="{{ url('/cart')}}"><img src="https://www.seoclerk.com/pics/want28565-1jLOM31435502711.png" height="37" alt=""/></a>
+        <a><img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="37" class="hello" alt=""/></a>
     </div>
   </nav>
 
   <div class="container">
     <div class="row">
       <div class="col-md-3">
-        <div class="card bg-white border-white mt-5" id="sidemenu">
+        <div class="card bg-white border-white mt-5" style="height: 46rem;">
           <div class="card-body">
               <ul class="list-group">
-                <li class="mt-5 m-4 pb-4 border-0 list-group-item"><a href="/Statistics.js">STATISTICS</a></li>
-                <li class="m-4 pb-4 border-0 list-group-item"><a href="/Gallery.js">GALLERY</a></li>
-                <li class="m-4 pb-4 border-0 list-group-item"><a href="/Payments.js">PAYMENTS</a></li>
-                <li class="m-4 pb-4 border-0 list-group-item"><a href="{{url('/account')}}">ACCOUNT SETTINGS</a></li>
-                <li class="m-4 pb-4 border-0 list-group-item"><a href="LogOut.js">LOG OUT</a></li>
+                <li class="mt-2 pb-1 border-0 list-group-item"><a href="{{url('/statistics')}}">Statistics</a></li>
+                <li class="pb-2 border-0 list-group-item"><a href="/Gallery.js">Gallery</a></li>
+                <li class="pb-2 border-0 list-group-item"><a href="/Payments.js">Payments</a></li>
+                <li class="pb-2 border-0 list-group-item"><a href="{{url('/account')}}">Account Settings</a></li>
+                <li class="pb-2 border-0 list-group-item"><a href="{{url('/subscription')}}">Subscription</a></li>
               </ul>
             </div>
         </div>

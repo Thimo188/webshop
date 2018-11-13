@@ -1,11 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mt-5">
-<div class="card uper">
-  <div class="card-header">
-    Billing address
-  </div>
   <div class="card-body">
     @if ($errors->any())
       <div class="alert alert-danger">
@@ -16,40 +11,53 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('address.store') }}">
-          <div class="form-group">
-              @csrf
-              <label for="name">Streetname:</label>
-              <input type="text" class="form-control" name="streetname"/>
-          </div>
-          <div class="form-group">
-              <label for="price">Country :</label>
-              <input type="text" class="form-control" name="country_id"/>
-          </div>
-          <div class="form-group">
-              <label for="quantity">Place:</label>
-              <input type="text" class="form-control" name="place"/>
-          </div>
-          <div class="form-group">
-              <label for="quantity">Zipcode:</label>
-              <input type="text" class="form-control" name="zipcode"/>
-          </div>
-          <button type="submit" class="btn btn-primary">Add</button>
-      </form>
+
   </div>
 </div>
 </div>
 
 <div class="container main">
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-6">
 			<h4 class="mb-3">Billing address</h4>
 		</div>
 		<div class="col-md-7">
-			<form method="post" action="{{ route('payments.create') }}">
-				@csrf
-				<div class="row">
-					<div class="col-md-6 mb-3">
+          <form method="post" action="{{ route('address.store') }}">
+              <div class="form-group">
+                  @csrf
+                  <div class="form-group">
+                      <label for="FirstName">First Name:</label>
+                      <input type="text" class="form-control" name="FirstName"/>
+                  </div>
+                  <div class="form-group">
+                      <label for="LastName">Last Name:</label>
+                      <input type="text" class="form-control" name="LastName"/>
+                  </div>
+                  <label for="name">Streetname:</label>
+                  <input type="text" class="form-control" name="streetname"/>
+              <div>
+                @csrf
+                  <select name="country">
+                    @forelse($countries as $country)
+                      <div class="form-group">
+                      <option class= "form-control" value="{{$country->id}}">{{$country->name}}
+                      </option>
+                    </div>
+                    @empty
+                      <option value="none">No countries available</option>
+                    @endforelse
+                  </select>
+              </div>
+              <div class="form-group">
+                  <label for="place">Place:</label>
+                  <input type="text" class="form-control" name="place"/>
+              </div>
+              <div class="form-group">
+                  <label for="quantity">Zipcode:</label>
+                  <input type="text" class="form-control" name="zipcode"/>
+              </div>
+          </form>
+					<!-- <div class="col-md-6 mb-3">
 						<label for="firstName">First name</label>
 						<input type="text" class="form-control" id="firstName" placeholder="John" value="" required>
 						<div class="invalid-feedback">
@@ -85,7 +93,7 @@
 
 				<div class="mb-3">
 					<label for="price">Country </label>
-					<input type="text" class="form-control" name="country_id" />
+					<input type="text" class="form-control" name="country" />
 					<div class="invalid-feedback">
 						Please enter your shipping address.
 					</div>
@@ -97,7 +105,7 @@
 					<input type="text" class="form-control" name="zipcode" />
 					<div class="invalid-feedback">
 						Please enter your shipping address.
-					</div>
+					</div> -->
 				</div>
 
 				<hr class="mb-4">

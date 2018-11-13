@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Address;
 use App\Cart;
+use App\Country;
 
 class AddressController extends Controller
 {
@@ -23,7 +24,8 @@ class AddressController extends Controller
 		} else {
 			$cartlines = Cart::with('Product')->where('user_id', Auth::user()->id)->get();
 		}
-        return view('address', compact('cartlines'));
+        $countries = Country::all();
+        return view('address', compact('cartlines', 'countries'));
     }
 
     /**
@@ -48,7 +50,7 @@ class AddressController extends Controller
           'streetname'=>'required',
           'zipcode'=>'required',
           'place'=>'required',
-          'country_id'=>'required'
+          'country'=>'required'
         ]);
 
         $address = new Address();
@@ -56,7 +58,7 @@ class AddressController extends Controller
         $address->streetname=$validatedData['streetname'];
         $address->zipcode=$validatedData['zipcode'];
         $address->place=$validatedData['place'];
-        $address->country_id=$validatedData['country_id'];
+        $address->country_id=$validatedData['country'];
         $address->save();
         return redirect('/address')->with('Success', 'You will receive an email regarding your order shortly');
     }

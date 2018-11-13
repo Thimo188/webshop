@@ -22,7 +22,7 @@ class PhotographyController extends Controller
     ->where('colors.name', '=', $color->name)
     ->get();
     $colors = Color::all();
-    return view('photography', compact('products','productsview', 'colors', 'filters'));
+    return view('photography', compact('products','productsview', 'colors'));
   }
   public function show($id)
   {

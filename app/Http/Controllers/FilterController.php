@@ -21,7 +21,7 @@ class FilterController extends Controller
       ->where('colors.name', '=', $color->name)
       ->paginate(9);
       $colors = Color::all();
-      return view('photography', compact('productsview','products','colors'));
+      return view('photographyfilter', compact('productsview','products','colors'));
     }
 
     public function show($id)

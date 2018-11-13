@@ -43,6 +43,7 @@ class Product extends Model
   public function ProductColors()
   {
         # mag veranderd worden, werkt miss niet
-    return $this->hasOne('App\Product_Colors');
+    return $this->belongsToMany('App\Color', 'product_colors')
+      ->using('App\Pivots\Product_colors');
   }
 }

@@ -56,7 +56,6 @@
                   <label for="quantity">Zipcode:</label>
                   <input type="text" class="form-control" name="zipcode"/>
               </div>
-          </form>
 					<!-- <div class="col-md-6 mb-3">
 						<label for="firstName">First name</label>
 						<input type="text" class="form-control" id="firstName" placeholder="John" value="" required>

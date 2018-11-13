@@ -34,23 +34,26 @@
 							</div>
 							<hr class="style10">
 							<h6><strong>Colors:</strong></h6>
-							<div class="checkbox">
-								@forelse($productsview as $product)
-								<input type="checkbox" name="colors[]"value="{{$product->product_id}}"><label>{{$product->product_name}}</label>
-								<br>
+								@forelse($colors as $color)
+								<div class="form-check" onClick="window.location = 'http://127.0.0.1:8000/photography/colors/{{$color->name}}';">
+								  <label class="form-check-label">
+								    <input type="radio" class="form-check-input" name="optradio">{{$color->name}}
+								  </label>
+								</div>
 								@empty
 								<p> no posts found </p>
 								@endforelse
-							</div>
-							<div class="checkbox">
-								<label><input type="checkbox" value="">White</label>
-								<br>
-								<label><input type="checkbox" value="">Green</label>
-								<br>
-								<label><input type="checkbox" value="" >Red</label>
-								<br>
-								<label><input type="checkbox" value="" >Yellow</label>
-							</div>
+								<div class="form-check" onClick="window.location = 'http://127.0.0.1:8000/photography/colors/blue';">
+									<label class="form-check-label">
+										<input type="radio" class="form-check-input" name="optradio">blue
+									</label>
+								</div>
+								<div class="form-check" onClick="window.location = 'http://127.0.0.1:8000/photography/colors/red';">
+									<label class="form-check-label">
+										<input type="radio" class="form-check-input" name="optradio">red
+									</label>
+								</div>
+
 							<hr class="style10">
 							<h6><strong>Orientation:</strong></h6>
 							<div class="checkbox">

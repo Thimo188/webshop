@@ -54,7 +54,7 @@
             <a class="nav-link" href="{{ url('3DArt')}}">3DArt</a>
           </li>
           </ul>
-          {{-- <form class="form-inline">
+          {{-- <form class="form-inline" action="{{route('search')}}" method="get">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form> --}}
@@ -108,7 +108,7 @@
         </li>
         @endguest
         <div class="right-menu">
-    		<li class="fancy nav-item"><p class="fancy" id="search">Search</p><a href=""><i class="fas fa-search top" id="searchicon"></i></a></li>
+    		<li class="fancy nav-item"><p class="fancy" id="search">Search</p><a href="{{ url('/photography')}}"><i class="fas fa-search top" id="searchicon"></i></a></li>
             <li class="fancy nav-item"><p class="fancy" id="upload">Upload</p><a href="{{ url('/upload')}}"><i class="fas fa-plus-circle top" id="uploadicon"></i></a></li>
             <li class="fancy nav-item"><p class="fancy" id="cart">Cart</p><a href="{{ url('/cart')}}"><i class="fas fa-shopping-cart top" id="carticon"></i></a></li>
             <li class="fancy nav-item"><p class="fancy" id="wishlist">Wishlist</p><a href="{{ url('/wishlist')}}"><i class="far fa-heart top" id="wishlisticon"></i></a></li>

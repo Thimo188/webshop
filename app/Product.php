@@ -1,8 +1,28 @@
 <?php
 namespace App;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
+
+
+
 class Product extends Model
 {
+  use Searchable;
+
+  public function toSearchableArray()
+
+
+  {
+  $record = $this->toArray();
+    $record = [
+      'product_name' => $this->product_name,
+      'product_description' => $this->product_description,
+    ];
+
+    return $record;
+  }
+
+
   protected $fillable=['product_name', 'product_description', 'price'];
   public function ProductTag()
   {

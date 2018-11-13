@@ -53,7 +53,7 @@ Route::group(['middleware' => 'auth'], function() {
 //});
 
 Route::get('/search',          'SearchController@search')->name('search');
-Route::get('product/{id}',  'SearchController@product');
+Route::get('/product/{id}',  'SearchController@product');
 
 
 

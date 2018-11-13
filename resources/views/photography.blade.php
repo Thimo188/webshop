@@ -11,7 +11,7 @@
 						<div class="card-body">
 							<h2>Filters</h2>
 							Search
-							<form>
+							<form action="{{route('search')}}" method="get">
 								<input type="text" placeholder="Search..." name="search" class="form-control">
 								<br/>
 								<input type="submit" value="Search" class="form-control">

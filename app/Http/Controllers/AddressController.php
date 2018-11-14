@@ -8,6 +8,8 @@ use Auth;
 use App\Address;
 use App\Cart;
 use App\Country;
+use App\Order;
+use Mollie;
 
 class AddressController extends Controller
 {
@@ -47,22 +49,56 @@ class AddressController extends Controller
     public function store(Request $request)
     {
         $validatedData = $this->validate($request, [
-          'streetname'=>'required',
-          'zipcode'=>'required',
-          'place'=>'required',
+			'FirstName' => 'required|min:2',
+			'LastName' => 'required|min:2',
+          'streetname'=>'required|min:2',
+          'zipcode'=>'required|min:5',
+          'place'=>'required|min:2',
           'country'=>'required'
         ]);
 
         $address = new Address();
-        $address->user_id = 1;
+		if(Auth::user()) {
+			$address->user_id = Auth::user()->id;
+		}
+		$address->first_name = $validatedData['FirstName'];
+		$address->last_name = $validatedData['LastName'];
         $address->streetname=$validatedData['streetname'];
         $address->zipcode=$validatedData['zipcode'];
         $address->place=$validatedData['place'];
         $address->country_id=$validatedData['country'];
         $address->save();
-        return redirect('/address')->with('Success', 'You will receive an email regarding your order shortly');
-    }
 
+		if(Auth::guest()) {
+
+		}
+
+		$this->preparePayment(1);
+        // return redirect('/address')->with('Success', 'You will receive an email regarding your order shortly');
+    }
+	public function preparePayment(int $price) {
+		$order = new Order();
+		$order->ordernumber = 'MZ-'.time();
+		$order->address_id = 1;
+		$order->shipping_method = 1;
+		$order->save();
+
+
+		$payment = Mollie::api()->payments()->create([
+		'amount' => [
+			'currency' => 'EUR',
+			'value' => '10.00', // You must send the correct number of decimals, thus we enforce the use of strings
+		],
+		'description' => 'Payment '.$order->ordernumber,
+		'webhookUrl' => route('webhooks.mollie'),
+		'redirectUrl' => route('home'),
+		]);
+
+		$payment = Mollie::api()->payments()->get($payment->id);
+
+		// redirect customer to Mollie checkout page
+		return redirect($payment->getCheckoutUrl(), 303);
+	}
     /**
      * Display the specified resource.
      *

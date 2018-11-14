@@ -70,7 +70,10 @@ class AddressController extends Controller
         $address->save();
 
 		if(Auth::guest()) {
-
+			$ip = isset($_SERVER['HTTP_CLIENT_IP'])?$_SERVER['HTTP_CLIENT_IP']:isset($_SERVER['HTTP_X_FORWARDED_FOR'])?$_SERVER['HTTP_X_FORWARDED_FOR']:$_SERVER['REMOTE_ADDR'];
+			$cartlines = Cart::with('Product')->where('ip', $ip)->get();
+		} else {
+			$cartlines = Cart::with('Product')->where('ip', $ip)->get();
 		}
 
 		$order = new Order();

@@ -73,10 +73,6 @@ class AddressController extends Controller
 
 		}
 
-		$this->preparePayment(1);
-        // return redirect('/address')->with('Success', 'You will receive an email regarding your order shortly');
-    }
-	public function preparePayment(int $price) {
 		$order = new Order();
 		$order->ordernumber = 'MZ-'.time();
 		$order->address_id = 1;
@@ -98,7 +94,31 @@ class AddressController extends Controller
 
 		// redirect customer to Mollie checkout page
 		return redirect($payment->getCheckoutUrl(), 303);
-	}
+        // return redirect('/address')->with('Success', 'You will receive an email regarding your order shortly');
+    }
+	// public function preparePayment(int $price) {
+	// 	$order = new Order();
+	// 	$order->ordernumber = 'MZ-'.time();
+	// 	$order->address_id = 1;
+	// 	$order->shipping_method = 1;
+	// 	$order->save();
+	//
+	//
+	// 	$payment = Mollie::api()->payments()->create([
+	// 	'amount' => [
+	// 		'currency' => 'EUR',
+	// 		'value' => '10.00', // You must send the correct number of decimals, thus we enforce the use of strings
+	// 	],
+	// 	'description' => 'Payment '.$order->ordernumber,
+	// 	'webhookUrl' => route('webhooks.mollie'),
+	// 	'redirectUrl' => route('home'),
+	// 	]);
+	//
+	// 	$payment = Mollie::api()->payments()->get($payment->id);
+	//
+	// 	// redirect customer to Mollie checkout page
+	// 	return redirect($payment->getCheckoutUrl(), 303);
+	// }
     /**
      * Display the specified resource.
      *

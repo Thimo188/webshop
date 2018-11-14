@@ -80,9 +80,9 @@
             					<p class="card-text">{{ str_limit($product->product_description, 80) }}</p>
 							</div>
 							<div class="card-footer">
-								<a href="/description/{{$product->id}}" class="btn btn-primary">Visit</a>
+								<a href="/description/{{$product->product_id}}" class="btn btn-primary">Visit</a>
 								<p style="float: right">€ {{ number_format($product->price, 2,'.',',')}}</p>
-								<a href="{{ Route('wishlist.add', $product->id) }}" class="btn btn-lg btn-light">
+								<a href="{{ Route('wishlist.add', $product->product_id) }}" class="btn btn-lg btn-light">
 									<img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="25" class="hello" alt=""/></a>
 							</div>
 						</div>

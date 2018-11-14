@@ -4,23 +4,28 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Product_Tag;
 use App\Product_Size;
-use App\Colors;
-use App\Product_Colors;
+use App\Color;
+use DB;
 class PhotographyController extends Controller
 {
-  public function index() {
+  # shows 9 items on the photography webpage ordered by Created_At
+  public function index(Color $color)
+  {
+
+    $products = $color->product;
     $productsview = Product::with('ProductSizing', 'ProductTag','ProductImages')
     ->orderBy('created_at', 'desc')
-    ->take(8)
     ->paginate(9);
-    // $colorsview = Colors::with('ProductColors')
-    // ->orderBy('name')
-    // ->get();
-    return view('photography')->with('productsview', $productsview);//->with('colorsview',$colorsview);
+    DB::Table('Products')
+    ->join('product_colors', 'products.id', '=', 'product_colors.product_id')
+    ->join('colors', 'colors.id', '=', 'product_colors.color_id')
+    ->where('colors.name', '=', $color->name)
+    ->get();
+    $colors = Color::all();
+    return view('photography', compact('products','productsview', 'colors'));
   }
   public function show($id)
   {
     $product = Product::find($id);
-    return view('description')->with('product', $product);
   }
 }

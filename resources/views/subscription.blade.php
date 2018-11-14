@@ -2,22 +2,7 @@
 
 @section ('content')
 
-
-
 <div class="container mt-5">
-    <div class="card bg-white border-white" style="width:18rem;height:20rem">
-      <img class="card-img-top" src="..." alt="Card image cap">
-          <div class="card-body">
-          </div>
-          <div class="card-footer">
-            <div class="card-title"><h5>Current Subscription</h5>
-            </div>
-            Package 1
-          </div>
-    </div>
-  </div>
-
-<div class="container">
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -61,28 +46,46 @@
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+    <div class="card bg-white border-white" style="width:17rem;height:20rem">
+        <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-body">
+            <div class="card-title"><h5>One Month</h5></div>
+            Buying this package will allow you to upload endlessly for one month
+          </div>
+          <div class="card-footer">
+            <button type="button" class="btn btn-primary">Primary</button>
+        </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+      <div class="card bg-white border-white" style="width:17rem;height:20rem">
+          <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+              <div class="card-title"><h5>Six Months</h5></div>
+              Buying this package will allow you to upload endlessly for six months
+            </div>
+            <div class="card-footer">
+              <button type="button" class="btn btn-primary">Primary</button>
+          </div>
+          </div>
+    </div>
+    <div class="col-md-4">
+    <div class="card bg-white border-white" style="width:17rem;height:20rem">
+        <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-body">
+            <div class="card-title"><h5>One Year</h5></div>
+            Buying this package will allow you to upload endlessly for one year
+          </div>
+          <div class="card-footer">
+            <button type="button" class="btn btn-primary">Primary</button>
+        </div>
+        </div>
+  </div>
+</div>
+</div>
 
 
 

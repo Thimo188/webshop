@@ -28,8 +28,11 @@
         <div class="card-body">
           <h5 class="card-title">{{ $wishlistitem->Product()->first()->product_name }}</h5>
           <p class="card-text">{{ $wishlistitem->Product()->first()->product_description }}</p>
-          <a href="{{ url('/description', $wishlistitem->product_id) }}" class="btn btn-lg btn-primary">Go to this product</a>
+        </div>
+        <div class="card-footer">
+          <a href="{{ url('/description', $wishlistitem->product_id) }}" class="btn btn-lg btn-primary">Visit</a>
           <a href="{{ route('wishlist.destroy', $wishlistitem->id)}}" class="btn btn-lg btn-danger"><i class="fas fa-trash-alt"></i></a>
+        </div>
 <!-- "{{ route('wishlist.show', [$wishlistitem->id]) }}" -->
         </div>
       </div>

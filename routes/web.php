@@ -22,7 +22,7 @@ Route::get('/illustrations/colors/{color}/{categoryid}', 'FilterController@illus
 Route::get('/3DArt/colors/{color}/{categoryid}', 'FilterController@ThreeDArt');
 
 Route::resource('/address', 'AddressController');
-Route::post('/payment', 'PaymentController@createPayment')->name('payments.create');
+Route::post('/createPayment', 'PaymentController@createPayment')->name('payments.create');
 Route::get('/webhooks/mollie', 'WebhookController@mollie')->name('webhooks.mollie');
 Route::resource('/description', 'HomepageController');
 // Cart pages

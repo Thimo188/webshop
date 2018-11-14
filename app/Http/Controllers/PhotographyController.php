@@ -14,13 +14,11 @@ class PhotographyController extends Controller
 
     $products = $color->product;
     $productsview = Product::with('ProductSizing', 'ProductTag','ProductImages')
-    ->orderBy('created_at', 'desc')
+    ->join('product_categories', 'products.id', '=' , 'product_categories.product_id')
+    ->join('categories', 'categories.id' , '=' , 'product_categories.category_id')
+    ->join('product_images', 'products.id', '=', 'product_images.product_id')
+    ->where('product_categories.category_id' , '=', 1)
     ->paginate(9);
-    DB::Table('Products')
-    ->join('product_colors', 'products.id', '=', 'product_colors.product_id')
-    ->join('colors', 'colors.id', '=', 'product_colors.color_id')
-    ->where('colors.name', '=', $color->name)
-    ->get();
     $colors = Color::all();
     return view('photography', compact('products','productsview', 'colors'));
   }

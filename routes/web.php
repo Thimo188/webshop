@@ -17,10 +17,12 @@ Route::get('/photography', 'PhotographyController@index');
 Route::get('/illustrations', 'IllustrationsController@index');
 Route::get('/3DArt', 'ThreeDArtController@index');
 Route::get('/', 'HomepageController@index')->name('home');
-Route::get('/photography/colors/{color}', 'FilterController@index');
+Route::get('/photography/colors/{color}/{categoryid}', 'FilterController@index');
+Route::get('/illustrations/colors/{color}/{categoryid}', 'FilterController@illustrations');
+Route::get('/3DArt/colors/{color}/{categoryid}', 'FilterController@ThreeDArt');
 
 Route::resource('/address', 'AddressController');
-Route::post('/payment', 'PaymentController@createPayment')->name('payments.create');
+Route::post('/createPayment', 'PaymentController@createPayment')->name('payments.create');
 Route::get('/webhooks/mollie', 'WebhookController@mollie')->name('webhooks.mollie');
 Route::resource('/description', 'HomepageController');
 // Cart pages

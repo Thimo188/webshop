@@ -20,11 +20,10 @@
 							<label for='price'>Prijs:</label>
 							<input type="text" id="price" name="price_range" value="" />
 
-
 							<hr class="style10">
 							<h6><strong>Colors:</strong></h6>
 								@forelse($colors as $color)
-								<div class="form-check" onClick="window.location = 'http://127.0.0.1:8000/3DArt/colors/{{$color->name}}/3';">
+								<div class="form-check" onClick="window.location = 'http://127.0.0.1:8000/illustrations/colors/{{$color->name}}/2';">
 								  <label class="form-check-label">
 								    <input type="radio" class="form-check-input" name="optradio">{{$color->name}}
 								  </label>
@@ -43,15 +42,15 @@
 					@forelse($productsview as $product)
 					<div class="col-md-4 card-margin d-flex align-items-stretch">
 						<div class="card">
-							<img class="card-img-top" src="{{asset($product->ProductImages['file'])}}" alt="Card image cap">
+							<img class="card-img-top" src="{{asset($product->file)}}" alt="Card image cap">
 							<div class="card-body">
 								<h5 class="card-title">{{$product->product_name}}</h5>
             					<p class="card-text">{{ str_limit($product->product_description, 80) }}</p>
 							</div>
 							<div class="card-footer">
-								<a href="/description/{{$product->id}}" class="btn btn-primary">Visit</a>
+								<a href="/description/{{$product->product_id}}" class="btn btn-primary">Visit</a>
 								<p style="float: right">€ {{ number_format($product->price, 2,'.',',')}}</p>
-								<a href="{{ Route('wishlist.add', $product->id) }}" class="btn btn-lg btn-light">
+								<a href="{{ Route('wishlist.add', $product->product_id) }}" class="btn btn-lg btn-light">
 									<img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="25" class="hello" alt=""/></a>
 							</div>
 						</div>

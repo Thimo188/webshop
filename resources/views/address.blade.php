@@ -22,46 +22,12 @@
 			<h4 class="mb-3">Billing address</h4>
 		</div>
 		<div class="col-md-7">
-          <form method="post" action="{{ route('address.store') }}">
-              <div class="form-group">
-                  @csrf
-                  <div class="form-group">
-                      <label for="FirstName">First Name:</label>
-                      <input type="text" class="form-control" name="FirstName"/>
-                  </div>
-                  <div class="form-group">
-                      <label for="LastName">Last Name:</label>
-                      <input type="text" class="form-control" name="LastName"/>
-                  </div>
-                  <label for="name">Streetname:</label>
-                  <input type="text" class="form-control" name="streetname"/>
-              <div>
-                @csrf
-                  <select name="country">
-                    @forelse($countries as $country)
-                      <div class="form-group">
-                      <option class= "form-control" value="{{$country->id}}">{{$country->name}}
-                      </option>
-                    </div>
-                    @empty
-                      <option value="none">No countries available</option>
-                    @endforelse
-                  </select>
-              </div>
-              <div class="form-group">
-                  <label for="place">Place:</label>
-                  <input type="text" class="form-control" name="place"/>
-              </div>
-              <div class="form-group">
-                  <label for="quantity">Zipcode:</label>
-                  <input type="text" class="form-control" name="zipcode"/>
-              </div>
-					<!-- <div class="col-md-6 mb-3">
-						<label for="firstName">First name</label>
-						<input type="text" class="form-control" id="firstName" placeholder="John" value="" required>
-						<div class="invalid-feedback">
-							Valid first name is required.
-						</div>
+			<form method="post" action="{{ route('address.store') }}" id="address">
+				@csrf
+				<div class="form-group">
+					<div class="form-group">
+						<label for="FirstName">First Name:</label>
+						<input type="text" class="form-control" name="FirstName" required/>
 					</div>
 					<div class="form-group">
 						<label for="LastName">Last Name:</label>

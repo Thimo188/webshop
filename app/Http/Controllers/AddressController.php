@@ -9,7 +9,7 @@ use App\Address;
 use App\Cart;
 use App\Country;
 use App\Order;
-use App\Order_Detail;
+use App\OrderDetail;
 use Mollie;
 
 class AddressController extends Controller
@@ -124,8 +124,9 @@ class AddressController extends Controller
         // return redirect('/address')->with('Success', 'You will receive an email regarding your order shortly');
     }
 	public function finishPayment($ordernumber) {
-		$order = Order::with('OrderDetail')->where('ordernumber', $ordernumber)->firstOrFail();
-		return view('ThankYou', compact('order', 'payment'));
+		$order = Order::where('ordernumber', $ordernumber)->firstOrFail();
+		$orderDetails = OrderDetail::with('Product')->where('order_id', $order->id)->get();
+		return view('ThankYou', compact('order', 'payment', 'orderDetails'));
 	}
 	public function mollieWebhook(Request $request) {
 		// $order = Order::with('OrderDetail')->where('ordernumber', $ordernumber)->firstOrFail();

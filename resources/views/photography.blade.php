@@ -29,7 +29,7 @@
 								  </label>
 								</div>
 								@empty
-								<p> no posts found </p>
+								<p> no colors found </p>
 								@endforelse
 
 						</div>

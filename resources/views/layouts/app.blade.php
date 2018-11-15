@@ -7,7 +7,7 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>MUZEN</title>
+  <title>{{ config('app.name', 'MUZEN') }}</title>
 
   <!-- Scripts -->
 

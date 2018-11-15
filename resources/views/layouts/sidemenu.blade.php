@@ -21,7 +21,7 @@
 
   <!-- Styles -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
@@ -38,15 +38,15 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Photography<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Illustrations</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">3DArt</a>
-          </li>
+			<li class="nav-item">
+              <a class="nav-link" href="{{ url('/photography')}}">Photography<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url('/illustrations')}}">Illustrations</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url('3DArt')}}">3DArt</a>
+            </li>
           </ul>
           <form class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -116,7 +116,7 @@
               <ul class="list-group">
                 <li class="mt-2 pb-1 border-0 list-group-item"><a href="{{url('/statistics')}}">Statistics</a></li>
                 <li class="pb-2 border-0 list-group-item"><a href="/Gallery.js">Gallery</a></li>
-                <li class="pb-2 border-0 list-group-item"><a href="/Payments.js">Payments</a></li>
+                <li class="pb-2 border-0 list-group-item"><a href="{{ route('orders.show')}}">Bestellingen</a></li>
                 <li class="pb-2 border-0 list-group-item"><a href="{{url('/account')}}">Account Settings</a></li>
                 <li class="pb-2 border-0 list-group-item"><a href="{{url('/subscription')}}">Subscription</a></li>
               </ul>

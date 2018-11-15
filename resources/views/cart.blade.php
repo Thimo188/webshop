@@ -7,7 +7,8 @@
 				<table id="cart" class="table table-hover table-condensed">
 					<thead>
 						<tr>
-							<th style="width:50%">Product</th>
+							<th style="width:10%">Product</th>
+							<th style="width:40%"></th>
 							<th style="width:10%">Price</th>
 							<th style="width:8%">Quantity</th>
 							<th style="width:22%" class="text-center">Subtotal</th>
@@ -22,10 +23,11 @@
 
 										{{-- <div class="col-sm-3 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive"/></div> --}}
 										<div class="col-sm-3 hidden-xs"><img src="{{asset($cartline->product->ProductImages['file'])}}" width="100px" height="100px" alt="Card image cap"></div>
-										<div class="col-sm-9">
-											<h4 class="nomargin">{{ $cartline->product->product_name}}</h4>
-										</div>
+
 									</div>
+								</td>
+								<td data-th="Product">
+									<h4 class="nomargin">{{ $cartline->product->product_name}}</h4>
 								</td>
 								<td data-th="Price">€{{ number_format($cartline->product->price,2,",",".")}}</td>
 								<td data-th="Quantity">
@@ -44,7 +46,7 @@
 					<tfoot>
 						<tr>
 							<td><a href="#" class="btn btn-primary"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
-							<td colspan="2" class="hidden-xs"></td>
+							<td colspan="3" class="hidden-xs"></td>
 							<td class="hidden-xs text-center"><strong id="totalPrice"></strong></td>
 							<td><a href="{{ url('/address') }}" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
 						</tr>

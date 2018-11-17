@@ -131,7 +131,7 @@
 </div>
 
 <footer>
-  <div class="footer mt-5" id="footer">
+  <div class="fixed-bottom footer mt-5" id="footer">
     <div class="container">
       <div class="row">
         <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">

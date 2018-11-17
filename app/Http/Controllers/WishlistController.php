@@ -13,7 +13,7 @@ class WishlistController extends Controller
 {
     public function index()
   {
-    $wished = Wishlist::with('Product', 'User')->get();
+    $wished = Wishlist::with('Product', 'User')->where('user_id', Auth::user()->id)->get();
 		return view('wishlist', compact('wished'));
 	}
 

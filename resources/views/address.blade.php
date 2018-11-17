@@ -27,31 +27,31 @@
 				<div class="form-group">
 					<div class="form-group">
 						<label for="FirstName">First Name:</label>
-						<input type="text" class="form-control" name="FirstName" required/>
+						<input type="text" class="form-control" name="FirstName" required />
 					</div>
 					<div class="form-group">
 						<label for="LastName">Last Name:</label>
-						<input type="text" class="form-control" name="LastName" required/>
+						<input type="text" class="form-control" name="LastName" required />
 					</div>
 					<label for="name">Streetname:</label>
-					<input type="text" class="form-control" name="streetname" required/>
+					<input type="text" class="form-control" name="streetname" required />
 					<div>
 						<label for="country">Land:</label>
 						<select name="country" class="form-control">
 							@forelse($countries as $country)
-								<option value="{{$country->id}}">{{$country->name}}</option>
+							<option value="{{$country->id}}">{{$country->name}}</option>
 							@empty
-								<option value="none">No countries available</option>
+							<option value="none">No countries available</option>
 							@endforelse
 						</select>
 					</div>
 					<div class="form-group">
 						<label for="place">Place:</label>
-						<input type="text" class="form-control" name="place" required/>
+						<input type="text" class="form-control" name="place" required />
 					</div>
 					<div class="form-group">
 						<label for="quantity">Zipcode:</label>
-						<input type="text" class="form-control" name="zipcode" required/>
+						<input type="text" class="form-control" name="zipcode" required />
 					</div>
 					<hr class="mb-4">
 

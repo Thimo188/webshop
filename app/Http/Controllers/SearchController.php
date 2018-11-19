@@ -8,7 +8,7 @@ use App\Color;
 
 class SearchController extends Controller
 {
-  public function search(Request $request)
+  public function search(Request $request, Color $Color)
   {
 
 	  $colors = Color::all();

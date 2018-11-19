@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Color;
 
 class SearchController extends Controller
 {
-  public function search(Request $request)
+  public function search(Request $request, Color $Color)
   {
-
-    $productsview=Product::search($request->search)->paginate(15);
-    return view('photography', compact('productsview'));
+    $colors = Color::all();
+    $productsview=Product::searchproduct($request->search);
+    return view('photography', compact('productsview', 'colors'));
     //where('product_name', 'LIKE', '%' . $request->search . '%')
     //search($request->search)->paginate(15);
   }

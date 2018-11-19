@@ -24,6 +24,11 @@ class Product extends Model
 
 
   protected $fillable=['product_name', 'product_description', 'price'];
+
+  public static function searchproduct($product_name)
+  {
+    return self::where('product_name', 'like', '%' . $product_name . '%')->paginate(15)->onEachSide(3);
+  }
   public function ProductTag()
   {
     return $this->hasOne('App\Product_Tag');

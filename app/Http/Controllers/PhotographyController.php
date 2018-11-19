@@ -8,6 +8,23 @@ use App\Color;
 use DB;
 class PhotographyController extends Controller
 {
+
+  public function index2(Request $request, Color $color) {
+
+    if (!empty($request->search)) {
+      $productsview=Product::searchproduct($request->search);
+    }
+
+    else {
+      $productsview = Product::with('ProductSizing', 'ProductTag', 'ProductImages')
+      ->orderBy('created_at', 'desc')
+      ->take(8)
+      ->paginate(9);
+    }
+    $colors = Color::all();
+
+    return view('photography', compact('productsview', 'colors'));
+  }
   # shows 9 items on the photography webpage ordered by Created_At
   public function index(Color $color)
   {

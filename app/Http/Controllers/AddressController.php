@@ -109,7 +109,7 @@ class AddressController extends Controller
 		$order->payment = $payment->id;
 		$order->save();
 		foreach($cartlines as $cartline) {
-			$oDetail = new Order_Detail;
+			$oDetail = new OrderDetail;
 			$oDetail->order_id = $order->id;
 			$oDetail->product_id = $cartline->product_id;
 			$oDetail->product_price = $cartline->product->price;

@@ -10,8 +10,8 @@ use App\upload_form;
 
 use Illuminate\Support\Facades\Input;
 use App\Product;
-use App\Product_image;
-use App\Order_Detail;
+use App\Product_Image;
+use App\OrderDetail;
 use App\Product_Tag;
 
 class UploadController extends Controller
@@ -69,7 +69,7 @@ class UploadController extends Controller
         $product_tag->save();
 
         foreach ($validatedData['photos'] as $key => $image) {
-          $product_image = new Product_Image();
+          $product_image = new Product_Image;
           $product_image->product_id=$product->id;
           $filename = $image->getClientOriginalName();
           $FilePath = 'public/product/';

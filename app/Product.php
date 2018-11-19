@@ -24,6 +24,15 @@ class Product extends Model
 
 
   protected $fillable=['product_name', 'product_description', 'price'];
+  public static function searchproduct($product_name)
+  {
+	  return self::with('ProductSizing', 'ProductTag','ProductImages')
+	  ->join('product_categories', 'products.id', '=' , 'product_categories.product_id')
+	  ->join('categories', 'categories.id' , '=' , 'product_categories.category_id')
+	  ->join('product_images', 'products.id', '=', 'product_images.product_id')
+	  ->where('products.product_name', 'like', '%' . $product_name . '%')
+	  ->paginate(15)->onEachSide(3);
+  }
   public function ProductTag()
   {
     return $this->hasOne('App\Product_Tag');

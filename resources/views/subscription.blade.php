@@ -21,15 +21,17 @@
       <div class="carousel-item">
         <img class="d-block w-100" src="images/mini carousel/package2.png" alt="Second slide">
         <div class="carousel-caption d-none d-md-block">
-          <h3></h3>
-          <p></p>
+          <div class="img-overlay">
+          <a href="#" class="btn btn-primary">BUY</a>
+        </div>
         </div>
       </div>
       <div class="carousel-item">
         <img class="d-block w-100" src="images/mini carousel/package3.png" alt="Third slide">
         <div class="carousel-caption d-none d-md-block">
-          <h3></h3>
-          <p></p>
+          <div class="img-overlay">
+          <a href="#" class="btn btn-primary">BUY</a>
+        </div>
         </div>
 
       </div>
@@ -43,32 +45,31 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-</div>
 
-
-<div class="container">
   <div class="row">
     <div class="col-md-4">
-    <div class="card bg-white border-white" style="width:17rem;height:20rem">
-        <img class="card-img-top" src="..." alt="Card image cap">
-          <div class="card-body">
-            <div class="card-title"><h5>One Month</h5></div>
-            Buying this package will allow you to upload endlessly for one month
-          </div>
+      <div class="card">
+      <img class="card-img-top" src="images/mini carousel/package3.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">One month</h5>
+          <p class="card-text">For this oiasjndosandlasiduksnadkjands</p>
+        </div>
           <div class="card-footer">
-            <button type="button" class="btn btn-primary">Primary</button>
-        </div>
-        </div>
+             <button type="button" class="btn btn-primary">Buy</button>
+              <img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="25" class="hello" alt=""/></a>
+          </div>
       </div>
-      <div class="col-md-4">
+    </div>
+  </div>
+      <!-- <div class="col-md-4">
       <div class="card bg-white border-white" style="width:17rem;height:20rem">
-          <img class="card-img-top" src="..." alt="Card image cap">
+          <img class="card-img-top" src="images/mini carousel/package3.png" alt="Card image cap">
             <div class="card-body">
               <div class="card-title"><h5>Six Months</h5></div>
               Buying this package will allow you to upload endlessly for six months
             </div>
             <div class="card-footer">
-              <button type="button" class="btn btn-primary">Primary</button>
+              <button type="button" class="btn btn-primary">Buy</button>
           </div>
           </div>
     </div>
@@ -80,13 +81,12 @@
             Buying this package will allow you to upload endlessly for one year
           </div>
           <div class="card-footer">
-            <button type="button" class="btn btn-primary">Primary</button>
+            <button type="button" class="btn btn-primary">Buy</button>
+          </div>
         </div>
-        </div>
+      </div> -->
+    </div>
   </div>
-</div>
-</div>
-
 
 
 @endsection

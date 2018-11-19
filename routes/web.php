@@ -17,13 +17,15 @@ Route::get('/photography', 'PhotographyController@index');
 Route::get('/illustrations', 'IllustrationsController@index');
 Route::get('/3DArt', 'ThreeDArtController@index');
 Route::get('/', 'HomepageController@index')->name('home');
-Route::get('/photography/colors/{color}/{categoryid}', 'FilterController@index');
-Route::get('/illustrations/colors/{color}/{categoryid}', 'FilterController@illustrations');
-Route::get('/3DArt/colors/{color}/{categoryid}', 'FilterController@ThreeDArt');
+Route::get('/photography/colors/{color}', 'FilterController@index');
 
+//Orders
 Route::resource('/address', 'AddressController');
-Route::post('/createPayment', 'PaymentController@createPayment')->name('payments.create');
-Route::get('/webhooks/mollie', 'WebhookController@mollie')->name('webhooks.mollie');
+Route::post('/payment/create', 'PaymentController@createPayment')->name('payments.create');
+Route::get('/payment/thankyou/{ordernumber}', 'AddressController@finishPayment')->name('payments.end');
+Route::post('/payment/finish', 'AddressController@mollieWebhook')->name('webhooks.mollie');
+
+
 Route::resource('/description', 'HomepageController');
 // Cart pages
 Route::get('/addToCart/{id}', 'CartController@Create');
@@ -48,6 +50,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/statistics', 'StatisticsController@index');
     Route::get('/upload', 'UploadController@index');
     Route::post('/upload', 'UploadController@store');
+	Route::get('/orders/show', 'AccountController@showOrders')->name('orders.show');
 });
 
 //Route::get('/search', function (Request $request) {

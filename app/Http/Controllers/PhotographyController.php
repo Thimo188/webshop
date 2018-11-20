@@ -43,22 +43,4 @@ class PhotographyController extends Controller
   {
     $product = Product::find($id);
   }
-  public function index2(Request $request, Color $color) {
-
-    if (!empty($request->search)) {
-      $productsview=Product::searchproduct($request->search);
-    }
-
-    else {
-		$productsview = Product::with('ProductSizing', 'ProductTag','ProductImages')
-	    ->join('product_categories', 'products.id', '=' , 'product_categories.product_id')
-	    ->join('categories', 'categories.id' , '=' , 'product_categories.category_id')
-	    ->join('product_images', 'products.id', '=', 'product_images.product_id')
-	    ->where('product_categories.category_id' , '=', 1)
-	    ->paginate(9);
-    }
-    $colors = Color::all();
-
-    return view('photography', compact('productsview', 'colors'));
-  }
 }

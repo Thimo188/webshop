@@ -51,6 +51,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/subscription','SubscriptionController@index');
     Route::get('/statistics', 'StatisticsController@index');
     Route::get('/upload', 'UploadController@index');
+    Route::get('/gallery', 'GalleryController@index');
     Route::post('/upload', 'UploadController@store');
 	Route::get('/orders/show', 'AccountController@showOrders')->name('orders.show');
 });

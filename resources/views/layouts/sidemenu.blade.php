@@ -115,8 +115,8 @@
           <div class="card-body">
               <ul class="list-group">
                 <li class="mt-2 pb-1 border-0 list-group-item"><a href="{{url('/statistics')}}">Statistics</a></li>
-                <li class="pb-2 border-0 list-group-item"><a href="/Gallery.js">Gallery</a></li>
-                <li class="pb-2 border-0 list-group-item"><a href="{{ route('orders.show')}}">Bestellingen</a></li>
+                <li class="pb-2 border-0 list-group-item"><a href="{{url('/gallery')}}">Gallery</a></li>
+                <li class="pb-2 border-0 list-group-item"><a href="{{ route('orders.show')}}">Orders</a></li>
                 <li class="pb-2 border-0 list-group-item"><a href="{{url('/account')}}">Account Settings</a></li>
                 <li class="pb-2 border-0 list-group-item"><a href="{{url('/subscription')}}">Subscription</a></li>
               </ul>

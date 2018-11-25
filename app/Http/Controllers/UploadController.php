@@ -44,7 +44,11 @@ class UploadController extends Controller
      */
     public function store(Request $request)
     {
-
+		$subscription = Subscription::where('user_id', Auth::user()->id)->first();
+		$orders = Order::where('created_at', '>=', Carbon::now()->addMonths(-1))->count();
+		if($orders >= $subscription->amount) {
+			return redirect()->back()->withErrors(['msg', 'You have reached your subscription limit for this month']);
+		}
         $validatedData = $this->validate($request, [
           'name' => 'required|max:255',
           'description' => 'required|max:300',
@@ -54,7 +58,6 @@ class UploadController extends Controller
           'price' => 'required'
 
         ]);
-
 
         $product = new Product();
         $product->product_name=$validatedData['name'];

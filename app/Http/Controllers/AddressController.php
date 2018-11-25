@@ -135,7 +135,7 @@ class AddressController extends Controller
 	public function mollieWebhook(Request $request) {
 		// $order = Order::with('OrderDetail')->where('ordernumber', $ordernumber)->firstOrFail();
 		$payment = Mollie::api()->payments()->get($request->id);
-		$order = Order::where('payment', $request->id)->first();
+		$order = Order::with('Address')->where('payment', $request->id)->first();
 
 		if ($payment->isPaid() && !$payment->hasRefunds() && !$payment->hasChargebacks()) {
 	        /*
@@ -143,6 +143,7 @@ class AddressController extends Controller
 	         * At this point you'd probably want to start the process of delivering the product to the customer.
 	         */
 			 $order->status = 'paid';
+			 Mail::to($order->address->email)->send(new InvoiceEmail($order->id));
 	    } elseif ($payment->isOpen()) {
 	        /*
 	         * The payment is open.
@@ -169,8 +170,5 @@ class AddressController extends Controller
 			 $order->status = 'failed';
 	    }
 		$order->save();
-	}
-	public function sendMail() {
-		Mail::to('kaas@email.com')->send(new InvoiceEmail(17));
 	}
 }

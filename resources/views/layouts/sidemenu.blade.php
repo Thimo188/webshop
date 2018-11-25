@@ -7,12 +7,12 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>{{ config('app.name', 'Laravel') }}</title>
+  <title>MUZEN</title>
 
   <!-- Scripts -->
 
   <script src="{{ asset('js/app.js') }}"></script>
-  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
   <!-- Fonts -->
@@ -24,6 +24,12 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('css/normalize.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/ion.rangeSlider.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/ion.rangeSlider.skinFlat.css') }}" />
+  <script src="{{ asset('js/ion.rangeSlider.min.js') }}"></script>
+  <script src="{{ asset('js/webshop.js') }}"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 
 <!-- Navbar -->
 
@@ -38,24 +44,24 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-			<li class="nav-item">
-              <a class="nav-link" href="{{ url('/photography')}}">Photography<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/illustrations')}}">Illustrations</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('3DArt')}}">3DArt</a>
-            </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('/photography')}}">Photography<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('/illustrations')}}">Illustrations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('3DArt')}}">3DArt</a>
+          </li>
           </ul>
-          <form class="form-inline">
+          {{-- <form class="form-inline" action="{{route('search')}}" method="get">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
+          </form> --}}
           @guest
           <li class="nav-item dropdown-expand-sm">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img src="https://cdn1.iconfinder.com/data/icons/social-messaging-productivity-1-1/128/gender-male2-512.png" height="40" alt=""/>
+            <a class="nav-link dropdown-toggle top" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-user-circle"></i>
             </a>
             <div class="dropdown-menu">
               <form method="POST" action="{{ route('login') }}" class="px-4 py-3">
@@ -80,21 +86,20 @@
                 <button type="submit" class="btn btn-primary">Sign in</button>
               </form>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">New around here? Sign up</a>
+              <a class="dropdown-item" href="{{ url('/register') }}">New around here? Sign up</a>
               <a class="dropdown-item" href="#">Forgot password?</a>
             </div>
           </li>
           @else
           <li class="nav-item dropdown">
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-              {{ Auth::user()->name }} <span class="caret"></span>
+            <a id="navbarDropdown" class="nav-link dropdown-toggle top" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+              <i class="far fa-user-circle"></i> {{ Auth::user()->name }} <span class="caret"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{url('/account')}}">Account</a>
+              <a class="dropdown-item" href="{{url('/account')}}"><i class="fas fa-user"></i> Account</a>
               <a class="dropdown-item" href="{{ route('logout') }}"
               onclick="event.preventDefault();
-              document.getElementById('logout-form').submit();">
-              {{ __('Logout') }}
+              document.getElementById('logout-form').submit();"> <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
               @csrf
@@ -102,11 +107,14 @@
           </div>
         </li>
         @endguest
-        <a href="{{ url('/upload')}}"><img src="https://image.flaticon.com/icons/svg/16/16909.svg" height="37" alt=""/></a>
-        <a href="{{ url('/cart')}}"><img src="https://www.seoclerk.com/pics/want28565-1jLOM31435502711.png" height="37" alt=""/></a>
-        <a><img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="37" class="hello" alt=""/></a>
+        <div class="right-menu">
+    		<li class="fancy nav-item"><p class="fancy" id="search">Search</p><a href="{{ url('/photography')}}"><i class="fas fa-search top" id="searchicon"></i></a></li>
+            <li class="fancy nav-item"><p class="fancy" id="upload">Upload</p><a href="{{ url('/upload')}}"><i class="fas fa-plus-circle top" id="uploadicon"></i></a></li>
+            <li class="fancy nav-item"><p class="fancy" id="cart">Cart</p><a href="{{ url('/cart')}}"><i class="fas fa-shopping-cart top" id="carticon"></i></a></li>
+            <li class="fancy nav-item"><p class="fancy" id="wishlist">Wishlist</p><a href="{{ url('/wishlist')}}"><i class="far fa-heart top" id="wishlisticon"></i></a></li>
+        </div>
     </div>
-  </nav>
+  </nav>>
 
   <div class="container">
     <div class="row">

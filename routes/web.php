@@ -26,8 +26,6 @@ Route::resource('/address', 'AddressController');
 Route::post('/payment/create', 'PaymentController@createPayment')->name('payments.create');
 Route::get('/payment/thankyou/{ordernumber}', 'AddressController@finishPayment')->name('payments.end');
 Route::post('/payment/finish', 'AddressController@mollieWebhook')->name('webhooks.mollie');
-Route::get('/testemail', 'AddressController@sendMail');
-
 
 Route::resource('/description', 'HomepageController');
 // Cart pages
@@ -49,13 +47,16 @@ Route::get('/cart', 'CartController@index');
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/account','AccountController@index');
-    Route::get('/subscription','SubscriptionController@index');
+    Route::get('/subscription','SubscriptionController@index')->name('subscriptions.show');
+	Route::get('/subscription/buy/{id}', 'SubscriptionController@buySubscription')->name('subscription.buy');
+	Route::get('/subscription/buy/end', 'SubscriptionController@redirect')->name('subscription.redirect');
     Route::get('/statistics', 'StatisticsController@index');
     Route::get('/upload', 'UploadController@index');
     Route::get('/gallery', 'GalleryController@index');
     Route::post('/upload', 'UploadController@store');
 	Route::get('/orders/show', 'AccountController@showOrders')->name('orders.show');
 });
+Route::post('/subscription/payment/finish', 'SubscriptionController@mollieWebhook')->name('webhooks.subscription');
 
 //Route::get('/search', function (Request $request) {
   //  return App\Product::search($request->search)->get();

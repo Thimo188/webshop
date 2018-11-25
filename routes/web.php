@@ -26,6 +26,7 @@ Route::resource('/address', 'AddressController');
 Route::post('/payment/create', 'PaymentController@createPayment')->name('payments.create');
 Route::get('/payment/thankyou/{ordernumber}', 'AddressController@finishPayment')->name('payments.end');
 Route::post('/payment/finish', 'AddressController@mollieWebhook')->name('webhooks.mollie');
+Route::get('/testemail', 'AddressController@sendMail');
 
 
 Route::resource('/description', 'HomepageController');

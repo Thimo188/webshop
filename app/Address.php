@@ -11,5 +11,8 @@ class Address extends Model
       'zipcode',
       'place',
       'country_id'
-    ];
+  ];
+  public function Country() {
+	  return $this->belongsTo('App\Country');
+  }
 }

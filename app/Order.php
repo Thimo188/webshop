@@ -13,4 +13,7 @@ class Order extends Model
     {
       return $this->hasOne('App\Order_Detail');
     }
+	public function Address() {
+		return $this->belongsTo('App\Address');
+	}
 }

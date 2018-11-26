@@ -49,9 +49,13 @@ class Product extends Model
   {
     return $this->hasOne('App\Order_Detail');
   }
+
+  public function ProductUser()
+  {
+    return $this->hasOne('App\User');
+  }
   public function ProductColors()
   {
-        # mag veranderd worden, werkt miss niet
     return $this->belongsToMany('App\Color', 'product_colors')
       ->using('App\Pivots\Product_colors');
   }

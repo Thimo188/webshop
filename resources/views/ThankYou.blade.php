@@ -27,7 +27,7 @@
 
 				@foreach($orderDetails as $details)
 				<tr>
-					<td><img src="{{asset($details->product->ProductImages->file)}}"></td>
+					<td><img style="max-width: 100px; max-height: 100px;" src="{{asset($details->product->ProductImages->file)}}"></td>
 					<td>{{$details->product->product_name}}</td>
 				</tr>
 				@endforeach

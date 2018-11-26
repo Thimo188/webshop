@@ -31,4 +31,8 @@ class User extends Authenticatable
     public function Wishlist() {
       return $this->hasOne('App\Wishlist');
     }
+    public function UserProduct()
+    {
+    return $this->belongsToMany('App\Product');
+    }
 }

@@ -53,6 +53,8 @@
 						<label for="quantity">Zipcode:</label>
 						<input type="text" class="form-control" name="zipcode" required />
 					</div>
+					<label for="name">Email:</label>
+					<input type="email" class="form-control" name="email" required />
 					<hr class="mb-4">
 
 					<button type="submit" class="btn btn-primary">Continue to checkout</button>

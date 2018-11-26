@@ -47,6 +47,20 @@ Route::get('/cart', 'CartController@index');
 
 
 Route::group(['middleware' => 'auth'], function() {
+
+
+// nieuwe shit
+    Route::get('/editmail','EditEmailController@index');
+    Route::post('/editmail','EditEmailController@editEmail')->name('editEmail');
+
+    Route::resource('/addaddress', 'AddAddressController');
+
+    Route::resource('/changepassword','ChangePasswordController');
+    Route::post('/changepassword', 'ChangePasswordController@changePassword')->name('changePassword');
+//nieuwe shit
+
+
+
     Route::get('/account','AccountController@index');
     Route::get('/subscription','SubscriptionController@index');
     Route::get('/statistics', 'StatisticsController@index');

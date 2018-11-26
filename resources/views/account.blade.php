@@ -52,8 +52,9 @@
                            <div class="card h-100 bg-white border-white">
                              <div class="card-header">Account Preferences</div>
                              <div class="card-body">
-                               <a href="#" class="btn">Change Password</a>
-                               <a href="#" class="btn">Privacy</a>
+                               <a href={{ url('/changepassword') }} class="btn">Change Password</a>
+                               <a href={{ url('/addaddress') }} class="btn">Add address</a>
+                                <a href={{ url('/editmail') }} class="btn">Edit mail</a>
                               </div>
                            </div>
                          </div>

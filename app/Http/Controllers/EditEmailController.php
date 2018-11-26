@@ -16,17 +16,16 @@ class EditEmailController extends Controller
     }
 
 
-    public function editEmail(Request $request, $id)
+    public function editEmail(Request $request)
     {
       $validatedData = $request->validate([
-        'new-email' => 'required|email|min:2|exists:users',
+        'email' => 'required|email|min:2',
       ]);
 
-            dd($request->all());
 
-      $user = Auth::user();
-      $user->email = $request->get('new-email');
-      $user->update();
+      $user = User::find(Auth::user()->id);
+      $user->email = $request->email;
+      $user->save();
 
       return redirect (url('/account'));
 

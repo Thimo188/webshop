@@ -21,8 +21,8 @@
 				<form class="form-horizontal" method="POST" action="{{ route('editEmail') }}">
           @csrf
         <div class="form-group">
-          <label for="new-mail">Please enter your new email address</label>
-          <input id=new-email type="text" class="form-control" name="new-email" required/>
+          <label for="email">Please enter your new email address</label>
+          <input id="email" type="text" class="form-control" name="email" required/>
 				</div>
 
 

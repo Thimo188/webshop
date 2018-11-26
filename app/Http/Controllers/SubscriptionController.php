@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Subscription;
 use Carbon\Carbon;
 use Auth;
+use Mollie;
 
 class SubscriptionController extends Controller
 {

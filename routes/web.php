@@ -66,7 +66,8 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('/subscription/buy/end', 'SubscriptionController@redirect')->name('subscription.redirect');
     Route::get('/statistics', 'StatisticsController@index');
     Route::get('/upload', 'UploadController@index');
-    Route::resource('gallery','GalleryController');
+    Route::resource('/gallery','GalleryController');
+    Route::get('/removeGallery/{id}','GalleryController@destroy')->name('gallery.destroy');
     Route::post('/upload', 'UploadController@store');
 	Route::get('/orders/show', 'AccountController@showOrders')->name('orders.show');
 });

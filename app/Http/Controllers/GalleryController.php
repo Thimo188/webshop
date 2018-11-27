@@ -86,9 +86,7 @@ class GalleryController extends Controller
        */
       public function destroy($id)
       {
-         $product = Product::find($id);
-         $product->delete();
+         Product::findOrFail($id)->delete();
 
-         return redirect('/gallery')->with('success', 'Stock has been deleted Successfully');
-      }
+         return redirect(url('/gallery'));}
 }

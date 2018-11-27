@@ -10,13 +10,13 @@ class HomepageController extends Controller
   public function index() {
 
     # Query for getting the popular products on homepage
-	$productspopular = Product::with('ProductSizing', 'ProductTag','ProductImages','ProductUser')
+	$productspopular = Product::with('ProductSizing', 'ProductTag','ProductImages')
 	->orderBy('product_name', 'desc')
 	->take(4)
 	->get();
 
     # Query for getting latest products on homepage
-	$productslatest = Product::with('ProductSizing', 'ProductTag','ProductImages', 'ProductUser')
+	$productslatest = Product::with('ProductSizing', 'ProductTag','ProductImages')
 	->orderBy('created_at', 'desc')
 	->take(4)
 	->get();

@@ -20,7 +20,7 @@
       <p=class="description">
       <i>Artist: Karel</i>
     </p>
-    <h2 class="product-price">$129.00</h2>
+    <h2 class="product-price">€{{$product->price}}</h2>
     <a href="{{ url('/addToCart', $id) }}" class="btn btn-lg btn-primary">
       Add to Cart
     </a>

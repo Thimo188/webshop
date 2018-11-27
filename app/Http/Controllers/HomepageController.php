@@ -4,18 +4,19 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Product_Tag;
 use App\Product_Size;
+use App\User;
 class HomepageController extends Controller
 {
   public function index() {
 
     # Query for getting the popular products on homepage
-	$productspopular = Product::with('ProductSizing', 'ProductTag','ProductImages')
+	$productspopular = Product::with('ProductSizing', 'ProductTag','ProductImages','ProductUser')
 	->orderBy('product_name', 'desc')
 	->take(4)
 	->get();
 
     # Query for getting latest products on homepage
-	$productslatest = Product::with('ProductSizing', 'ProductTag','ProductImages')
+	$productslatest = Product::with('ProductSizing', 'ProductTag','ProductImages', 'ProductUser')
 	->orderBy('created_at', 'desc')
 	->take(4)
 	->get();

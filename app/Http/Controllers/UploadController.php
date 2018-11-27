@@ -68,7 +68,7 @@ class UploadController extends Controller
         $product->product_name=$validatedData['name'];
         $product->product_description=$validatedData['description'];
         $product->price=$validatedData['price'];
-		$product->user_id = Auth::user()->id;
+		    $product->user_id = Auth::user()->id;
         $product->save();
 
 

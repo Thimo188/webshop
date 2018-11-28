@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Product_Tag;
 use App\Product_Size;
+
 class HomepageController extends Controller
 {
   public function index() {

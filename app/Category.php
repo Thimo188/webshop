@@ -12,4 +12,10 @@ class Category extends Model
     return $this->belongsToMany('App\Product', 'product_categories')
     ->using('App\Pivots\product_categories');
   }
+
+  public function GetRouteKeyName()
+  {
+    return 'name';
+  }
+  
 }

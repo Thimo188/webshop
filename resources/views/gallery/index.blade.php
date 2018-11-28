@@ -19,8 +19,9 @@
         <div class="card-footer">
           <a href="/description/{{$product->id}}" class="btn btn-primary">Visit</a>
           <p style="float: right">€ {{ number_format($product->price, 2,'.',',')}}</p>
-          <a href="{{ Route('wishlist.add', $product->id) }}" class="btn btn-lg btn-light">
-            <img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="25" class="hello" alt=""/></a>
+          <a href="{{ Route('gallery.edit', $product->id) }}"  class="fas fa-edit fa-2x"></a>
+          <a href="{{ Route('gallery.destroy', $product->id)}}" class="fas fa-trash-alt fa-2x">
+        </a>
         </div>
       </div>
     </div>

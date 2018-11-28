@@ -14,7 +14,7 @@
         <img class="d-block w-100" src="images/mini carousel/package1.png" alt="First slide">
         <div class="carousel-caption d-none d-md-block">
           <div class="img-overlay">
-          <a href="#" class="btn btn-primary">BUY</a>
+          <a href="{{ route('subscription.buy', 1)}}" class="btn btn-primary">BUY</a>
         </div>
         </div>
       </div>
@@ -22,7 +22,7 @@
         <img class="d-block w-100" src="images/mini carousel/package2.png" alt="Second slide">
         <div class="carousel-caption d-none d-md-block">
           <div class="img-overlay">
-          <a href="#" class="btn btn-primary">BUY</a>
+          <a href="{{ route('subscription.buy', 2)}}" class="btn btn-primary">BUY</a>
         </div>
         </div>
       </div>
@@ -30,7 +30,7 @@
         <img class="d-block w-100" src="images/mini carousel/package3.png" alt="Third slide">
         <div class="carousel-caption d-none d-md-block">
           <div class="img-overlay">
-          <a href="#" class="btn btn-primary">BUY</a>
+          <a href="{{ route('subscription.buy', 3)}}" class="btn btn-primary">BUY</a>
         </div>
         </div>
 
@@ -49,13 +49,36 @@
   <div class="row">
     <div class="col-md-4">
       <div class="card">
+      <img class="card-img-top" src="images/mini carousel/package1.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">One month</h5>
+        </div>
+          <div class="card-footer">
+             <a href="{{ route('subscription.buy', 1)}}" class="btn btn-primary">Buy</button>
+              <img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="25" class="hello" alt=""/></a>
+          </div>
+      </div>
+    </div>
+	<div class="col-md-4">
+      <div class="card">
+      <img class="card-img-top" src="images/mini carousel/package2.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">One month</h5>
+        </div>
+          <div class="card-footer">
+             <a href="{{ route('subscription.buy', 2)}}" class="btn btn-primary">Buy</button>
+              <img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="25" class="hello" alt=""/></a>
+          </div>
+      </div>
+    </div>
+	<div class="col-md-4">
+      <div class="card">
       <img class="card-img-top" src="images/mini carousel/package3.png" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">One month</h5>
-          <p class="card-text">For this oiasjndosandlasiduksnadkjands</p>
         </div>
           <div class="card-footer">
-             <button type="button" class="btn btn-primary">Buy</button>
+             <a href="{{ route('subscription.buy', 3)}}" class="btn btn-primary">Buy</button>
               <img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="25" class="hello" alt=""/></a>
           </div>
       </div>

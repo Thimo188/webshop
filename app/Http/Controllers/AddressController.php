@@ -11,6 +11,8 @@ use App\Country;
 use App\Order;
 use App\OrderDetail;
 use Mollie;
+use Mail;
+use App\Mail\InvoiceEmail;
 
 class AddressController extends Controller
 {
@@ -55,6 +57,7 @@ class AddressController extends Controller
           	'streetname'=>'required|min:2',
           	'zipcode'=>'required|min:5',
           	'place'=>'required|min:2',
+			'email' => 'required|min:2',
           	'country'=>'required'
         ]);
 
@@ -70,6 +73,7 @@ class AddressController extends Controller
         $address->zipcode=$validatedData['zipcode'];
         $address->place=$validatedData['place'];
         $address->country_id=$validatedData['country'];
+		$address->email=$validatedData['email'];
 
         $address->save();
 
@@ -131,7 +135,7 @@ class AddressController extends Controller
 	public function mollieWebhook(Request $request) {
 		// $order = Order::with('OrderDetail')->where('ordernumber', $ordernumber)->firstOrFail();
 		$payment = Mollie::api()->payments()->get($request->id);
-		$order = Order::where('payment', $request->id)->first();
+		$order = Order::with('Address')->where('payment', $request->id)->first();
 
 		if ($payment->isPaid() && !$payment->hasRefunds() && !$payment->hasChargebacks()) {
 	        /*
@@ -139,6 +143,7 @@ class AddressController extends Controller
 	         * At this point you'd probably want to start the process of delivering the product to the customer.
 	         */
 			 $order->status = 'paid';
+			 Mail::to($order->address->email)->send(new InvoiceEmail($order->id));
 	    } elseif ($payment->isOpen()) {
 	        /*
 	         * The payment is open.
@@ -166,5 +171,4 @@ class AddressController extends Controller
 	    }
 		$order->save();
 	}
-
 }

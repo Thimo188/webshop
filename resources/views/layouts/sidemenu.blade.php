@@ -7,7 +7,7 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>{{ config('app.name', 'Laravel') }}</title>
+  <title>MUZEN</title>
 
   <!-- Scripts -->
 
@@ -30,6 +30,7 @@
   <script src="{{ asset('js/ion.rangeSlider.min.js') }}"></script>
   <script src="{{ asset('js/webshop.js') }}"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
 <!-- Navbar -->
 
 </head>
@@ -43,15 +44,15 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-			<li class="nav-item">
-              <a class="nav-link" href="{{ url('/photography')}}">Photography<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/illustrations')}}">Illustrations</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('3DArt')}}">3DArt</a>
-            </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('/photography')}}">Photography<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('/illustrations')}}">Illustrations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('3DArt')}}">3DArt</a>
+          </li>
           </ul>
           {{-- <form class="form-inline" action="{{route('search')}}" method="get">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -113,7 +114,7 @@
             <li class="fancy nav-item"><p class="fancy" id="wishlist">Wishlist</p><a href="{{ url('/wishlist')}}"><i class="far fa-heart top" id="wishlisticon"></i></a></li>
         </div>
     </div>
-  </nav>
+  </nav>>
 
   <div class="container">
     <div class="row">

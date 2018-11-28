@@ -27,7 +27,6 @@ Route::post('/payment/create', 'PaymentController@createPayment')->name('payment
 Route::get('/payment/thankyou/{ordernumber}', 'AddressController@finishPayment')->name('payments.end');
 Route::post('/payment/finish', 'AddressController@mollieWebhook')->name('webhooks.mollie');
 
-
 Route::resource('/description', 'HomepageController');
 // Cart pages
 Route::get('/addToCart/{id}', 'CartController@Create');
@@ -47,14 +46,32 @@ Route::get('/cart', 'CartController@index');
 
 
 Route::group(['middleware' => 'auth'], function() {
+
+
+// nieuwe shit
+    Route::get('/editmail','EditEmailController@index');
+    Route::post('/editmail','EditEmailController@editEmail')->name('editEmail');
+
+    Route::resource('/addaddress', 'AddAddressController');
+
+    Route::resource('/changepassword','ChangePasswordController');
+    Route::post('/changepassword', 'ChangePasswordController@changePassword')->name('changePassword');
+//nieuwe shit
+
+
+
     Route::get('/account','AccountController@index');
-    Route::get('/subscription','SubscriptionController@index');
+    Route::get('/subscription','SubscriptionController@index')->name('subscriptions.show');
+	Route::get('/subscription/buy/{id}', 'SubscriptionController@buySubscription')->name('subscription.buy');
+	Route::get('/subscription/buy/end', 'SubscriptionController@redirect')->name('subscription.redirect');
     Route::get('/statistics', 'StatisticsController@index');
     Route::get('/upload', 'UploadController@index');
-    Route::get('/gallery', 'GalleryController@index');
+    Route::resource('/gallery','GalleryController');
+    Route::get('/removeGallery/{id}','GalleryController@destroy')->name('gallery.destroy');
     Route::post('/upload', 'UploadController@store');
 	Route::get('/orders/show', 'AccountController@showOrders')->name('orders.show');
 });
+Route::post('/subscription/payment/finish', 'SubscriptionController@mollieWebhook')->name('webhooks.subscription');
 
 //Route::get('/search', function (Request $request) {
   //  return App\Product::search($request->search)->get();

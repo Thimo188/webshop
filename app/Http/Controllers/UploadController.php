@@ -13,13 +13,14 @@ use App\Product;
 use App\Product_Image;
 use App\OrderDetail;
 use App\Product_Tag;
+use App\Subscription;
+use Auth;
+use App\Order;
+use Carbon\Carbon;
 use App\Category;
-use App\Pivots\Product_categories;
 use App\Color;
 use App\Product_Category;
 use App\Product_Color;
-//use App\Category;
-use DB;
 
 class UploadController extends Controller
 {
@@ -54,7 +55,13 @@ class UploadController extends Controller
      */
     public function store(Request $request)
     {
-
+		$subscription = Subscription::where('user_id', Auth::user()->id);
+		$orders = Order::where('created_at', '>=', Carbon::now()->addMonths(-1))->count();
+		if($subscription->count() > 0) {
+			if($orders >= $subscription->get()->amount) {
+				return redirect()->back()->withErrors(['msg', 'You have reached your subscription limit for this month']);
+			}
+		}
         $validatedData = $this->validate($request, [
           'name' => 'required|max:255',
           'description' => 'required|max:300',
@@ -69,11 +76,11 @@ class UploadController extends Controller
 
         ]);
 
-
         $product = new Product();
         $product->product_name=$validatedData['name'];
         $product->product_description=$validatedData['description'];
         $product->price=$validatedData['price'];
+		    $product->user_id = Auth::user()->id;
         $product->save();
 
         //$user->roles()->attach($roleId);

@@ -20,8 +20,8 @@
           <a href="/description/{{$product->id}}" class="btn btn-primary">Visit</a>
           <p style="float: right">€ {{ number_format($product->price, 2,'.',',')}}</p>
           <a href="{{ Route('gallery.edit', $product->id) }}"  class="fas fa-edit fa-2x"></a>
-          <a href="{{ Route('gallery.destroy', $product->id)}}" class="fas fa-trash-alt fa-2x">
-        </a>
+
+          @if(Carbon\Carbon::parse($product->created_at)->diffInHours() < 24)<a href="{{ Route('gallery.destroy', $product->id)}}" class="fas fa-trash-alt fa-2x"></a>@endif
         </div>
       </div>
     </div>

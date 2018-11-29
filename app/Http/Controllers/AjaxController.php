@@ -15,8 +15,11 @@ class AjaxController extends Controller
 		} else {
 			$cartline = Cart::where('product_id', $request->productid)->where('user_id', Auth::user()->id)->firstOrFail();
 		}
-		$cartline->amount = $request->amount;
-		$cartline->save();
-		dd($cartline);
+        if($request->amount != 0) {
+            $cartline->amount = $request->amount;
+            $cartline->save();
+        } else {
+            $cartline->delete();
+        }
 	}
 }

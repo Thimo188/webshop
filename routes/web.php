@@ -43,25 +43,15 @@ Route::get('/sidemenu', 'SidemenuController@index');
 Route::get('/account','AccountController@index');
 Route::get('/cart', 'CartController@index');
 
-
-
 Route::group(['middleware' => 'auth'], function() {
-
-
-// change PW and email
+    // change PW and email
     Route::get('/editmail','EditEmailController@index');
     Route::post('/editmail','EditEmailController@editEmail')->name('editEmail');
-
     Route::resource('/addaddress', 'AddAddressController');
-
     Route::resource('/changepassword','ChangePasswordController');
     Route::post('/changepassword', 'ChangePasswordController@changePassword')->name('changePassword');
-
-// Admin chart stuff
+    // Admin chart stuff
     Route::get('/charts', 'ChartController@index')->name('chart.index');
-
-
-
     Route::get('/account','AccountController@index');
     Route::get('/subscription','SubscriptionController@index')->name('subscriptions.show');
   	Route::get('/subscription/buy/{id}', 'SubscriptionController@buySubscription')->name('subscription.buy');
@@ -74,18 +64,10 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('/orders/show', 'AccountController@showOrders')->name('orders.show');
 });
 Route::post('/subscription/payment/finish', 'SubscriptionController@mollieWebhook')->name('webhooks.subscription');
-
-//Route::get('/search', function (Request $request) {
-  //  return App\Product::search($request->search)->get();
-//});
-
 Route::get('/search',          'SearchController@search')->name('search');
 Route::get('/product/{id}',  'SearchController@product');
-
-
-	Route::get('/admin', 'AdminController@index');
-  Route::get('/adminproducts', 'AdminController@adminProducts');
 Route::group(['middleware' => 'admin'], function() {
-
+    Route::get('/admin', 'AdminController@index');
+    Route::get('/adminproducts', 'AdminController@adminProducts');
 });
 Auth::routes();

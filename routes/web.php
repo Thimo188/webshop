@@ -48,7 +48,7 @@ Route::get('/cart', 'CartController@index');
 Route::group(['middleware' => 'auth'], function() {
 
 
-// nieuwe shit
+// change PW and email
     Route::get('/editmail','EditEmailController@index');
     Route::post('/editmail','EditEmailController@editEmail')->name('editEmail');
 
@@ -56,14 +56,16 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::resource('/changepassword','ChangePasswordController');
     Route::post('/changepassword', 'ChangePasswordController@changePassword')->name('changePassword');
-//nieuwe shit
+
+// Admin chart stuff
+    Route::get('/charts', 'ChartController@index')->name('chart.index');
 
 
 
     Route::get('/account','AccountController@index');
     Route::get('/subscription','SubscriptionController@index')->name('subscriptions.show');
-	Route::get('/subscription/buy/{id}', 'SubscriptionController@buySubscription')->name('subscription.buy');
-	Route::get('/subscription/buy/end', 'SubscriptionController@redirect')->name('subscription.redirect');
+  	Route::get('/subscription/buy/{id}', 'SubscriptionController@buySubscription')->name('subscription.buy');
+  	Route::get('/subscription/buy/end', 'SubscriptionController@redirect')->name('subscription.redirect');
     Route::get('/statistics', 'StatisticsController@index');
     Route::get('/upload', 'UploadController@index');
     Route::resource('/gallery','GalleryController');
@@ -81,8 +83,9 @@ Route::get('/search',          'SearchController@search')->name('search');
 Route::get('/product/{id}',  'SearchController@product');
 
 
-
-Route::group(['middleware' => 'admin'], function() {
 	Route::get('/admin', 'AdminController@index');
+  Route::get('/adminproducts', 'AdminController@adminProducts');
+Route::group(['middleware' => 'admin'], function() {
+
 });
 Auth::routes();

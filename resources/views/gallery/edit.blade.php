@@ -25,18 +25,18 @@
         @csrf
         <div class="form-group">
           <label for="name">Product name:</label>
-          <input type="text" class="form-control" name="name" value={{ $product->product_name }} />
+          <input type="text" class="form-control" name="name" value="{{ $product->product_name }}" />
         </div>
         <div class="form-group">
           <label for="price">Product description:</label>
-          <input type="text" class="form-control" name="description" value={{ $product->product_description }} />
+          <input type="text" class="form-control" name="description" value=" {{ $product->product_description}}" />
         </div>
         <div class="form-group">
           <label for="quantity">Product price:</label>
-          <input type="text" class="form-control" name="price" value={{ $product->price }} />
+          <input type="text" class="form-control" name="price" value="{{ $product->price }}" />
         </div>
         <label for="exampleSelect2">Select Tags</label>
-				<select multiple class="form-control" name="tags" id="exampleSelect2" value={{ $product->ProductTag->name}}/>
+				<select multiple class="form-control" name="tags" id="exampleSelect2" value="{{ $product->ProductTag->name}}"/>
 					<option>Black/White</option>
 					<option>Abstract</option>
 					<option></option>

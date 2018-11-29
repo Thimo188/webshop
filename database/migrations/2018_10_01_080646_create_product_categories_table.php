@@ -22,7 +22,7 @@ class CreateProductCategoriesTable extends Migration
 
         Schema::table('product_categories', function (Blueprint $table) {
             $table->foreign('category_id')->references('id')->on('categories')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-            $table->foreign('product_id')->references('id')->on('products')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 

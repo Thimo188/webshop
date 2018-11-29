@@ -17,6 +17,11 @@ use App\Subscription;
 use Auth;
 use App\Order;
 use Carbon\Carbon;
+use App\Category;
+use App\Color;
+use App\Product_Category;
+use App\Product_Color;
+
 class UploadController extends Controller
 {
     /**
@@ -26,7 +31,9 @@ class UploadController extends Controller
      */
     public function index()
     {
-        return view('upload_form');
+        $category_list = Category::all();
+        $colors = Color::all();
+        return view('upload_form', compact('category_list', $category_list, 'colors', $colors));
     }
 
     /**
@@ -36,6 +43,7 @@ class UploadController extends Controller
      */
     public function create()
     {
+
         return view('upload_form');
     }
 
@@ -59,8 +67,12 @@ class UploadController extends Controller
           'description' => 'required|max:300',
           'photos' => 'required',
           'photos.*' => 'image|mimes:jpeg,bmp,png,jpg',
-          'tags' => 'required',
-          'price' => 'required'
+          'Tag1' => 'required',
+          'Tag2' => 'required',
+          'price' => 'required',
+          'optcategory' => 'required',
+          'optcolor' => 'required',
+          //'product_categories' => 'required'
 
         ]);
 
@@ -71,9 +83,27 @@ class UploadController extends Controller
 		    $product->user_id = Auth::user()->id;
         $product->save();
 
+        //$user->roles()->attach($roleId);
+
+
+        $product_category = new Product_Category();
+        $product_category->category_id=$validatedData['optcategory'];
+        $product_category->product_id=$product->id;
+        $product_category->save();
+        //dd($request->all());
+
+        $product_color = new Product_Color();
+        $product_color->color_id=$validatedData['optcolor'];
+        $product_color->product_id=$product->id;
+        $product_color->save();
 
         $product_tag = new Product_Tag();
-        $product_tag->name=$validatedData['tags'];
+        $product_tag->name=$validatedData['Tag1'];
+        $product_tag->product_id=$product->id;
+        $product_tag->save();
+
+        $product_tag = new Product_Tag();
+        $product_tag->name=$validatedData['Tag2'];
         $product_tag->product_id=$product->id;
         $product_tag->save();
 
@@ -89,10 +119,6 @@ class UploadController extends Controller
           return redirect(url('/upload'));
 
 
-      //  $order_detail = new Order_Detail();
-      //  $order_detail->product_price=$validatedData['price'];
-      //  $order_detail->product_id=$product->id;
-      //  $order_detail->save();
 
 
 
@@ -114,7 +140,8 @@ class UploadController extends Controller
      */
     public function show($id)
     {
-        //
+
+
 
     }
     /**

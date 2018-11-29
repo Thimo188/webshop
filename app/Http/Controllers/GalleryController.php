@@ -7,6 +7,8 @@ use App\Product;
 use Auth;
 use App\Product_Tag;
 use App\Product_Size;
+use App\ProductImages;
+
 
 class GalleryController extends Controller
 {
@@ -86,7 +88,12 @@ class GalleryController extends Controller
        */
       public function destroy($id)
       {
-         Product::findOrFail($id)->delete();
+        $product = Product::find($id);
+        $product->ProductImages()->delete();
+        $product->ProductColor()->delete();
+        $product->ProductTag()->delete();
+        $product->ProductCategory()->delete();
+        $product->delete();
 
          return redirect(url('/gallery'));}
 }

@@ -59,9 +59,17 @@ class Product extends Model
     return $this->belongsToMany('App\Color', 'product_colors')
       ->using('App\Pivots\Product_colors');
   }
+  public function ProductColor()
+  {
+    return $this->hasOne('App\Product_Color');
+  }
   public function ProductCategories()
   {
     return $this->belongsToMany('App\Category', 'product_categories')
       ->using('App\Pivots\Product_categories');
+  }
+  public function ProductCategory()
+  {
+    return $this->hasOne('App\Product_Category');
   }
 }

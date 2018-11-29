@@ -33,13 +33,32 @@ class AdminController extends Controller
           ->responsive(true);
           //->groupByMonth(date('Y'), true);
 
+  $Soldproducts = DB::table('order_details')
+  ->join('products', 'order_details.product_id', '=', 'products.id')
+  ->select('order_details.product_id', DB::raw('SUM(order_details.amount)as total'))
+  ->groupBy('order_details.product_id')
+  ->orderBy('total','desc')
+  ->take(5)
+  ->pluck('total')->toArray();
+
+
+
+  $SoldName = DB::table('order_details')
+  ->join('products', 'order_details.product_id', '=' , 'products.id')
+  ->select('order_details.product_id','products.product_name', DB::raw('SUM(order_details.amount)as total'))
+  ->groupBy('order_details.product_id', 'products.product_name')
+  ->orderBy('total', 'desc')
+  ->take(5)
+  ->pluck('products.product_name')->toArray();
 
   $pie_chart = Charts::create('pie', 'highcharts')
-      ->title('Pie Chart Demo')
-      ->labels($productsArray)
-      ->values([15,25,50])
+      ->title('Products sold')
+      ->labels($SoldName)
+      ->values($Soldproducts)
       ->dimensions(1500,500)
       ->responsive(true);
+
+
 
 
   $line_chart = Charts::create('line', 'highcharts')

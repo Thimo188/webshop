@@ -67,7 +67,8 @@
 <!-- charts -->
 
 <div class="col-md-6">
-   {!! $chart->html() !!}
+   {!! $pie_chart->html() !!}
+</div>
 </div>
 </div>
 
@@ -83,8 +84,7 @@
 </script>
 
 {!! Charts::scripts() !!}
-{!! $chart->script() !!}
+{!! $pie_chart->script() !!}
 
-{!! $chart->script() !!}
 
 @endsection

@@ -7,20 +7,18 @@ use App\Product;
 use Auth;
 use App\Product_Tag;
 use App\Product_Size;
+use App\ProductImages;
+use Carbon\Carbon;
 
 class GalleryController extends Controller
 {
   public function index() {
-
-
-    $id = Auth::user()->id;
     $productsgallery = Product::with('ProductSizing', 'ProductTag','ProductImages')
     ->join('users', 'users.id', '=', 'products.user_id')
     ->join('product_images', 'products.id', '=', 'product_images.product_id')
-    ->where('user_id', $id)
+    ->where('user_id', Auth::user()->id)
   	->orderBy('product_name', 'desc')
   	->paginate(9);
-
     return view('gallery.index', compact('productsgallery'));
   }
 
@@ -86,7 +84,12 @@ class GalleryController extends Controller
        */
       public function destroy($id)
       {
-         Product::findOrFail($id)->delete();
+        $product = Product::find($id);
+        $product->ProductImages()->delete();
+        $product->ProductColor()->delete();
+        $product->ProductTag()->delete();
+        $product->ProductCategory()->delete();
+        $product->delete();
 
          return redirect(url('/gallery'));}
 }

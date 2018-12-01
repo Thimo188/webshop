@@ -48,7 +48,7 @@
 							<td><a href="#" class="btn btn-primary"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
 							<td colspan="3" class="hidden-xs"></td>
 							<td class="hidden-xs text-center"><strong id="totalPrice"></strong></td>
-							<td><a href="{{ url('/address') }}" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+							<td>@if($cartlines->count() > 0)<a href="{{ url('/address') }}" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a>@endif</td>
 						</tr>
 					</tfoot>
 				</table>

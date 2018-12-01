@@ -114,7 +114,7 @@
             <li class="fancy nav-item"><p class="fancy" id="wishlist">Wishlist</p><a href="{{ url('/wishlist')}}"><i class="far fa-heart top" id="wishlisticon"></i></a></li>
         </div>
     </div>
-  </nav>>
+  </nav>
 
   <div class="container">
     <div class="row">

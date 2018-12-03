@@ -89,3 +89,8 @@ Route::group(['middleware' => 'admin'], function() {
 
 });
 Auth::routes();
+
+
+Route::group(['prefix' => 'admin2'], function () {
+    Voyager::routes();
+});

@@ -15,6 +15,7 @@ class SubscriptionController extends Controller
       return view('subscription');
     }
 	public function buySubscription($id) {
+        $totalprice = null;
 		if($id == 1)
 			$totalprice = 4.00;
 		if($id == 2)

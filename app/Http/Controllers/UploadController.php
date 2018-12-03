@@ -63,7 +63,7 @@ class UploadController extends Controller
         return redirect()->back()->withErrors(['msg', 'You have reached your subscription limit for this month']);
       }
     }
-    $validatedData = $this->validate($request, [
+    $validatedData = $request->validate([
       'name' => 'required|max:255',
       'description' => 'required|max:300',
       'photos' => 'required',
@@ -71,13 +71,22 @@ class UploadController extends Controller
       'Tag1' => 'required',
       'Tag2',
       'Tag3',
-      'price' => 'required',
+      'price' => 'required|min:1',
       'category' => 'required',
-      'color' => 'required',
-      //'product_categories' => 'required'
+      'color1' => 'required',
+      'color2',
+      'color3',
 
     ]);
-    //if $validatedData->fails = true then redirect with $errors
+
+
+    //if($validatedData->fails()){
+
+   //return Redirect::back()->withErrors($validatedData)->withInput();
+    //}
+
+
+
 
     $product = new Product();
     $product->product_name=$validatedData['name'];
@@ -85,6 +94,10 @@ class UploadController extends Controller
     $product->price=$validatedData['price'];
     $product->user_id = Auth::user()->id;
     $product->save();
+
+    //if ($product_price->validate() == 0) {
+      //return redirect()->back()->withErrors($product_price)->withInput();
+    //}
 
     //$user->roles()->attach($roleId);
 
@@ -96,7 +109,17 @@ class UploadController extends Controller
     //dd($request->all());
 
     $product_color = new Product_Color();
-    $product_color->color_id=$validatedData['color'];
+    $product_color->color_id=$validatedData['color1'];
+    $product_color->product_id=$product->id;
+    $product_color->save();
+
+    $product_color = new Product_Color();
+    $product_color->color_id=$validatedData['color2'];
+    $product_color->product_id=$product->id;
+    $product_color->save();
+
+    $product_color = new Product_Color();
+    $product_color->color_id=$validatedData['color3'];
     $product_color->product_id=$product->id;
     $product_color->save();
 

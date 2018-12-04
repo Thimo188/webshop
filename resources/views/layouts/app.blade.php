@@ -123,8 +123,8 @@
           <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
             <h3> Quick Links </h3>
             <ul>
-              <li> <a href="#"> F.A.Q </a> </li>
-              <li> <a href="#"> Contact </a> </li>
+              <li> <a href="{{ url('/faq')}}"> F.A.Q </a> </li>
+              <li> <a href="{{ url('/contact')}}"> Contact </a> </li>
               <li> <a href="#"> Orders & Delivery </a> </li>
               <li> <a href="#"> Payments </a> </li>
             </ul>

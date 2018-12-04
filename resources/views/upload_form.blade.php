@@ -98,11 +98,14 @@
         </div>
         <br />
         @foreach($category_list as $category)
+        <div class="input-group">
+
           <div class="form-check">
-            <label class="form-check-label">
+            <span class="input-group-addon">
               <input type="radio" class="form-check-input" name="category" value="{{$category->id}}">{{$category->name}}
-            </label>
+            </span>
           </div>
+        </div>
           @endforeach
         <small class="text-secondary">{{ $errors->first('category') }}</small>
         <br />

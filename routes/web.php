@@ -43,6 +43,15 @@ Route::get('/sidemenu', 'SidemenuController@index');
 Route::get('/account','AccountController@index');
 Route::get('/cart', 'CartController@index');
 
+// FOOTER
+Route::get('faq', function(){
+    return View('faq');
+});
+
+Route::get('contact', function(){
+  return View('contact');
+});
+
 Route::group(['middleware' => 'auth'], function() {
     // change PW and email
     Route::get('/editmail','EditEmailController@index');

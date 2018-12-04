@@ -72,3 +72,8 @@ Route::group(['middleware' => 'admin'], function() {
     Route::get('/adminproducts', 'AdminController@adminProducts');
 });
 Auth::routes();
+
+
+Route::group(['prefix' => 'admin2'], function () {
+    Voyager::routes();
+});

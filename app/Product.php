@@ -2,12 +2,15 @@
 namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 
 class Product extends Model
 {
   use Searchable;
+  use SoftDeletes;
+  protected $dates = ['deleted_at'];
 
   public function toSearchableArray()
 

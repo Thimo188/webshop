@@ -4,21 +4,25 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-4 mt-5">
+    <div class="col-md-12 mt-5">
 
-      <span class="align-text-center"><h2>FAQ</h2>
+      <span class="align-text-center" style="text-align:center"><h2>FAQ</h2>
         <h2>____</h2>
         <br />
-        WHAT IS SO SPECIAL ABOUT MUZEN?
+        <h4>WHAT IS SO SPECIAL ABOUT MUZEN?</h4>
         <br />
-        <br />
-        <p class="font-weight-bold">Muzen is an exceptional webshop that allows talented people to not only view,
-        enjoy and buy beautiful art, but also gives them the opportunity to sell their own.</p>
-
+        <div class="row justify-content-center">
+          <div class="col-md-4">
+        <b>Muzen is an exceptional webshop that allows talented people to not only view,
+        enjoy and buy beautiful art, but also gives them the opportunity to sell their own.</b>
+        </div>
+        </div>
+      </span>
     </div>
   </div>
 </div>
 
+<br />
 
 <div class="container">
   <div class="row">
@@ -36,7 +40,8 @@
 
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        The delivery time of your order depends on the individual production time of your chosen items. The vast majority of our products are made to order and can take up to 10 working days since they are produced individually for you after you place your order. We recommend that you check the relevant information on the item’s product page under the “Shipping Info” tab.
+        Once you place an order, you will also receive a confirmation Email that allows you to track your order from the beginning of the production to the delivery to your door!
       </div>
     </div>
   </div>
@@ -51,7 +56,9 @@
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        You can return everything you ordered from MUZEN within 100 days of receipt. Simply go to our contact form and send us a message about the product you want to return.
+        Don't forget to mention your ordernumber and a short explanation about your return reason.
+        Please note that we have to deduct the 4.90€ return cost from your refund, as all items have been produced individually for you.
       </div>
     </div>
   </div>
@@ -66,7 +73,12 @@
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        <p class="font-weight-bold">Cancellations: </p>
+        Unfortunately, cancellations are not possible after you have placed your order as we produce everything on demand and individually for you and the order information are automatically forwarded to our producer.
+        <br />
+        <br />
+        <p class="font-weight-bold">Order changes: </p>
+        As we produce all orders on demand and individually for you, orders cannot be changed or altered after they have been placed because your items go into production immediately.
       </div>
     </div>
   </div>
@@ -81,7 +93,8 @@
     </div>
     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        Unfortunately it's  not possible to cancel your subscription. Once your subscription is ordered and paid for, it's not possible to change your subscription.
+        When your subscription uploads are spent, you can always buy a new subscription.
       </div>
     </div>
   </div>

@@ -52,6 +52,10 @@ Route::get('contact', function(){
   return View('contact');
 });
 
+Route::get('privacypolicy', function(){
+  return View('privacypolicy');
+});
+
 Route::group(['middleware' => 'auth'], function() {
     // change PW and email
     Route::get('/editmail','EditEmailController@index');
@@ -71,8 +75,9 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/removeGallery/{id}','GalleryController@destroy')->name('gallery.destroy');
 
 	Route::get('/orders/show', 'AccountController@showOrders')->name('orders.show');
+  Route::post('/upload', 'UploadController@store')->name('upload.post');
 });
-Route::post('/upload', 'UploadController@store')->name('upload.post');
+
 Route::post('/subscription/payment/finish', 'SubscriptionController@mollieWebhook')->name('webhooks.subscription');
 Route::get('/search',          'SearchController@search')->name('search');
 Route::get('/product/{id}',  'SearchController@product');

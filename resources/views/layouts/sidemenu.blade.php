@@ -148,6 +148,7 @@
             <li> <a href="{{ url('contact')}}"> Contact </a> </li>
             <li> <a href="#"> Orders & Delivery </a> </li>
             <li> <a href="#"> Payments </a> </li>
+            <li> <a href="{{ url('/privacypolicy')}}"> Privacy Policy </a></li>
           </ul>
         </div>
       </div>

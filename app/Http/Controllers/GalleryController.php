@@ -8,6 +8,7 @@ use Auth;
 use App\Product_Tag;
 use App\Product_Size;
 use App\ProductImages;
+use App\User;
 use Carbon\Carbon;
 
 class GalleryController extends Controller
@@ -24,7 +25,7 @@ class GalleryController extends Controller
 
   public function show($id)
       {
-          //
+
       }
 
       /**

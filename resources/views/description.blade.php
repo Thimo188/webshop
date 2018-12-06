@@ -17,8 +17,10 @@
         {{$product->product_description}}
       </p>
       <!-- WHO IS THE AUTHOR -->
-      <p=class="description">
-      <i>Artist: Karel</i>
+      <p class="description">
+        <a href="/usergallery/{{$users->id}}">
+          {{$users->name}}
+        </a>
     </p>
     <h2 class="product-price">€{{$product->price}}</h2>
     <a href="{{ url('/addToCart', $id) }}" class="btn btn-lg btn-primary">

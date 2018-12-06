@@ -28,6 +28,8 @@ Route::get('/payment/thankyou/{ordernumber}', 'AddressController@finishPayment')
 Route::post('/payment/finish', 'AddressController@mollieWebhook')->name('webhooks.mollie');
 
 Route::resource('/description', 'HomepageController');
+Route::resource('/usergallery', 'GalleryController');
+
 // Cart pages
 Route::get('/addToCart/{id}', 'CartController@Create');
 Route::get('/cart/remove/{id}', 'CartController@Destroy');

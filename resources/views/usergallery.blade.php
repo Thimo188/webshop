@@ -1,7 +1,27 @@
-@extends ('layouts.sidemenu')
+@extends ('layouts.app')
 
 @section('content')
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mt-5">
+
+      <span class="align-text-center" style="text-align:center"><h2>{{$userid->name}}</h2>
+        <h2>____</h2>
+        <br />
+        <h4>A little bit about {{$userid->name}}</h4>
+        <br />
+        <div class="row justify-content-center">
+          <div class="col-md-4">
+        <b>I enjoy making websites with my teammates Omid, Charlie and Thimo even though I am better than them in every way possible!</b>
+        </div>
+        </div>
+      </span>
+    </div>
+  </div>
+</div>
+
+<br />
 
 <div id="index" class="container">
 	<div class="container mt-5">
@@ -9,7 +29,7 @@
 			<div class="col-md-12">
 				<div class="row">
 					@forelse($productsgallery as $product)
-					<div class="col-md-4 card-margin d-flex align-items-stretch">
+					<div class="col-lg-3 d-flex align-items-stretch">
 						<div class="card">
 							<img class="card-img-top" src="{{asset($product->ProductImages['file'])}}" alt="Card image cap">
 							<div class="card-body">
@@ -19,10 +39,7 @@
 							<div class="card-footer">
 								<a href="/description/{{$product->id}}" class="btn btn-primary">Visit</a>
 								<p style="float: right">€ {{ number_format($product->price, 2,'.',',')}}</p>
-								<a href="{{ Route('gallery.edit', $product->id) }}" class="fas fa-edit fa-2x"></a>
 
-								@if(Carbon\Carbon::parse($product->created_at)->diffInHours() < 24)<a href="{{ Route('gallery.destroy', $product->id)}}" class="fas fa-trash-alt fa-2x"></a>
-										@endif
 							</div>
 						</div>
 					</div>

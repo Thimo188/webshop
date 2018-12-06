@@ -3,7 +3,7 @@
 @section('content')
 <div class="container mt-5" id="product-description">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 mt-3 mb-3">
       <!-- The product image will be placed here -->
       <img
       src="{{asset($product->ProductImages['file'])}}"

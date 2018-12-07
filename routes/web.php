@@ -58,6 +58,10 @@ Route::get('privacypolicy', function(){
   return View('privacypolicy');
 });
 
+Route::get('payments', function(){
+  return View('payments');
+});
+
 Route::group(['middleware' => 'auth'], function() {
     // change PW and email
     Route::get('/editmail','EditEmailController@index');

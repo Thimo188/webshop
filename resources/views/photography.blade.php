@@ -42,7 +42,7 @@
 					@forelse($productsview as $product)
 					<div class="col-md-4 card-margin d-flex align-items-stretch">
 						<div class="card">
-							<img class="card-img-top" src="{{asset($product->file)}}" alt="Card image cap">
+						<img class="card-img-top" src="{{asset($product->file)}}" alt="Card image cap">
 							<div class="card-body">
 								<h5 class="card-title">{{$product->product_name}}</h5>
             					<p class="card-text">{{ str_limit($product->product_description, 80) }}</p>

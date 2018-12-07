@@ -124,20 +124,22 @@
             <li class="fancy nav-item"><p class="fancy" id="cart">Cart</p><a href="{{ url('/cart')}}"><i class="fas fa-shopping-cart top" id="carticon"></i></a></li>
             <li class="fancy nav-item"><p class="fancy" id="wishlist">Wishlist</p><a href="{{ url('/wishlist')}}"><i class="far fa-heart top" id="wishlisticon"></i></a></li>
         </div>
+
     </div>
   </nav>
   @yield('content')
   <footer>
-    <div class="fixed-bottom footer mt-5" id="footer">
+    <div class="footer fixed-bottom mt-5" id="footer">
       <div class="container">
         <div class="row">
           <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
             <h3> Quick Links </h3>
             <ul>
-              <li> <a href="#"> F.A.Q </a> </li>
-              <li> <a href="#"> Contact </a> </li>
+              <li> <a href="{{ url('/faq')}}"> F.A.Q </a> </li>
+              <li> <a href="{{ url('/contact')}}"> Contact </a> </li>
               <li> <a href="#"> Orders & Delivery </a> </li>
-              <li> <a href="#"> Payments </a> </li>
+              <li> <a href="{{ url('/payments')}}"> Payments </a> </li>
+              <li> <a href="{{ url('/privacypolicy')}}"> Privacy Policy </a></li>
             </ul>
           </div>
         </div>

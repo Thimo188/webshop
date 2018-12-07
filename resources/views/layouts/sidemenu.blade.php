@@ -132,7 +132,6 @@
         <div class="card bg-white border-white mt-5" style="height: 46rem;">
           <div class="card-body">
               <ul class="list-group">
-                <li class="mt-2 pb-1 border-0 list-group-item"><a href="{{url('/statistics')}}">Statistics</a></li>
                 <li class="pb-2 border-0 list-group-item"><a href="{{url('/gallery')}}">Gallery</a></li>
                 <li class="pb-2 border-0 list-group-item"><a href="{{ route('orders.show')}}">Orders</a></li>
                 <li class="pb-2 border-0 list-group-item"><a href="{{url('/account')}}">Account Settings</a></li>
@@ -155,10 +154,11 @@
         <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
           <h3> Quick Links </h3>
           <ul>
-            <li> <a href="#"> F.A.Q </a> </li>
-            <li> <a href="#"> Contact </a> </li>
+            <li> <a href="{{ url('faq')}}"> F.A.Q </a> </li>
+            <li> <a href="{{ url('contact')}}"> Contact </a> </li>
             <li> <a href="#"> Orders & Delivery </a> </li>
-            <li> <a href="#"> Payments </a> </li>
+            <li> <a href="{{ url('/payments')}}"> Payments </a> </li>
+            <li> <a href="{{ url('/privacypolicy')}}"> Privacy Policy </a></li>
           </ul>
         </div>
       </div>

@@ -28,6 +28,8 @@ Route::get('/payment/thankyou/{ordernumber}', 'AddressController@finishPayment')
 Route::post('/payment/finish', 'AddressController@mollieWebhook')->name('webhooks.mollie');
 
 Route::resource('/description', 'HomepageController');
+Route::resource('/usergallery', 'GalleryController');
+
 // Cart pages
 Route::get('/addToCart/{id}', 'CartController@Create');
 Route::get('/cart/remove/{id}', 'CartController@Destroy');
@@ -42,6 +44,23 @@ Route::get('/ordersadmin', 'Ordersadmin@index');
 Route::get('/sidemenu', 'SidemenuController@index');
 Route::get('/account','AccountController@index');
 Route::get('/cart', 'CartController@index');
+
+// FOOTER
+Route::get('faq', function(){
+    return View('faq');
+});
+
+Route::get('contact', function(){
+  return View('contact');
+});
+
+Route::get('privacypolicy', function(){
+  return View('privacypolicy');
+});
+
+Route::get('payments', function(){
+  return View('payments');
+});
 
 Route::group(['middleware' => 'auth'], function() {
     // change PW and email
@@ -60,9 +79,11 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/upload', 'UploadController@index');
     Route::resource('/gallery','GalleryController');
     Route::get('/removeGallery/{id}','GalleryController@destroy')->name('gallery.destroy');
-    Route::post('/upload', 'UploadController@store');
+
 	Route::get('/orders/show', 'AccountController@showOrders')->name('orders.show');
+  Route::post('/upload', 'UploadController@store')->name('upload.post');
 });
+
 Route::post('/subscription/payment/finish', 'SubscriptionController@mollieWebhook')->name('webhooks.subscription');
 Route::get('/search',          'SearchController@search')->name('search');
 Route::get('/product/{id}',  'SearchController@product');
@@ -71,3 +92,8 @@ Route::group(['middleware' => 'admin'], function() {
     Route::get('/adminproducts', 'AdminController@adminProducts');
 });
 Auth::routes();
+
+
+Route::group(['prefix' => 'admin2'], function () {
+    Voyager::routes();
+});

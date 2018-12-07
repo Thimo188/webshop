@@ -1,6 +1,7 @@
 @extends('layouts.sidemenu')
 
 @section('content')
+
 <link rel='stylesheet' href='/css/style.css'>
 
 
@@ -17,7 +18,7 @@
   <div class="row" id="up">
     <div class="form-group">
 
-      <form action="{{ url('/upload') }}" method="post" enctype="multipart/form-data">
+      <form action="{{ route('upload.post') }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
 
     </div>
@@ -64,12 +65,6 @@
         </div>
         <br />
         <input type="text" class="form-control" name="Tag1" value="{{ old('Tag1')}}" />
-        <small class="text-secondary">{{ $errors->first('Tag1') }}</small>
-
-        <br />
-        <input type="text" class="form-control" name="Tag2" value="{{ old('Tag2')}}" />
-        <br />
-        <input type="text" class="form-control" name="Tag3" value="{{ old('Tag3')}}" />
         <br />
     </div>
 
@@ -84,26 +79,15 @@
         Which colors do you see in your product?
         </div>
         <br />
-        <div class="form-group">
-         <select class="form-control" name="color1">
-           @foreach($colors as $color)
-              <option value="{{$color->color_id}}">{{$color->name}}</option>
-              @endforeach
-        </select>
-        <small class="text-secondary">{{ $errors->first('color1') }}</small>
-      </div>
-        <br />
-          <select class="form-control" name="color2">
-            @foreach($colors as $color)
-              <option value="{{$color->color_id}}">{{$color->name}}</option>
-              @endforeach
-          </select>
-       <br />
-        <select class="form-control" name="color3">
-          @foreach($colors as $color)
-            <option value="{{$color->color_id}}">{{$color->name}}</option>
-            @endforeach
-        </select>
+        @foreach($colors as $color)
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="color" value="{{$color->id}}">{{$color->name}}
+            </label>
+          </div>
+
+          @endforeach
+
       </div>
       <br />
 
@@ -119,12 +103,9 @@
               <input type="radio" class="form-check-input" name="category" value="{{$category->id}}">{{$category->name}}
             </label>
           </div>
-
           @endforeach
         <small class="text-secondary">{{ $errors->first('category') }}</small>
         <br />
-
-
         <label for="exampleSelect4">Price</label>
         <div class="upload_form">
         What is your product worth?
@@ -132,8 +113,17 @@
         <br />
         <input type="number" value="0" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control" name="price" id="c1" value="{{ old('price')}}" />
         <small class="text-secondary">{{ $errors->first('price') }}</small>
+
         <br />
-          <button type="submit" class="btn btn-primary" style="float:right;" value="Upload">Upload</button>
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="row">
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-primary" style="float:right;" value="Upload">Upload</button>
+          </div>
+      </div>
         <br />
         <br />
       </form>

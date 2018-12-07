@@ -56,45 +56,38 @@ class UploadController extends Controller
   */
   public function store(Request $request)
   {
+
     $subscription = Subscription::where('user_id', Auth::user()->id);
     $orders = Order::where('created_at', '>=', Carbon::now()->addMonths(-1))->count();
-    if($subscription->count() > 0) {
-      if($orders >= $subscription->get()->amount) {
-        return redirect()->back()->withErrors(['msg', 'You have reached your subscription limit for this month']);
-      }
-    }
-    $validatedData = $request->validate([
+    // if($subscription->count() > 0) {
+    //   if($orders >= $subscription->get()->amount) {
+    //     return redirect()->back()->withErrors(['msg', 'You have reached your subscription limit for this month']);
+    //   }
+    // }
+    $validatedData = $this->validate($request, [
       'name' => 'required|max:255',
       'description' => 'required|max:300',
       'photos' => 'required',
       'photos.*' => 'image|mimes:jpeg,bmp,png,jpg',
       'Tag1' => 'required',
-      'Tag2',
-      'Tag3',
       'price' => 'required|min:1',
       'category' => 'required',
-      'color1' => 'required',
-      'color2',
-      'color3',
+      'color' => 'required',
+
 
     ]);
 
 
-    //if($validatedData->fails()){
-
-   //return Redirect::back()->withErrors($validatedData)->withInput();
-    //}
 
 
 
 
-    $product = new Product();
-    $product->product_name=$validatedData['name'];
-    $product->product_description=$validatedData['description'];
-    $product->price=$validatedData['price'];
-    $product->user_id = Auth::user()->id;
-    $product->save();
-
+        $product = new Product();
+        $product->product_name=$validatedData['name'];
+        $product->product_description=$validatedData['description'];
+        $product->price=$validatedData['price'];
+        $product->user_id = Auth::user()->id;
+        $product->save();
     //if ($product_price->validate() == 0) {
       //return redirect()->back()->withErrors($product_price)->withInput();
     //}
@@ -109,34 +102,31 @@ class UploadController extends Controller
     //dd($request->all());
 
     $product_color = new Product_Color();
-    $product_color->color_id=$validatedData['color1'];
+    $product_color->color_id=$validatedData['color'];
     $product_color->product_id=$product->id;
     $product_color->save();
+    //
+    // dd($request->all());
 
-    $product_color = new Product_Color();
-    $product_color->color_id=$validatedData['color2'];
-    $product_color->product_id=$product->id;
-    $product_color->save();
-
-    $product_color = new Product_Color();
-    $product_color->color_id=$validatedData['color3'];
-    $product_color->product_id=$product->id;
-    $product_color->save();
 
     $product_tag = new Product_Tag();
     $product_tag->name=$validatedData['Tag1'];
     $product_tag->product_id=$product->id;
     $product_tag->save();
 
-    $product_tag = new Product_Tag();
-    $product_tag->name=$validatedData['Tag2'];
-    $product_tag->product_id=$product->id;
-    $product_tag->save();
 
-    $product_tag = new Product_Tag();
-    $product_tag->name=$validatedData['Tag3'];
-    $product_tag->product_id=$product->id;
-    $product_tag->save();
+    //if (!empty($product_tag['Tag2'])) {
+
+      //$product_tag->name=$validatedData['Tag2'];
+      //$product_tag->product_id=$product->id;
+      //$product_tag->save();
+
+    //};
+    //
+    //$product_tag = new Product_Tag();
+    //$product_tag->name=$validatedData['Tag3'];
+    //$product_tag->product_id=$product->id;
+    //$product_tag->save();
 
     foreach ($validatedData['photos'] as $key => $image) {
       $product_image = new Product_Image;
@@ -147,7 +137,12 @@ class UploadController extends Controller
       $product_image->file= 'storage/product/' . $filename;
       $product_image->save();
     }
-    return redirect(url('/upload'));
+
+      return redirect(url('/upload'));
+
+} //catch(Exception $error) {
+    //return redirect()->back()->withErrors(['Bitch issa broken '.$error]);
+//}
 
 
 
@@ -156,7 +151,8 @@ class UploadController extends Controller
 
 
 
-  }
+
+
 
 
   /**

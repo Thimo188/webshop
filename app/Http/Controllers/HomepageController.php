@@ -5,6 +5,7 @@ use App\Product;
 use App\Product_Tag;
 use App\Product_Size;
 use App\User;
+use Auth;
 class HomepageController extends Controller
 {
   public function index() {
@@ -25,6 +26,7 @@ class HomepageController extends Controller
   public function show($id)
   {
     $product = Product::find($id);
-    return view('description', compact('product', 'id'));
+    $users = User::find($product->user_id);
+    return view('description', compact('product', 'id', 'users'));
   }
 }

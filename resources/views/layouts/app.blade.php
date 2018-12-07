@@ -107,26 +107,39 @@
           </div>
         </li>
         @endguest
+		<li class="nav-item dropdown-expand-md">
+		  <a class="nav-link dropdown-toggle top" href="#" id="navbarDropdownLeft" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<i class="fas fa-search top"></i>
+		  </a>
+		  <div class="dropdown-menu" style="padding: 10px; float: left;">
+			  <form action="{{route('search')}}" method="get">
+				  <input type="text" placeholder="Search..." name="search" class="form-control">
+				  <br/>
+				  <input type="submit" value="Search" class="btn btn-primary" style="width: 100%;">
+			  </form>
+		  </div>
+		</li>
         <div class="right-menu">
-    		<li class="fancy nav-item"><p class="fancy" id="search">Search</p><a href="{{ url('/photography')}}"><i class="fas fa-search top" id="searchicon"></i></a></li>
             <li class="fancy nav-item"><p class="fancy" id="upload">Upload</p><a href="{{ url('/upload')}}"><i class="fas fa-plus-circle top" id="uploadicon"></i></a></li>
             <li class="fancy nav-item"><p class="fancy" id="cart">Cart</p><a href="{{ url('/cart')}}"><i class="fas fa-shopping-cart top" id="carticon"></i></a></li>
             <li class="fancy nav-item"><p class="fancy" id="wishlist">Wishlist</p><a href="{{ url('/wishlist')}}"><i class="far fa-heart top" id="wishlisticon"></i></a></li>
         </div>
+
     </div>
   </nav>
   @yield('content')
   <footer>
-    <div class="fixed-bottom footer mt-5" id="footer">
+    <div class="footer fixed-bottom mt-5" id="footer">
       <div class="container">
         <div class="row">
           <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
             <h3> Quick Links </h3>
             <ul>
-              <li> <a href="#"> F.A.Q </a> </li>
-              <li> <a href="#"> Contact </a> </li>
+              <li> <a href="{{ url('/faq')}}"> F.A.Q </a> </li>
+              <li> <a href="{{ url('/contact')}}"> Contact </a> </li>
               <li> <a href="#"> Orders & Delivery </a> </li>
-              <li> <a href="#"> Payments </a> </li>
+              <li> <a href="{{ url('/payments')}}"> Payments </a> </li>
+              <li> <a href="{{ url('/privacypolicy')}}"> Privacy Policy </a></li>
             </ul>
           </div>
         </div>

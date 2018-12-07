@@ -3,7 +3,7 @@
 @section('content')
 <div class="container mt-5" id="product-description">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 mt-3 mb-3">
       <!-- The product image will be placed here -->
       <img
       src="{{asset($product->ProductImages['file'])}}"
@@ -17,8 +17,10 @@
         {{$product->product_description}}
       </p>
       <!-- WHO IS THE AUTHOR -->
-      <p=class="description">
-      <i>Artist: Karel</i>
+      <p class="description">
+        <a href="/usergallery/{{$users->id}}">
+          {{$users->name}}
+        </a>
     </p>
     <h2 class="product-price">€{{$product->price}}</h2>
     <a href="{{ url('/addToCart', $id) }}" class="btn btn-lg btn-primary">

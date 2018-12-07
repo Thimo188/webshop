@@ -28,7 +28,6 @@ class PhotographyController extends Controller
   # shows 9 items on the photography webpage ordered by Created_At
   public function index(Color $color)
   {
-
     $products = $color->product;
     $productsview = Product::with('ProductSizing', 'ProductTag','ProductImages')
     ->join('product_categories', 'products.id', '=' , 'product_categories.product_id')

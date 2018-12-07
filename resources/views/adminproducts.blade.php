@@ -67,7 +67,13 @@
 <!-- charts -->
 
 <div class="col-md-6">
+   {!! $chart->html() !!}
+</div>
+<div class="col-md-6 offset-md-2 mt-5">
    {!! $pie_chart->html() !!}
+</div>
+<div class="col-md-6 offset-md-2 mt-5">
+   {!! $line_chart->html() !!}
 </div>
 </div>
 </div>
@@ -84,7 +90,9 @@
 </script>
 
 {!! Charts::scripts() !!}
+{!! $chart->script() !!}
 {!! $pie_chart->script() !!}
+{!! $line_chart->script() !!}
 
 
 @endsection

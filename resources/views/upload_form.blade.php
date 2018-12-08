@@ -5,14 +5,15 @@
 <link rel='stylesheet' href='/css/style.css'>
 
 
-<div class="container mt-5 ml-4">
+<div class="container mt-5">
   <div class="row">
     <div class="col-sm-4">
       <h1>NEW THINGS</h1>
+      ___________________________________________________________________________________________
     </div>
   </div>
 </div>
-
+<br />
 
 <div class="container-fluid">
   <div class="row" id="up">

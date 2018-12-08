@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mt-5" id="product-description">
+
+<a href="{{ URL::previous() }}" style="position: absolute; left: 30px; top: 70px;"><i class="fas fa-arrow-left fa-2x"></i></a>
+<div class="container mt-5 border" id="product-description">
   <div class="row">
     <div class="col-md-6 mt-3 mb-3">
       <!-- The product image will be placed here -->
@@ -29,10 +31,9 @@
     <a href="{{ Route('wishlist.add', $id) }}" class="btn btn-lg btn-light">
       <img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="25" class="hello" alt=""/></a>
     </a>
-    <p class="description">
-      In Stock
-    </p>
     <!-- PRODUCT TAGS -->
+    <br />
+    <br />
     <p class="description">
       {{$product->ProductTag['name']}}
     </p>

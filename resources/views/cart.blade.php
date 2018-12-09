@@ -4,7 +4,7 @@
 	<div class="container main">
 		<div class="row">
 			<div class="col-md-12">
-				<table id="cart" class="table table-hover table-condensed">
+				<table class="table table-hover table-condensed">
 					<thead>
 						<tr>
 							<th style="width:10%">Product</th>
@@ -45,7 +45,7 @@
 					</tbody>
 					<tfoot>
 						<tr>
-							<td><a href="#" class="btn btn-primary"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+							<td><a href="{{ URL::previous() }}" class="btn btn-primary"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
 							<td colspan="3" class="hidden-xs"></td>
 							<td class="hidden-xs text-center"><strong id="totalPrice"></strong></td>
 							<td>@if($cartlines->count() > 0)<a href="{{ url('/address') }}" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a>@endif</td>

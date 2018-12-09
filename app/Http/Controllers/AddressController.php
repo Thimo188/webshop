@@ -23,6 +23,7 @@ class AddressController extends Controller
      */
     public function index()
     {
+		$cartlines = null;
 		if(Auth::guest()) {
 			$ip = isset($_SERVER['HTTP_CLIENT_IP'])?$_SERVER['HTTP_CLIENT_IP']:isset($_SERVER['HTTP_X_FORWARDED_FOR'])?$_SERVER['HTTP_X_FORWARDED_FOR']:$_SERVER['REMOTE_ADDR'];
 			$cartlines = Cart::with('Product')->where('ip', $ip)->get();
@@ -30,7 +31,12 @@ class AddressController extends Controller
 			$cartlines = Cart::with('Product')->where('user_id', Auth::user()->id)->get();
 		}
         $countries = Country::all();
-        return view('address', compact('cartlines', 'countries'));
+		if($cartlines->count() > 0) {
+			return view('address', compact('cartlines', 'countries'));
+		} else {
+			return redirect(url('/'));
+		}
+
     }
 
     /**
@@ -51,6 +57,7 @@ class AddressController extends Controller
      */
     public function store(Request $request)
     {
+
         $validatedData = $this->validate($request, [
 			'FirstName' => 'required|min:2',
 			'LastName' => 'required|min:2',

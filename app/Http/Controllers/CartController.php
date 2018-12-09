@@ -16,7 +16,6 @@ class CartController extends Controller
 		} else {
 			$cartlines = Cart::with('Product')->where('user_id', Auth::user()->id)->get();
 		}
-
 		return view('cart', compact('cartlines'));
 	}
 	public function create($id) {

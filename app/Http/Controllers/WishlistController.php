@@ -12,8 +12,12 @@ use Auth;
 class WishlistController extends Controller
 {
     public function index()
-  {
+  {if(Auth::guest()) {
+    $ip = isset($_SERVER['HTTP_CLIENT_IP'])?$_SERVER['HTTP_CLIENT_IP']:isset($_SERVER['HTTP_X_FORWARDED_FOR'])?$_SERVER['HTTP_X_FORWARDED_FOR']:$_SERVER['REMOTE_ADDR'];
+    $wished = Wishlist::with('Product', 'User')->where('ip', $ip)->get();
+  } else {
     $wished = Wishlist::with('Product', 'User')->where('user_id', Auth::user()->id)->get();
+  }
 		return view('wishlist', compact('wished'));
 	}
 
@@ -24,11 +28,22 @@ class WishlistController extends Controller
 
   public function store(Request $request)
   {
+    $ip = isset($_SERVER['HTTP_CLIENT_IP'])?$_SERVER['HTTP_CLIENT_IP']:isset($_SERVER['HTTP_X_FORWARDED_FOR'])?$_SERVER['HTTP_X_FORWARDED_FOR']:$_SERVER['REMOTE_ADDR'];
+
+    if(Auth::guest()){
+    $wishlistitem = new Wishlist();
+    $wishlistitem->ip = $ip;
+    $wishlistitem->user_id = 1;
+    $wishlistitem->product_id = $request->id;
+    $wishlistitem->save();
+    return redirect(url('/wishlist'));
+  } else {
       $wishlistitem = new Wishlist();
       $wishlistitem->user_id = Auth::user()->id;
       $wishlistitem->product_id = $request->id;
       $wishlistitem->save();
-      return redirect(url('/wishlist'));
+      return redirect()->back()->with('success', 'Product added to wishlist successfully!');
+    }
   }
 
   public function show($id)

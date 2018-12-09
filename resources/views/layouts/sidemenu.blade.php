@@ -36,6 +36,7 @@
 </head>
 <body>
   <div id="app">
+    @include('flash-message')
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="{{ url('/')}}">MUZEN</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -126,15 +127,16 @@
         </div>
     </div>
   </nav>
+  @yield('sidecontent')
   <div class="container">
     <div class="row">
       <div class="col-md-3">
-        <div class="card bg-white border-white mt-5" style="height: 46rem;">
+        <div class="card bg-white border mt-5" style="height: 46rem;">
           <div class="card-body">
               <ul class="list-group">
+                <li class="pb-2 border-0 list-group-item"><a href="{{url('/account')}}">Account Settings</a></li>
                 <li class="pb-2 border-0 list-group-item"><a href="{{url('/gallery')}}">Gallery</a></li>
                 <li class="pb-2 border-0 list-group-item"><a href="{{ route('orders.show')}}">Orders</a></li>
-                <li class="pb-2 border-0 list-group-item"><a href="{{url('/account')}}">Account Settings</a></li>
                 <li class="pb-2 border-0 list-group-item"><a href="{{url('/subscription')}}">Subscription</a></li>
               </ul>
             </div>

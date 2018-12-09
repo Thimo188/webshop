@@ -47,7 +47,7 @@ class CartController extends Controller
 				$cart->save();
 			}
 		}
-		return redirect(url('/cart'));
+		return redirect()->back()->with('success', 'Product added to cart successfully!');
 	}
 	public function destroy($id) {
 		Cart::findOrFail($id)->delete();

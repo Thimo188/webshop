@@ -10,6 +10,7 @@
       <h2>_________________________________</h2>
     </span>
       <br />
+      <br />
       <p class="font-weight-bold">Data protection</p>
       <br />
       Notes on data protection

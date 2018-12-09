@@ -17,13 +17,15 @@
    </div>
  </div>
 </div> -->
+
+<a href="{{ URL::previous() }}" style="position: absolute; left: 30px; top: 70px;"><i class="fas fa-arrow-left fa-2x"></i></a>
 <div class="container mt-5" id="product-section">
   <div class="row">
     @forelse($wished as $wishlistitem)
       <div class="col-md-4">
 
 <!-- {{$wishlistitem->User()->first()->name}} -->
-      <div class="card" style="width: 18rem">
+      <div class="card mt-5" style="width: 18rem">
       <img class="card-img-top" src="{{ $wishlistitem->Product()->first()->ProductImages()->first()->file }}" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{ $wishlistitem->Product()->first()->product_name }}</h5>

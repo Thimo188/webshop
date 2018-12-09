@@ -1,13 +1,14 @@
+
 @extends ('layouts.sidemenu')
-
+@section('sidecontent')
+<a href="{{ URL::previous() }}" style="position: absolute; left: 30px; top: 70px;"><i class="fas fa-arrow-left fa-2x"></i></a>
 @section('content')
-
 <div class="container main">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 mt-4">
       <h4 class="mb-3"> Add an address</h4>
     </div>
-      <div class="col-md-7">
+      <div class="col-md-12">
         <form method="post" action="{{ route('addaddress.store') }}" id="addaddress">
           @csrf
           <div class="form-group">

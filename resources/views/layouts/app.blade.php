@@ -126,12 +126,17 @@
 						<p class="fancy" id="upload">Upload</p><a href="{{ url('/upload')}}"><i class="fas fa-plus-circle top" id="uploadicon"></i></a>
 					</li>
 					{{-- <li class="fancy nav-item"><p class="fancy" id="cart">Cart</p><a href="{{ url('/cart')}}"><i class="fas fa-shopping-cart top" id="carticon"></i></a></li> --}}
-					<li class="fancy nav-item">
-						<p class="fancy" id="wishlist">Wishlist</p><a href="{{ url('/wishlist')}}"><i class="far fa-heart top" id="wishlisticon"></i></a>
-					</li>
+					<?php $ip = isset($_SERVER['HTTP_CLIENT_IP'])?$_SERVER['HTTP_CLIENT_IP']:isset($_SERVER['HTTP_X_FORWARDED_FOR'])?$_SERVER['HTTP_X_FORWARDED_FOR']:$_SERVER['REMOTE_ADDR']; ?>
 					<a href="{{ url('/cart')}}">
 						<div id="ex4" style="display: inline; font-size: 8px;color: rgba(0, 0, 0, 0.5);">
-							<?php $ip = isset($_SERVER['HTTP_CLIENT_IP'])?$_SERVER['HTTP_CLIENT_IP']:isset($_SERVER['HTTP_X_FORWARDED_FOR'])?$_SERVER['HTTP_X_FORWARDED_FOR']:$_SERVER['REMOTE_ADDR']; ?>
+							<span class="p1 fa-stack fa-2x has-badge" data-count="@if(Auth::guest()) {{ App\Wishlist::where('ip', $ip)->count() }} @else {{ App\Wishlist::where('user_id', Auth::user()->id)->count() }} @endif">
+								<!--<i class="p2 fa fa-circle fa-stack-2x"></i>-->
+								<i class="far fa-heart top" id="wishlisticon"></i>
+							</span>
+						</div>
+					</a>
+					<a href="{{ url('/cart')}}">
+						<div id="ex4" style="display: inline; font-size: 8px;color: rgba(0, 0, 0, 0.5);">
 							<span class="p1 fa-stack fa-2x has-badge" data-count="@if(Auth::guest()) {{ App\Cart::where('ip', $ip)->count() }} @else {{ App\Cart::where('user_id', Auth::user()->id)->count() }} @endif">
 								<!--<i class="p2 fa fa-circle fa-stack-2x"></i>-->
 								<i class="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse" data-count="4b"></i>

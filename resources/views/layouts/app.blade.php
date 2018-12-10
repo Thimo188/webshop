@@ -130,9 +130,9 @@
 						<p class="fancy" id="wishlist">Wishlist</p><a href="{{ url('/wishlist')}}"><i class="far fa-heart top" id="wishlisticon"></i></a>
 					</li>
 					<a href="{{ url('/cart')}}">
-						<div id="ex4" style="display: inline; font-size: 9px;color: rgba(0, 0, 0, 0.5);">
+						<div id="ex4" style="display: inline; font-size: 8px;color: rgba(0, 0, 0, 0.5);">
 							<?php $ip = isset($_SERVER['HTTP_CLIENT_IP'])?$_SERVER['HTTP_CLIENT_IP']:isset($_SERVER['HTTP_X_FORWARDED_FOR'])?$_SERVER['HTTP_X_FORWARDED_FOR']:$_SERVER['REMOTE_ADDR']; ?>
-							<span class="p1 fa-stack fa-2x has-badge" data-count="@if(Auth::guest() && !empty(App\Cart::where('ip', $ip)->first())) {{ App\Cart::where('ip', $ip)->count() }} @else {{ App\Cart::where('user_id', Auth::user()->id)->count() }} @endif">
+							<span class="p1 fa-stack fa-2x has-badge" data-count="@if(Auth::guest()) {{ App\Cart::where('ip', $ip)->count() }} @else {{ App\Cart::where('user_id', Auth::user()->id)->count() }} @endif">
 								<!--<i class="p2 fa fa-circle fa-stack-2x"></i>-->
 								<i class="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse" data-count="4b"></i>
 							</span>

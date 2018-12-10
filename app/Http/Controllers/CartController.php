@@ -16,7 +16,6 @@ class CartController extends Controller
 		} else {
 			$cartlines = Cart::with('Product')->where('user_id', Auth::user()->id)->get();
 		}
-
 		return view('cart', compact('cartlines'));
 	}
 	public function create($id) {
@@ -48,7 +47,7 @@ class CartController extends Controller
 				$cart->save();
 			}
 		}
-		return redirect(url('/cart'));
+		return redirect()->back()->with('success', 'Product added to cart successfully!');
 	}
 	public function destroy($id) {
 		Cart::findOrFail($id)->delete();

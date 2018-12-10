@@ -74,8 +74,8 @@ class AdminController extends Controller
 
 // hoeveel opbrengst
   $line_chart = Charts::create('line', 'highcharts')
-    ->title('Money made')
-    ->elementLabel('doekoe')
+    ->title('Turnover')
+    ->elementLabel('turnover')
     ->labels($Month)
     ->values($Price)
     ->dimensions(1500,500)
@@ -89,8 +89,8 @@ class AdminController extends Controller
     ->labels($Month)
     ->values($Soldquantity)
     ->dimensions(1500,500)
-    ->responsive(true)
-    ->groupByMonth('2018',true);
+    ->responsive(true);
+    // ->groupByMonth('2018',true);
 
 // chart voor welke producten het meest verkocht zijn
   $pie_chart = Charts::create('pie', 'highcharts')

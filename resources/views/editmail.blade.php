@@ -1,5 +1,6 @@
 @extends ('layouts.sidemenu')
-
+@section('sidecontent')
+<a href="{{ URL::previous() }}" style="position: absolute; left: 30px; top: 70px;"><i class="fas fa-arrow-left fa-2x"></i></a>
 @section('content')
 <div class="card-body">
 	@if ($errors->any())

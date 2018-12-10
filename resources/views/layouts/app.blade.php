@@ -113,9 +113,9 @@
 					<a class="nav-link dropdown-toggle top" href="#" id="navbarDropdownLeft" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<i class="fas fa-search top"></i>
 					</a>
-					<div class="dropdown-menu" style="padding: 10px;">
-						<form action="{{route('search')}}" method="get">
-							<input type="text" placeholder="Search..." name="search" class="form-control">
+					<div class="dropdown-menu" style="padding: 10px;width:300px;">
+						<form action="{{route('search')}}" method="get" >
+							<input type="text" placeholder="Search..." name="search" class="form-control" required>
 							<br />
 							<input type="submit" value="Search" class="btn btn-primary" style="width: 100%;">
 						</form>

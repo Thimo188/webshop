@@ -9,13 +9,6 @@
 				<div class="h-100">
 					<div class="card">
 						<div class="card-body">
-							<h2>Filters</h2>
-							Search
-							<form action="{{route('search')}}" method="get">
-								<input type="text" placeholder="Search..." name="search" class="form-control">
-								<br/>
-								<input type="submit" value="Search" class="form-control">
-							</form>
 							<hr class="style10">
 							<label for='price'>Prijs:</label>
 							<input type="text" id="price" name="price_range" value="" />

@@ -4,7 +4,7 @@
 	<div class="container main">
 		<div class="row">
 			<div class="col-md-12">
-				<table id="cart" class="table table-hover table-condensed">
+				<table class="table table-hover table-condensed">
 					<thead>
 						<tr>
 							<th style="width:10%">Product</th>

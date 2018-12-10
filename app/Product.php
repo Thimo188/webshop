@@ -34,6 +34,7 @@ class Product extends Model
 	  ->join('categories', 'categories.id' , '=' , 'product_categories.category_id')
 	  ->join('product_images', 'products.id', '=', 'product_images.product_id')
 	  ->where('products.product_name', 'like', '%' . $product_name . '%')
+    ->where('products.product_description', 'like', '%' . $product_description . '%')
 	  ->paginate(15)->onEachSide(3);
   }
   public function ProductTag()

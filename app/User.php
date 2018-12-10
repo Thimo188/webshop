@@ -5,13 +5,10 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends \TCG\Voyager\Models\User
 {
     public $table = 'users';
-    use SoftDeletes;
-    protected $dates = ['deleted_at'];
 
     use Notifiable;
 

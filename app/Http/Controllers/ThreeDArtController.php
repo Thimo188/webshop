@@ -17,8 +17,14 @@ class ThreeDArtController extends Controller
     ->join('product_categories', 'products.id', '=' , 'product_categories.product_id')
     ->join('categories', 'categories.id' , '=' , 'product_categories.category_id')
     ->join('product_images', 'products.id', '=', 'product_images.product_id')
-    ->where('product_categories.category_id' , '=', 3)
-    ->paginate(9);
+    ->where('product_categories.category_id' , '=', 3);
+	if(!empty(session()->get('min-price'))) {
+		$productsview = $productsview->where('price', '>=', session()->get('min-price'));
+	}
+	if(!empty(session()->get('max-price'))) {
+		$productsview = $productsview->where('price', '<=', session()->get('max-price'));
+	}
+	$productsview = $productsview->paginate(9);
     $colors = Color::all();
     return view('3DArt', compact('products','productsview', 'colors'));
   }

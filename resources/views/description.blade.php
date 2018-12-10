@@ -11,7 +11,6 @@
 	      <img
 	      src="{{asset($product->ProductImages['file'])}}"
 	      alt="image not found"
-
 		  style="max-width: 100%; max-height: 500px;"
 	      />
 	  </center>

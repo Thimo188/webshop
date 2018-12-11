@@ -12,8 +12,8 @@
         <h4>A little bit about {{$userid->name}}</h4>
         <br />
         <div class="row justify-content-center">
-          <div class="col-md-4">
-        <b>I enjoy making websites with my teammates Omid, Charlie and Thimo even though I am better than them in every way possible!</b>
+          <div class="col-md-12">
+        <b>{{ $userid->description }}</b>
         </div>
         </div>
       </span>

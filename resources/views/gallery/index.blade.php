@@ -2,6 +2,25 @@
 
 @section('content')
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mt-5">
+
+      <span class="align-text-center" style="text-align:center"><h2>{{$userid->name}}</h2>
+        <h2>____</h2>
+        <br />
+        <h4>A little bit about {{$userid->name}}</h4>
+        <br />
+        <div class="row justify-content-center">
+          <div class="col-md-12">
+        <b>{{ $userid->description }}</b>
+        </div>
+      </span>
+    </div>
+  </div>
+</div>
+
+<br />
 
 <div id="index" class="container">
 	<div class="container mt-5">

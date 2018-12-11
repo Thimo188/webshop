@@ -10,12 +10,6 @@
 					<div class="card">
 						<div class="card-body">
 							<h2>Filters</h2>
-							Search
-							<form action="{{route('search')}}" method="get">
-								<input type="text" placeholder="Search..." name="search" class="form-control">
-								<br/>
-								<input type="submit" value="Search" class="form-control">
-							</form>
 							<hr class="style10">
 							<label for='price'>Prijs:</label>
 							<input type="text" id="price" name="price_range" value="" />
@@ -68,14 +62,13 @@
 </div>
 </div>
 <script>
-
 $("#price").ionRangeSlider({
 	hide_min_max: true,
 	keyboard: true,
 	min: 0,
-	max: 100,
-	from: 0,
-	to: 100,
+	max: {{ App\Product::max('price')}},
+	from: @if(!empty(session()->get('min-price'))){{ session()->get('min-price')}} @else 0 @endif,
+	to: @if(empty(session()->get('max-price'))){{ App\Product::max('price')}}@else{{session()->get('max-price')}}@endif,
 	type: 'double',
 	step: 1,
 	prefix: "€",
@@ -85,16 +78,14 @@ $("#price").ionRangeSlider({
 		to = data.to;
 	},
 	onFinish: function(data) {
-		console.log(data);
-		$.ajaxSetup({
-			headers: {
-				'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-			}
-		});
 		$.ajax({
-			url: "",
+			url: "{{ route('ajax.update.priceslider') }}",
 			type: 'post',
-			data: {'from': data.from, 'to': data.to},
+			data: {
+				'_token': '{{ csrf_token() }}',
+				'from': data.from,
+				'to': data.to
+			},
 			success: function() {
 				location.reload();
 			}

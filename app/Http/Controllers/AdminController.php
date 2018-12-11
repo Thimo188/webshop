@@ -33,6 +33,27 @@ class AdminController extends Controller
       //     ->dimensions(1000, 500)
       //     ->responsive(true);
       //     //->groupByMonth(date('Y'), true);
+
+  $SubSold = DB::table('subscriptions')
+  ->select(DB::raw('SUM(amount) as total'), DB::raw("CONCAT_WS('-',MONTH(created_at),YEAR(created_at)) as monthyear"))
+  ->groupBy(DB::raw('YEAR(created_at) ASC, MONTH(created_at) ASC, monthyear'))
+  ->where( 'created_at', '>=', DB::raw( 'LAST_DAY(CURRENT_DATE) + INTERVAL 1 DAY - INTERVAL 1 YEAR',
+    'AND', 'created_at',  '<', ' LAST_DAY(CURRENT_DATE) + INTERVAL 1 DAY'))
+//  ->orderByRaw('')
+  ->pluck('total')
+ ->toArray();
+
+  $MonthAndYear = DB::table('order_details')
+    ->select(DB::raw('SUM(amount) as total_expense'), DB::raw("CONCAT_WS('-',MONTH(created_at),YEAR(created_at)) as monthyear"))
+    ->groupBy(DB::raw('YEAR(created_at) ASC, MONTH(created_at) ASC, monthyear'))
+    ->where( 'created_at', '>=', DB::raw( 'LAST_DAY(CURRENT_DATE) + INTERVAL 1 DAY - INTERVAL 1 YEAR',
+      'AND', 'created_at',  '<', ' LAST_DAY(CURRENT_DATE) + INTERVAL 1 DAY'))
+  //  ->orderByRaw('')
+    ->pluck('monthyear')
+   ->toArray();
+
+
+
   $Soldquantity = DB::table('order_details')
   ->join('products', 'order_details.product_id', '=', 'products.id')
   ->select('order_details.product_id', DB::raw('SUM(order_details.amount)as total'))
@@ -64,19 +85,36 @@ class AdminController extends Controller
     ->orderBy('order_details.created_at', 'asc')
     ->pluck('order_details.created_at')->toArray();
 
-  $Price = DB::table('order_details')
-  ->select('order_details.product_id', 'order_details.product_price', DB::raw('SUM(order_details.product_price)as price'))
-  ->groupBy('order_details.product_id', 'order_details.product_price')
-  ->orderBy('price', 'asc')
-  ->pluck('order_details.product_price')->toArray();
+
+    $Price = DB::table('order_details')
+    ->select(DB::raw('SUM(amount * product_price) as total'), DB::raw("CONCAT_WS('-',MONTH(created_at),YEAR(created_at)) as monthyear"))
+    ->groupBy(DB::raw('YEAR(created_at) ASC, MONTH(created_at) ASC, monthyear'))
+    ->where( 'created_at', '>=', DB::raw( 'LAST_DAY(CURRENT_DATE) + INTERVAL 1 DAY - INTERVAL 1 YEAR',
+      'AND', 'created_at',  '<', ' LAST_DAY(CURRENT_DATE) + INTERVAL 1 DAY'))
+  //  ->orderByRaw('')
+    ->pluck('total')
+   ->toArray();
+  // $Price = DB::table('order_details')
+  // ->select('order_details.product_id', 'order_details.product_price', 'order_details.amount', DB::raw('(order_details.product_price * order_details.amount)as price'))
+  // ->groupBy('order_details.product_id', 'order_details.product_price', 'order_details.amount')
+  // ->orderBy('price', 'asc')
+  // ->pluck('order_details.product_price')->toArray();
 
 
+
+  $chart_subs = Charts::database(User::all(),'bar', 'highcharts')
+    ->title('Subscribers')
+    ->elementLabel('Subscribers')
+    ->labels($MonthAndYear)
+    ->values($SubSold)
+    ->dimensions(1500,500)
+    ->responsive(true);
 
 // hoeveel opbrengst
   $line_chart = Charts::create('line', 'highcharts')
     ->title('Turnover')
     ->elementLabel('turnover')
-    ->labels($Month)
+    ->labels($MonthAndYear)
     ->values($Price)
     ->dimensions(1500,500)
     ->responsive(true);
@@ -86,7 +124,7 @@ class AdminController extends Controller
   $chart = Charts::database(User::all(),'bar', 'highcharts')
     ->title('Products sold')
     ->elementLabel('Products')
-    ->labels($Month)
+    ->labels($MonthAndYear)
     ->values($Soldquantity)
     ->dimensions(1500,500)
     ->responsive(true);
@@ -176,6 +214,6 @@ class AdminController extends Controller
         ->dimensions(1000,500)
         ->responsive(true);
 
-      return view('/adminproducts',compact('chart' , 'pie_chart', 'line_chart', 'areaspline_chart', 'percentage_chart', 'geo_chart', 'area_chart', 'donut_chart'));
+      return view('/adminproducts',compact('chart','chart_subs' , 'pie_chart', 'line_chart', 'areaspline_chart', 'percentage_chart', 'geo_chart', 'area_chart', 'donut_chart'));
     }
 }

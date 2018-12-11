@@ -96,4 +96,5 @@ Auth::routes();
 
 Route::group(['prefix' => 'admin2'], function () {
     Voyager::routes();
+
 });

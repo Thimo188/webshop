@@ -33,8 +33,14 @@ class PhotographyController extends Controller
     ->join('product_categories', 'products.id', '=' , 'product_categories.product_id')
     ->join('categories', 'categories.id' , '=' , 'product_categories.category_id')
     ->join('product_images', 'products.id', '=', 'product_images.product_id')
-    ->where('product_categories.category_id' , '=', 1)
-    ->paginate(9);
+    ->where('product_categories.category_id' , '=', 1);
+	if(!empty(session()->get('min-price'))) {
+		$productsview = $productsview->where('price', '>=', session()->get('min-price'));
+	}
+	if(!empty(session()->get('max-price'))) {
+		$productsview = $productsview->where('price', '<=', session()->get('max-price'));
+	}
+	$productsview = $productsview->paginate(9);
     $colors = Color::all();
     return view('photography', compact('products','productsview', 'colors'));
   }

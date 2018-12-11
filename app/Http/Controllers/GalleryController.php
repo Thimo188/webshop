@@ -18,13 +18,14 @@ use Carbon\Carbon;
 class GalleryController extends Controller
 {
   public function index() {
+    $userid = Auth::user();
     $productsgallery = Product::with('ProductSizing', 'ProductTag','ProductImages')
     ->join('users', 'users.id', '=', 'products.user_id')
     ->join('product_images', 'products.id', '=', 'product_images.product_id')
     ->where('user_id', Auth::user()->id)
   	->orderBy('product_name', 'desc')
   	->paginate(9);
-    return view('gallery.index', compact('productsgallery'));
+    return view('gallery.index', compact('productsgallery', 'userid'));
   }
 
   public function show($id)

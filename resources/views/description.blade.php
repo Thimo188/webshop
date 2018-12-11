@@ -6,12 +6,14 @@
 <div class="container mt-5 border" id="product-description">
   <div class="row">
     <div class="col-md-6 mt-3 mb-3">
-      <!-- The product image will be placed here -->
-      <img
-      src="{{asset($product->ProductImages['file'])}}"
-      alt="image not found"
-      class="responsive"
-      />
+		<center>
+	      <!-- The product image will be placed here -->
+	      <img
+	      src="{{asset($product->ProductImages['file'])}}"
+	      alt="image not found"
+		  style="max-width: 100%; max-height: 500px;"
+	      />
+	  </center>
     </div>
     <div class="container col-md-6">
       <h1>{{$product->product_name}}</h1>

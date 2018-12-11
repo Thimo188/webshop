@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Cart;
+use App\Product;
 use Auth;
-
+use Session;
 class AjaxController extends Controller
 {
     public function updateCart(Request $request) {
@@ -21,5 +22,26 @@ class AjaxController extends Controller
         } else {
             $cartline->delete();
         }
+	}
+	public function updateSlider(Request $request) {
+		// dd($request->all());
+		$maxprice = Product::max('price');
+		// if($request->)
+		try {
+			if($request->to != $maxprice) {
+				Session::put('max-price', $request->to);
+			} else {
+				Session::forget('max-price');
+			}
+			if($request->from != 0) {
+				Session::put('min-price', $request->from);
+			} else {
+				Session::forget('min-price');
+			}
+			return print("Success");
+		} catch(Exception $exception) {
+			return print("Error: ".$exception);
+		}
+
 	}
 }

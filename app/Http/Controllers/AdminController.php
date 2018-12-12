@@ -8,6 +8,8 @@ Use App\Product;
 Use Charts;
 Use DB;
 Use App\User;
+Use App\Order_Detail;
+Use App\Subscription;
 Use Auth;
 
 class AdminController extends Controller
@@ -60,7 +62,17 @@ class AdminController extends Controller
 
 
 
-  $Soldquantity = DB::table('order_details')
+    $Soldquantity = DB::table('order_details')
+    ->select(DB::raw('SUM(amount) as total_expense'), DB::raw("CONCAT_WS('-',MONTH(created_at),YEAR(created_at)) as monthyear"))
+    ->groupBy(DB::raw('YEAR(created_at) ASC, MONTH(created_at) ASC, monthyear'))
+    ->where( 'created_at', '>=', DB::raw( 'LAST_DAY(CURRENT_DATE) + INTERVAL 1 DAY - INTERVAL 1 YEAR',
+      'AND', 'created_at',  '<', ' LAST_DAY(CURRENT_DATE) + INTERVAL 1 DAY'))
+    ->pluck('total_expense')
+    ->toArray();
+
+
+
+  $Soldquantity1 = DB::table('order_details')
   ->join('products', 'order_details.product_id', '=', 'products.id')
   ->select('order_details.product_id', DB::raw('SUM(order_details.amount)as total'))
   ->groupBy('order_details.product_id')
@@ -106,14 +118,14 @@ class AdminController extends Controller
 
 
 
-  $chart_subs = Charts::database(User::all(),'bar', 'highcharts')
+  $chart_subs = Charts::database(Subscription::all(),'bar', 'highcharts')
     ->title('Subscriprions bought')
     ->elementLabel('Subscriptions')
     ->labels($SubMonthYear)
     ->values($SubSold)
     ->dimensions(1500,500)
-    ->responsive(true);
-    // ->groupByMonth('2018', true);
+    ->responsive(true)
+    ->groupByMonth('2018', true);
 
 // hoeveel opbrengst
   $line_chart = Charts::create('line', 'highcharts')
@@ -126,7 +138,7 @@ class AdminController extends Controller
 
 
 // chart voor hoeveel producten per maand
-  $chart = Charts::database(User::all(),'bar', 'highcharts')
+  $chart = Charts::database(Order_Detail::all(),'bar', 'highcharts')
     ->title('Products sold')
     ->elementLabel('Products')
     ->labels($MonthAndYear)

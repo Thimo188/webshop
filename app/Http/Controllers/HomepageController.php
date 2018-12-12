@@ -12,13 +12,15 @@ class HomepageController extends Controller
 
     # Query for getting the popular products on homepage
 	$productspopular = Product::with('ProductSizing', 'ProductTag','ProductImages')
+  ->join('product_images', 'products.id', '=', 'product_images.product_id')
 	->orderBy('product_name', 'desc')
 	->take(4)
 	->get();
 
     # Query for getting latest products on homepage
 	$productslatest = Product::with('ProductSizing', 'ProductTag','ProductImages')
-	->orderBy('created_at', 'desc')
+  ->join('product_images', 'products.id', '=', 'product_images.product_id')
+	->orderBy('products.created_at', 'desc')
 	->take(4)
 	->get();
     return view('homepage', compact('productspopular', 'productslatest'));

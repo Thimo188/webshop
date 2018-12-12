@@ -107,8 +107,8 @@ class AdminController extends Controller
 
 
   $chart_subs = Charts::database(User::all(),'bar', 'highcharts')
-    ->title('Subscribers')
-    ->elementLabel('Subscribers')
+    ->title('Subscriprions bought')
+    ->elementLabel('Subscriptions')
     ->labels($SubMonthYear)
     ->values($SubSold)
     ->dimensions(1500,500)

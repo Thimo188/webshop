@@ -6,21 +6,27 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="images/carousel/Minimalist1.jpg" alt="First slide">
+      <a href="{{ url('/illustrations')}}" >
+        <img class="d-block w-100" src="images/carousel/illustrations.jpg" alt="First slide">
+      </a>
       <div class="carousel-caption d-none d-md-block">
         <h3></h3>
         <p></p>
       </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="images/carousel/3Dburger.jpg" alt="Second slide">
+      <a href="{{ url('/photography')}}" >
+        <img class="d-block w-100" src="images/carousel/photography.jpg" alt="Second slide">
+      </a>
       <div class="carousel-caption d-none d-md-block">
         <h3></h3>
         <p></p>
       </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="images/carousel/Nature1.jpg" alt="Third slide">
+      <a href="{{ url('/3DArt')}}" >
+        <img class="d-block w-100" src="images/carousel/3DArtimage.jpg" alt="Third slide">
+      </a>
       <div class="carousel-caption d-none d-md-block">
         <h3></h3>
         <p></p>

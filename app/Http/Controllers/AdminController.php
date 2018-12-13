@@ -116,10 +116,24 @@ class AdminController extends Controller
   // ->orderBy('price', 'asc')
   // ->pluck('order_details.product_price')->toArray();
 
+  $PerDay = DB::table('order_details')
+      ->select(DB::raw('SUM(order_details.amount) as total'), DB::raw("CONCAT_WS('-',DAY(created_at),MONTH(created_at),YEAR(created_at)) as daymonthyear"))
+      ->groupBy(DB::raw('YEAR(created_at) ASC, MONTH(created_at) ASC,DAY(created_at) ASC, daymonthyear'))
+      ->where( 'created_at', '>=', DB::raw( 'LAST_DAY(CURRENT_DATE) + INTERVAL 1 DAY - INTERVAL 1 MONTH',
+        'AND', 'created_at',  '<', ' LAST_DAY(CURRENT_DATE) + INTERVAL 1 DAY'))
+      ->pluck('daymonthyear')
+      ->toArray();
 
+  $PerDayValue = DB::table('order_details')
+     ->select(DB::raw('SUM(amount) as total_expense, MONTH(created_at) as month, YEAR(created_at) as year,DAY(created_at) as day'))
+     ->groupBy(DB::raw('YEAR(created_at) ASC, MONTH(created_at) ASC,DAY(created_at) ASC'))
+     ->where( 'created_at', '>=', DB::raw( 'LAST_DAY(CURRENT_DATE) + INTERVAL 1 DAY - INTERVAL 1 MONTH',
+       'AND', 'created_at',  '<', ' LAST_DAY(CURRENT_DATE) + INTERVAL 1 DAY'))
+     ->pluck('total_expense', 'day')
+     ->toArray();
 
   $chart_subs = Charts::database(Subscription::all(),'bar', 'highcharts')
-    ->title('Subscriprions bought')
+    ->title('Subscriptions bought')
     ->elementLabel('Subscriptions')
     ->labels($SubMonthYear)
     ->values($SubSold)

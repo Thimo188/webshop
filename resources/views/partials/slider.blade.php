@@ -8,29 +8,23 @@
     <div class="carousel-item active">
       <a href="{{ url('/illustrations')}}" >
         <img class="d-block w-100" src="images/carousel/illustrations.jpg" alt="First slide">
-      </a>
       <div class="carousel-caption d-none d-md-block">
-        <h3></h3>
-        <p></p>
       </div>
+      </a>
     </div>
     <div class="carousel-item">
       <a href="{{ url('/photography')}}" >
         <img class="d-block w-100" src="images/carousel/photography.jpg" alt="Second slide">
-      </a>
       <div class="carousel-caption d-none d-md-block">
-        <h3></h3>
-        <p></p>
       </div>
+      </a>
     </div>
     <div class="carousel-item">
       <a href="{{ url('/3DArt')}}" >
         <img class="d-block w-100" src="images/carousel/3DArtimage.jpg" alt="Third slide">
-      </a>
       <div class="carousel-caption d-none d-md-block">
-        <h3></h3>
-        <p></p>
       </div>
+      </a>
 
     </div>
   </div>

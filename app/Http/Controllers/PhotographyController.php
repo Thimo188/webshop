@@ -41,5 +41,6 @@ class PhotographyController extends Controller
   public function show($id)
   {
     $product = Product::find($id);
+    return view('description')->with('product', $product);
   }
 }

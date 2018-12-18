@@ -40,6 +40,7 @@ class WishlistController extends Controller
   } else {
       $wishlistitem = new Wishlist();
       $wishlistitem->user_id = Auth::user()->id;
+      $wishlistitem->ip = $ip;
       $wishlistitem->product_id = $request->id;
       $wishlistitem->save();
       return redirect()->back()->with('success', 'Product added to wishlist successfully!');

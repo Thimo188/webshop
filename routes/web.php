@@ -33,7 +33,8 @@ Route::resource('/usergallery', 'GalleryController');
 // Cart pages
 Route::get('/addToCart/{id}', 'CartController@Create');
 Route::get('/cart/remove/{id}', 'CartController@Destroy');
-Route::post('/cart/edit', 'AjaxController@updateCart');
+Route::post('/cart/edit', 'AjaxController@updateCart')->name('ajax.update.cart');
+Route::post('/priceslider/update', 'AjaxController@updateSlider')->name('ajax.update.priceslider');
 
 // WISHLIST
 Route::resource('/wishlist', 'WishlistController');
@@ -100,4 +101,5 @@ Auth::routes();
 
 Route::group(['prefix' => 'admin2'], function () {
     Voyager::routes();
+
 });

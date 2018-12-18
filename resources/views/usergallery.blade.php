@@ -12,8 +12,8 @@
         <h4>A little bit about {{$userid->name}}</h4>
         <br />
         <div class="row justify-content-center">
-          <div class="col-md-4">
-        <b>I enjoy making websites with my teammates Omid, Charlie and Thimo even though I am better than them in every way possible!</b>
+          <div class="col-md-12">
+        <b>{{ $userid->description }}</b>
         </div>
         </div>
       </span>
@@ -31,15 +31,16 @@
 					@forelse($productsgallery as $product)
 					<div class="col-lg-3 d-flex align-items-stretch">
 						<div class="card">
-							<img class="card-img-top" src="{{asset($product->ProductImages['file'])}}" alt="Card image cap">
+						<a href="/description/{{$product->id}}"><img class="card-img-top" src="{{asset($product->file)}}" alt="Card image cap"></a>
 							<div class="card-body">
 								<h5 class="card-title">{{$product->product_name}}</h5>
 								<p class="card-text">{{ str_limit($product->product_description, 80) }}</p>
 							</div>
-							<div class="card-footer">
-								<a href="/description/{{$product->id}}" class="btn btn-primary">Visit</a>
+              <div class="card-footer">
+							  <a href="{{ url('/addToCart', $product->id) }}" class="btn btn-lg btn-light"><i class="fas fa-shopping-cart top" id="carticon"></i></a>
 								<p style="float: right">€ {{ number_format($product->price, 2,'.',',')}}</p>
-
+								<a href="{{ Route('wishlist.add', $product->id) }}" class="btn btn-lg btn-light">
+									<img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="25" class="hello" alt=""/></a>
 							</div>
 						</div>
 					</div>

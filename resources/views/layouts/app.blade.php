@@ -25,6 +25,7 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 	<link href="{{ asset('css/style.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/plane.css') }}" rel="stylesheet">
 	<link rel="stylesheet" href="{{ asset('css/normalize.css') }}" />
 	<link rel="stylesheet" href="{{ asset('css/ion.rangeSlider.css') }}" />
 	<link rel="stylesheet" href="{{ asset('css/ion.rangeSlider.skinFlat.css') }}" />
@@ -147,29 +148,11 @@
 			</div>
 		</nav>
 		@yield('content')
-		<footer>
-			<div class="fixed-bottom footer mt-5" id="footer">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-							<h3> Quick Links </h3>
-							<ul>
-								<li> <a href="#"> F.A.Q </a> </li>
-								<li> <a href="#"> Contact </a> </li>
-								<li> <a href="#"> Orders & Delivery </a> </li>
-								<li> <a href="#"> Payments </a> </li>
-							</ul>
-						</div>
-					</div>
-					<!--/.row-->
-				</div>
-				<!--/.container-->
-			</div>
-			<!--/.footer-->
 
-			<!--/.footer-bottom-->
-		</footer>
 	</div>
 </body>
+
+@include('layouts.footer')
+
 
 </html>

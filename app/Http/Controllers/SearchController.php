@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Color;
+use App\Product_Tag;
 
 class SearchController extends Controller
 {

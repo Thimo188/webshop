@@ -63,6 +63,10 @@ Route::get('payments', function(){
   return View('payments');
 });
 
+Route::get('plane', function(){
+  return View('plane');
+});
+
 Route::group(['middleware' => 'auth'], function() {
     // change PW and email
     Route::get('/editmail','EditEmailController@index');

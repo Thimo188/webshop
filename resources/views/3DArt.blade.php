@@ -2,6 +2,7 @@
 
 @section('content')
 
+<div class="col mt-5">
 <div id="index" class="container">
 	<div class="container">
 		<div class="row">
@@ -43,6 +44,13 @@
             					<p class="card-text">{{ str_limit($product->product_description, 80) }}</p>
 							</div>
 							<div class="card-footer">
+								<div class="center" style="margin:50px;">
+								  <button class="planebtn">
+								    <span>SEND</span>
+								    <i class="fa fa-paper-plane fa-lg replace"></i>
+								    <i class="fa fa-paper-plane plane fa-lg hidden"></i>
+								  </button>
+								</div>
 								<a href="{{ url('/addToCart', $product->id) }}" class="btn btn-lg btn-light"><i class="fas fa-shopping-cart top" id="carticon"></i></a>
 								<p style="float: right">€ {{ number_format($product->price, 2,'.',',')}}</p>
 								<a href="{{ Route('wishlist.add', $product->id) }}" class="btn btn-lg btn-light">
@@ -58,6 +66,7 @@
 
 		</div>
 	</div>
+</div>
 </div>
 </div>
 <script>
@@ -91,9 +100,25 @@ $("#price").ionRangeSlider({
 		});
 	}
 });
+
+$(document).ready(function() {
+  $(this).find('.planebtn').on( "click", function() {
+    $('.planebtn .plane').addClass('fly');
+		$('.planebtn .hidden').addClass('visible');
+		$('.planebtn .replace').removeClass('fa-paper-plane').addClass('fa-check');
+		$('.planebtn .span').text('SENT').addClass('fade');
+		$(this).addClass('done');
+
+	});
+});
+
+
+
 </script>
 <div class="text-center" id="pagination">
 	{!!$productsview->render();!!}
 </div>
+
+
 
 @endsection

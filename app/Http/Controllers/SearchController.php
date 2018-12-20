@@ -14,6 +14,7 @@ class SearchController extends Controller
 
 	  $colors = Color::all();
 	  $productsview=Product::searchproduct($request->search);
+      
 	  return view('photography', compact('productsview', 'colors'));
   }
 

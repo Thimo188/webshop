@@ -37,7 +37,7 @@
     <br />
     <br />
     <p class="description">
-      {{$product->ProductTag['name']}}
+      <a href="{{ route('tagsearch', $product->ProductTag['id'])}}">{{$product->ProductTag['name']}}</a>
     </p>
   </div>
 </div>

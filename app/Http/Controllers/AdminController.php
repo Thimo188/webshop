@@ -124,8 +124,8 @@ class AdminController extends Controller
      ->toArray();
 
   $chart_subs = Charts::database(Subscription::all(),'bar', 'highcharts')
-    ->title('Subscriptions bought')
-    ->elementLabel('Subscriptions')
+    ->title('Subscribers')
+    ->elementLabel('Subscriptions bought')
     ->labels($SubMonthYear)
     ->values($SubSold)
     ->dimensions(1500,500)
@@ -135,7 +135,7 @@ class AdminController extends Controller
 // hoeveel opbrengst
   $line_chart = Charts::create('line', 'highcharts')
     ->title('Turnover')
-    ->elementLabel('turnover')
+    ->elementLabel('€ Euro')
     ->labels($MonthAndYear)
     ->values($Price)
     ->dimensions(1500,500)
@@ -145,12 +145,12 @@ class AdminController extends Controller
 // chart voor hoeveel producten per maand
   $chart = Charts::database(Order_Detail::all(),'bar', 'highcharts')
     ->title('Products sold')
-    ->elementLabel('Products')
+    ->elementLabel('Product quantity')
     ->labels($MonthAndYear)
     ->values($Soldquantity)
     ->dimensions(1500,500)
-    ->responsive(true);
-    // ->groupByDay('30','2016',true);
+    ->responsive(true)
+    ->groupByDay('12','2018');
 
 // chart voor welke producten het meest verkocht zijn
   $pie_chart = Charts::create('pie', 'highcharts')

@@ -5,7 +5,7 @@
 
 <!-- charts -->
 
-<div class="col-md-6">
+<div class="col-md-12">
    {!! $chart->html() !!}
 </div>
 <div class="col-md-6 offset-md-2 mt-5">

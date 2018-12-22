@@ -45,6 +45,7 @@ Route::get('/ordersadmin', 'Ordersadmin@index');
 Route::get('/sidemenu', 'SidemenuController@index');
 Route::get('/account','AccountController@index');
 Route::get('/cart', 'CartController@index');
+Route::get('/tagsearch/{id}', 'DescriptionController@searchTag')->name('tagsearch');
 
 // FOOTER
 Route::get('faq', function(){

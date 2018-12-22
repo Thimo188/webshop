@@ -18,7 +18,6 @@
  </div>
 </div> -->
 
-<a href="{{ URL::previous() }}" style="position: absolute; left: 30px; top: 70px;"><i class="fas fa-arrow-left fa-2x"></i></a>
 <div class="container mt-5" id="product-section">
   <div class="row">
     @forelse($wished as $wishlistitem)

@@ -24,7 +24,7 @@ class GalleryController extends Controller
     ->join('users', 'users.id', '=', 'products.user_id')
     ->join('product_images', 'products.id', '=', 'product_images.product_id')
     ->where('user_id', Auth::user()->id)
-  	->orderBy('product_name', 'desc')
+  	->latest('products.created_at')
   	->paginate(9);
     return view('gallery.index', compact('productsgallery', 'userid'));
   }

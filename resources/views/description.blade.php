@@ -2,7 +2,6 @@
 
 @section('content')
 
-<a href="{{ URL::previous() }}" style="position: absolute; left: 30px; top: 70px;"><i class="fas fa-arrow-left fa-2x"></i></a>
 <div class="container mt-5 border" id="product-description">
   <div class="row">
     <div class="col-md-6 mt-3 mb-3">
@@ -37,7 +36,7 @@
     <br />
     <br />
     <p class="description">
-      {{$product->ProductTag['name']}}
+      <a href="{{ route('tagsearch', $product->ProductTag['id'])}}">{{$product->ProductTag['name']}}</a>
     </p>
   </div>
 </div>

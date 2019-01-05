@@ -45,6 +45,7 @@ Route::get('/ordersadmin', 'Ordersadmin@index');
 Route::get('/sidemenu', 'SidemenuController@index');
 Route::get('/account','AccountController@index');
 Route::get('/cart', 'CartController@index');
+Route::get('/tagsearch/{id}', 'DescriptionController@searchTag')->name('tagsearch');
 
 // FOOTER
 Route::get('faq', function(){
@@ -61,6 +62,10 @@ Route::get('privacypolicy', function(){
 
 Route::get('payments', function(){
   return View('payments');
+});
+
+Route::get('plane', function(){
+  return View('plane');
 });
 
 Route::group(['middleware' => 'auth'], function() {

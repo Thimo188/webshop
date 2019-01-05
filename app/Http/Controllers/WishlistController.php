@@ -30,13 +30,23 @@ class WishlistController extends Controller
   {
     $ip = isset($_SERVER['HTTP_CLIENT_IP'])?$_SERVER['HTTP_CLIENT_IP']:isset($_SERVER['HTTP_X_FORWARDED_FOR'])?$_SERVER['HTTP_X_FORWARDED_FOR']:$_SERVER['REMOTE_ADDR'];
 
+    $user = Auth::user();
+    $duplicate = Wishlist::where('user_id', $user->id)
+                          ->where('product_id',$request->id)
+                          ->first();
+
+    if($duplicate){
+      return redirect()->back()->with('success', 'You have already wished for this item!');
+
+    }
+
     if(Auth::guest()){
     $wishlistitem = new Wishlist();
     $wishlistitem->ip = $ip;
     $wishlistitem->user_id = 1;
     $wishlistitem->product_id = $request->id;
     $wishlistitem->save();
-    return redirect(url('/wishlist'));
+    return redirect()->back()->with('success', 'Product added to wishlist successfully!');
   } else {
       $wishlistitem = new Wishlist();
       $wishlistitem->user_id = Auth::user()->id;

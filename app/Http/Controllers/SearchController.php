@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Color;
+use App\Product_Tag;
 
 class SearchController extends Controller
 {
@@ -13,6 +14,7 @@ class SearchController extends Controller
 
 	  $colors = Color::all();
 	  $productsview=Product::searchproduct($request->search);
+      
 	  return view('photography', compact('productsview', 'colors'));
   }
 

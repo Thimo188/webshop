@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+<div class="col mt-5">
 <div id="index" class="container">
 	<div class="container">
 		<div class="row">
@@ -63,6 +65,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 </div>
 <script>

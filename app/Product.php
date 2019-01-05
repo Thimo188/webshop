@@ -20,6 +20,8 @@ class Product extends Model
     $record = [
       'product_name' => $this->product_name,
       'product_description' => $this->product_description,
+      'product_tags.name' => $this->product_tag,
+      'color_name' => $this->color_name,
     ];
 
     return $record;
@@ -27,16 +29,22 @@ class Product extends Model
 
 
   protected $fillable=['product_name', 'product_description', 'price'];
-  public static function searchproduct($product_name)
+  public static function searchproduct($record)
   {
 	  return self::with('ProductSizing', 'ProductTag','ProductImages')
 	  ->join('product_categories', 'products.id', '=' , 'product_categories.product_id')
 	  ->join('categories', 'categories.id' , '=' , 'product_categories.category_id')
 	  ->join('product_images', 'products.id', '=', 'product_images.product_id')
-	  ->where('products.product_name', 'like', '%' . $product_name . '%')
-    ->where('products.product_description', 'like', '%' . $product_description . '%')
+    ->join('product_tags', 'products.id', '=', 'product_tags.product_id')
+    ->join('product_colors', 'products.id', '=', 'product_colors.product_id')
+    ->join('colors', 'colors.id', '=', 'product_colors.color_id')
+	  ->where('products.product_name', 'like', '%' . $record . '%')
+    ->orWhere('products.product_description', 'like', '%' . $record . '%')
+    ->orWhere('product_tags.name', 'like', '%' . $record . '%')
+    ->orWhere('colors.name', 'like', '%' . $record . '%')
 	  ->paginate(15)->onEachSide(3);
   }
+
   public function ProductTag()
   {
     return $this->hasOne('App\Product_Tag');

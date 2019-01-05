@@ -9,9 +9,8 @@ use App\Product_Colors;
 
 class IllustrationsController extends Controller
 {
-  public function index(Color $color)
+  public function index(Request $Request)
   {
-    $products = $color->product;
     $productsview = Product::with('ProductSizing', 'ProductTag','ProductImages')
     ->join('product_categories', 'products.id', '=' , 'product_categories.product_id')
     ->join('categories', 'categories.id' , '=' , 'product_categories.category_id')
@@ -24,6 +23,38 @@ class IllustrationsController extends Controller
 		$productsview = $productsview->where('price', '<=', session()->get('max-price'));
 	}
 	$productsview = $productsview->paginate(9);
+  $sqlbuilder = Product::query();
+  if(isset($Request -> Sort))
+  {
+    switch($Request -> Sort)
+    {
+      default:
+      case 'PriceLowToHigh':
+      $sqlbuilder = $sqlbuilder->orderBy('price', 'asc')
+      ->join('product_categories', 'products.id', '=' , 'product_categories.product_id')
+      ->join('categories', 'categories.id' , '=' , 'product_categories.category_id')
+      ->join('product_images', 'products.id', '=', 'product_images.product_id')
+      ->where('product_categories.category_id' , '=', 2);
+      break;
+      case 'PriceHighToLow':
+      $sqlbuilder = $sqlbuilder->orderBy('price', 'desc')
+      ->join('product_categories', 'products.id', '=' , 'product_categories.product_id')
+      ->join('categories', 'categories.id' , '=' , 'product_categories.category_id')
+      ->join('product_images', 'products.id', '=', 'product_images.product_id')
+      ->where('product_categories.category_id' , '=', 2);
+      break;
+      case 'Latest':
+      $sqlbuilder = $sqlbuilder
+      ->join('product_categories', 'products.id', '=' , 'product_categories.product_id')
+      ->join('categories', 'categories.id' , '=' , 'product_categories.category_id')
+      ->join('product_images', 'products.id', '=', 'product_images.product_id')
+      ->where('product_categories.category_id' , '=', 2)
+      ->latest('products.created_at');
+      break;
+    }
+    $productsview = $sqlbuilder->paginate(9);
+  }
+
     $colors = Color::all();
     return view('illustrations', compact('products','productsview', 'colors'));
   }

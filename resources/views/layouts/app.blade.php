@@ -31,7 +31,8 @@
 	<script src="{{ asset('js/ion.rangeSlider.min.js') }}"></script>
 	<script src="{{ asset('js/webshop.js') }}"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<!-- Navbar -->
 
 </head>
@@ -127,7 +128,7 @@
 					</li>
 					{{-- <li class="fancy nav-item"><p class="fancy" id="cart">Cart</p><a href="{{ url('/cart')}}"><i class="fas fa-shopping-cart top" id="carticon"></i></a></li> --}}
 					<?php $ip = isset($_SERVER['HTTP_CLIENT_IP'])?$_SERVER['HTTP_CLIENT_IP']:isset($_SERVER['HTTP_X_FORWARDED_FOR'])?$_SERVER['HTTP_X_FORWARDED_FOR']:$_SERVER['REMOTE_ADDR']; ?>
-					<a href="{{ url('/cart')}}">
+					<a href="{{ url('/wishlist')}}">
 						<div id="ex4" style="display: inline; font-size: 8px;color: rgba(0, 0, 0, 0.5);">
 							<span class="p1 fa-stack fa-2x has-badge" data-count="@if(Auth::guest()) {{ App\Wishlist::where('ip', $ip)->count() }} @else {{ App\Wishlist::where('user_id', Auth::user()->id)->count() }} @endif">
 								<!--<i class="p2 fa fa-circle fa-stack-2x"></i>-->

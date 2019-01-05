@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div id="index" class="container">
 	<div class="container">
 		<div class="row">
@@ -13,7 +12,6 @@
 							<hr class="style10">
 							<label for='price'>Prijs:</label>
 							<input type="text" id="price" name="price_range" value="" />
-
 							<hr class="style10">
 							<h6><strong>Colors:</strong></h6>
 								@forelse($colors as $color)
@@ -25,7 +23,16 @@
 								@empty
 								<p> no colors found </p>
 								@endforelse
-
+								<hr class="style10">
+								<form action="{{ Route('PhotographyController.SortByFilter') }}" id="carform" method='get'>
+									@csrf
+									<select name="Sort">
+										<option value="Latest">Latest</option>
+										<option value="PriceLowToHigh" selected >Low to High</option>
+										<option value="PriceHighToLow">High to Low</option>
+									</select>
+									<input type="submit" value="Submit">
+								</form>
 						</div>
 					</div>
 				</div>
@@ -36,7 +43,7 @@
 					@forelse($productsview as $product)
 					<div class="col-md-4 card-margin d-flex align-items-stretch">
 						<div class="card">
-						<a href="/description/{{$product->id}}"><img class="card-img-top" src="{{asset($product->file)}}" alt="Card image cap"></a>
+						<a href="/description/{{$product->id}}"><img class="card-img-top" src="{{asset($product->ProductImages->file)}}" alt="Card image cap"></a>
 							<div class="card-body">
 								<h5 class="card-title">{{$product->product_name}}</h5>
             					<p class="card-text">{{ str_limit($product->product_description, 80) }}</p>
@@ -54,7 +61,6 @@
 					@endforelse
 				</div>
 			</div>
-
 		</div>
 	</div>
 </div>

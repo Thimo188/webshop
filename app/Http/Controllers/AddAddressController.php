@@ -35,6 +35,7 @@ class AddAddressController extends Controller
         $address->place=$validatedData['place'];
 
 
-        $address->save();}
+        $address->save();
+      }
 
 }

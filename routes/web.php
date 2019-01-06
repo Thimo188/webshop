@@ -74,6 +74,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('/addaddress', 'AddAddressController');
     Route::resource('/changepassword','ChangePasswordController');
     Route::post('/changepassword', 'ChangePasswordController@changePassword')->name('changePassword');
+    Route::get('/editdescription', 'UserDescriptionController@index');
     // Admin chart stuff
     Route::get('/charts', 'ChartController@index')->name('chart.index');
     Route::get('/account','AccountController@index');
@@ -93,7 +94,11 @@ Route::post('/subscription/payment/finish', 'SubscriptionController@mollieWebhoo
 Route::get('/search',          'SearchController@search')->name('search');
 Route::get('/product/{id}',  'SearchController@product');
 Route::get('/admin', 'AdminController@index');
-Route::get('/adminproducts', 'AdminController@adminProducts');
+Route::get('/adminproducts', 'AdminController@index');
+Route::get('/admin2/products/2018', 'AdminController@adminProducts2018');
+Route::get('/admin2/products/2019', 'AdminController@adminProducts2019');
+Route::get('/admin2/products/LastMonth', 'AdminController@adminProductsLastMonth');
+Route::get('/admin2/products/CurrentMonth', 'AdminController@adminProductsThisMonth');
 Route::group(['middleware' => 'admin'], function() {
 });
 Auth::routes();

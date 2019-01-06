@@ -17,16 +17,25 @@
 
 							<hr class="style10">
 							<h6><strong>Colors:</strong></h6>
-								@forelse($colors as $color)
-								<div class="form-check" onClick="window.location = 'http://127.0.0.1:8000/3DArt/colors/{{$color->name}}/3';">
-								  <label class="form-check-label">
-								    <input type="radio" class="form-check-input" name="optradio">{{$color->name}}
-								  </label>
-								</div>
-								@empty
-								<p> no posts found </p>
-								@endforelse
-
+							@forelse($colors as $color)
+							<div class="form-check" onClick="window.location = 'http://127.0.0.1:8000/3DArt/colors/{{$color->name}}/3';">
+								<label class="form-check-label">
+									<input type="radio" class="form-check-input" name="optradio">{{$color->name}}
+								</label>
+							</div>
+							@empty
+							<p> no posts found </p>
+							@endforelse
+							<hr class="style10">
+							<form action="{{ Route('ThreeDArtController.SortByFilter') }}" id="carform" method='get'>
+								@csrf
+								<select name="Sort">
+									<option value="Latest">Latest</option>
+									<option value="PriceLowToHigh" selected >Low to High</option>
+									<option value="PriceHighToLow">High to Low</option>
+								</select>
+								<input type="submit" value="Submit">
+							</form>
 						</div>
 					</div>
 				</div>
@@ -56,14 +65,14 @@
 								<a href="{{ Route('wishlist.add', $product->id) }}" class="btn btn-lg btn-light">
 									<img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="25" class="hello" alt=""/></a>
 							</div>
+							@empty
+							<p> no posts found </p>
+							@endforelse
 						</div>
 					</div>
-					@empty
-					<p> no posts found </p>
-					@endforelse
+
 				</div>
 			</div>
-
 		</div>
 	</div>
 </div>

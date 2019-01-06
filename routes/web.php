@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +12,9 @@
 
 Route::get('/cart', 'CartController@index');
 
-Route::get('/photography', 'PhotographyController@index');
-Route::get('/illustrations', 'IllustrationsController@index');
-Route::get('/3DArt', 'ThreeDArtController@index');
+Route::get('/photography', 'PhotographyController@index')->name('PhotographyController.SortByFilter');
+Route::get('/illustrations', 'IllustrationsController@index')->name('IllustrationsController.SortByFilter');
+Route::get('/3DArt', 'ThreeDArtController@index')->name('ThreeDArtController.SortByFilter');;
 Route::get('/', 'HomepageController@index')->name('home');
 Route::get('/photography/colors/{color}/{categoryid}', 'FilterController@index');
 Route::get('/illustrations/colors/{color}/{categoryid}', 'FilterController@illustrations');

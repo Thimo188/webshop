@@ -5,7 +5,7 @@
 <div class="container main">
   <div class="row">
     <div class="col-md-12 mt-4">
-      <h4 class="mb-3"> Add a description of you or your work</h4>
+      <h4 class="mb-3">Describe yourself</h4>
     </div>
       <div class="col-md-12">
         <form method="post" action="{{ route('editdescription.store') }}" id="adduserdesc">

@@ -30,17 +30,17 @@ class GalleryController extends Controller
   }
 
   public function show($id)
-   {
-     $productsgallery = Product::with('ProductSizing', 'ProductTag','ProductImages')
-     ->join('users', 'users.id', '=', 'products.user_id')
-     ->join('product_images', 'products.id', '=', 'product_images.product_id')
-     ->where('user_id', $id)
-     ->orderBy('product_name', 'desc')
-     ->paginate(9);
-     $product = Product::find($id);
-     $users = User::find($product->user_id);
-     $userid = User::find($id);
-     return view('usergallery', compact('product', 'id', 'users','productsgallery','userid'));
+        {
+          $productsgallery = Product::with('ProductSizing', 'ProductTag','ProductImages')
+          ->join('users', 'users.id', '=', 'products.user_id')
+          ->join('product_images', 'products.id', '=', 'product_images.product_id')
+          ->where('user_id', $id)
+          ->orderBy('product_name', 'desc')
+          ->paginate(9);
+          $product = Product::find($id);
+          $users = User::find($product->user_id);
+          $userid = User::find($id);
+          return view('usergallery', compact('product', 'id', 'users','productsgallery','userid'));
         }
         /**
          * Show the form for editing the specified resource.

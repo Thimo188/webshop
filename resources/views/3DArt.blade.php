@@ -10,6 +10,7 @@
 				<div class="h-100">
 					<div class="card">
 						<div class="card-body">
+							<h2>Filters</h2>
 							<hr class="style10">
 							<label for='price'>Prijs:</label>
 							<input type="text" id="price" name="price_range" value="" />
@@ -29,12 +30,12 @@
 							<hr class="style10">
 							<form action="{{ Route('ThreeDArtController.SortByFilter') }}" id="carform" method='get'>
 								@csrf
-								<select name="Sort">
+								<select name="Sort" class="form-control">
 									<option value="Latest">Latest</option>
 									<option value="PriceLowToHigh" selected >Low to High</option>
 									<option value="PriceHighToLow">High to Low</option>
-								</select>
-								<input type="submit" value="Submit">
+								</select><br/>
+								<input type="submit" value="Submit" class="form-control">
 							</form>
 						</div>
 					</div>

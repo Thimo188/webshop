@@ -74,7 +74,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('/addaddress', 'AddAddressController');
     Route::resource('/changepassword','ChangePasswordController');
     Route::post('/changepassword', 'ChangePasswordController@changePassword')->name('changePassword');
-    Route::get('/editdescription', 'UserDescriptionController@index');
+    Route::resource('/editdescription', 'UserDescriptionController');
     // Admin chart stuff
     Route::get('/charts', 'ChartController@index')->name('chart.index');
     Route::get('/account','AccountController@index');

@@ -5,6 +5,8 @@ use Illuminate\Console\Command;
 use App\Cart;
 use Mail;
 use App\Mail\sendReminder;
+use Carbon\Carbon;
+use Log;
 
 class sendReminders extends command {
     protected $signature = 'webshop:sendReminders';
@@ -17,8 +19,11 @@ class sendReminders extends command {
     public function handle() {
 		$cartLines = Cart::all();
 		foreach($cartLines as $cartLine) {
-			if($cartline->created_at > Carbon::now()->addMinutes(-32) && $cartline->created_at < Carbon::now()->addMinutes(-15)) {
-				Mail::to($cartline->User()->email)->send(new sendReminder);
+			if($cartLine->created_at > Carbon::now()->addMinutes(-32) && $cartLine->created_at < Carbon::now()->addMinutes(-15)) {
+				if(!empty($cartLine->user_id)) {
+					$user = User::find($cartLine->user_id);
+					Mail::to($user->email)->send(new sendReminder);
+				}
 			}
 		}
     }

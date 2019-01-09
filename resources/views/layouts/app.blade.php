@@ -38,7 +38,7 @@
 </head>
 
 <body>
-  <div id="app">
+  <div class='wrapper' id="app">
     @include('flash-message')
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="{{ url('/')}}">MUZEN</a>
@@ -148,6 +148,7 @@
 			</div>
 		</nav>
 		@yield('content')
+	</div>
 		<footer>
 			<div class="fixed-bottom footer mt-5" id="footer">
 				<div class="container">
@@ -170,7 +171,7 @@
 
 			<!--/.footer-bottom-->
 		</footer>
-	</div>
+
 </body>
 
 </html>

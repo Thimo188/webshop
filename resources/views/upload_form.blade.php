@@ -87,8 +87,9 @@
             </label>
           </div>
 
-          @endforeach
 
+          @endforeach
+          <small class="text-secondary">{{ $errors->first('color') }}</small>
       </div>
       <br />
 

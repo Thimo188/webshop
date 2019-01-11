@@ -10,7 +10,7 @@
 					<div class="card">
 						<div class="card-body">
 							<hr class="style10">
-							<label for='price'>Prijs:</label>
+							<label for='price'>Price:</label>
 							<input type="text" id="price" name="price_range" value="" />
 							<hr class="style10">
 
@@ -19,7 +19,7 @@
 								@forelse($colors as $color)
 								<div class="form-check" onClick="window.location = 'http://127.0.0.1:8000/3DArt/colors/{{$color->name}}/3';">
 								  <label class="form-check-label">
-								    <input type="radio" class="form-check-input" name="optradio">{{$color->name}}
+								    <input type="radio" class="form-check-input" name="selectradio" value="{{$color->id}}" @if($color->id == session()->get('color_id')) selected @endif>{{$color->name}}
 								  </label>
 								</div>
 								@empty
@@ -93,6 +93,16 @@ $("#price").ionRangeSlider({
 	}
 });
 </script>
+
+<script>
+	 $(function(){
+		 $("input[type='radio']").click(function(){
+				alert($('input:radio:checked').val());
+		});
+	 });
+</script>
+
+
 <div class="text-center" id="pagination">
 	{!!$productsview->render();!!}
 </div>

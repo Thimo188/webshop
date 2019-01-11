@@ -18,7 +18,7 @@
 							<hr class="style10">
 							<h6><strong>Colors:</strong></h6>
 								@forelse($colors as $color)
-								<div class="form-check" onClick="window.location = 'http://127.0.0.1:8000/illustrations/colors/{{$color->name}}/2';">
+								<div class="form-check" onClick="window.location = '{{ url('illustrations/colors/'.$color->name.'/2')}}';">
 								  <label class="form-check-label">
 								    <input type="radio" class="form-check-input" name="optradio">{{$color->name}}
 								  </label>

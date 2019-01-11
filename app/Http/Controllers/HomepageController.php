@@ -31,4 +31,20 @@ class HomepageController extends Controller
     $users = User::find($product->user_id);
     return view('description', compact('product', 'id', 'users'));
   }
+
+  public function faq() {
+    return view('faq');
+  }
+
+  public function payments() {
+    return view('payments');
+  }
+
+  public function privacypolicy() {
+    return view('privacypolicy');
+  }
+
+  public function admin2() {
+    return view('admin2');
+  }
 }

@@ -13,10 +13,10 @@
 
 Route::get('/cart', 'CartController@index');
 
-Route::get('/faq', 'HomepageController@faq')->name('faq');
-Route::get('/photography', 'PhotographyController@index');
-Route::get('/illustrations', 'IllustrationsController@index');
-Route::get('/3DArt', 'ThreeDArtController@index');
+
+Route::get('/photography', 'PhotographyController@index')->name('PhotographyController.SortByFilter');
+Route::get('/illustrations', 'IllustrationsController@index')->name('IllustrationsController.SortByFilter');
+Route::get('/3DArt', 'ThreeDArtController@index')->name('ThreeDArtController.SortByFilter');
 Route::get('/', 'HomepageController@index')->name('home');
 Route::get('/photography/colors/{color}/{categoryid}', 'FilterController@index');
 Route::get('/illustrations/colors/{color}/{categoryid}', 'FilterController@illustrations');
@@ -49,24 +49,15 @@ Route::get('/cart', 'CartController@index');
 Route::get('/tagsearch/{id}', 'DescriptionController@searchTag')->name('tagsearch');
 
 // FOOTER
-Route::get('faq', function(){
-    return View('faq');
-});
+Route::get('/faq', 'HomepageController@faq')->name('faq.footer');
 
 Route::get('/contact', 'AccountController@contact')->name('contact.form');
 Route::post('/contact/sendmail', 'AccountController@sendMail')->name('contact.sendMail');
 
-Route::get('privacypolicy', function(){
-  return View('privacypolicy');
-});
+Route::get('/privacypolicy', 'HomepageController@privacypolicy')->name('privacypolicy.footer');
 
-Route::get('payments', function(){
-  return View('payments');
-});
+Route::get('/payments', 'HomepageController@payments')->name('payments.footer');
 
-Route::get('plane', function(){
-  return View('plane');
-});
 
 Route::group(['middleware' => 'auth'], function() {
     // change PW and email

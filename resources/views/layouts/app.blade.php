@@ -156,10 +156,13 @@
 						<div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
 							<h3> Quick Links </h3>
 							<ul>
-								<li> <a href="{{ url('/faq') }}"> F.A.Q </a> </li>
-								<li> <a href="{{ url('/contact')}}"> Contact </a> </li>
-								<li> <a href="{{ url('/privacypolicy')}}"> Privacy Policy </a> </li>
-								<li> <a href="{{ url('/payments')}}"> Payments </a> </li>
+								<li> <a href="{{ route('faq.footer')}}"> F.A.Q </a> </li>
+								<li> <a href="{{ route('contact.form')}}"> Contact </a> </li>
+								<li> <a href="{{ route('privacypolicy.footer')}}"> Privacy Policy </a> </li>
+								<li> <a href="{{ route('payments.footer')}}"> Payments </a> </li>
+								@if(Auth::check() && Auth::user()->role_id == 1)
+								<li> <a href="{{ url('/admin2')}}"> Admin </a> </li>
+								@endif
 							</ul>
 						</div>
 					</div>

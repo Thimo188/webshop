@@ -10,7 +10,7 @@
 					<div class="card">
 						<div class="card-body">
 							<hr class="style10">
-							<label for='price'>Prijs:</label>
+							<label for='price'>Price:</label>
 							<input type="text" id="price" name="price_range" value="" />
 							<hr class="style10">
 

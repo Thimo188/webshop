@@ -12,7 +12,7 @@
 						<div class="card-body">
 							<h2>Filters</h2>
 							<hr class="style10">
-							<label for='price'>Prijs:</label>
+							<label for='price'>Price:</label>
 							<input type="text" id="price" name="price_range" value="" />
 
 

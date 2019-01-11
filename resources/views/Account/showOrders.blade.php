@@ -6,9 +6,9 @@
 		<div class="col-md-12">
 			<table width="100%">
 				<tr>
-					<th>Ordernummer</th>
-					<th>Datum</th>
-					<th>Prijs</th>
+					<th>Ordernumber</th>
+					<th>Date</th>
+					<th>Price</th>
 					<th>Status</th>
 				</tr>
 				@forelse($orders as $order)

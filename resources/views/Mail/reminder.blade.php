@@ -1,6 +1,6 @@
 Dear user,<br/>
 <br/>
-You still seem to have some products in your cart, check them out before they run out of stock!<br/>
+Be ahead of the trend and get the print before everybody owns it.<br/>
 <br/>
 Kind regards,<br/>
 <br/>

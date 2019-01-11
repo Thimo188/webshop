@@ -1,4 +1,5 @@
 <?php
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,9 +13,10 @@
 
 Route::get('/cart', 'CartController@index');
 
-Route::get('/photography', 'PhotographyController@index')->name('PhotographyController.SortByFilter');
-Route::get('/illustrations', 'IllustrationsController@index')->name('IllustrationsController.SortByFilter');
-Route::get('/3DArt', 'ThreeDArtController@index')->name('ThreeDArtController.SortByFilter');;
+Route::get('/faq', 'HomepageController@faq')->name('faq');
+Route::get('/photography', 'PhotographyController@index');
+Route::get('/illustrations', 'IllustrationsController@index');
+Route::get('/3DArt', 'ThreeDArtController@index');
 Route::get('/', 'HomepageController@index')->name('home');
 Route::get('/photography/colors/{color}/{categoryid}', 'FilterController@index');
 Route::get('/illustrations/colors/{color}/{categoryid}', 'FilterController@illustrations');
@@ -51,9 +53,8 @@ Route::get('faq', function(){
     return View('faq');
 });
 
-Route::get('contact', function(){
-  return View('contact');
-});
+Route::get('/contact', 'AccountController@contact')->name('contact.form');
+Route::post('/contact/sendmail', 'AccountController@sendMail')->name('contact.sendMail');
 
 Route::get('privacypolicy', function(){
   return View('privacypolicy');
@@ -74,7 +75,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('/addaddress', 'AddAddressController');
     Route::resource('/changepassword','ChangePasswordController');
     Route::post('/changepassword', 'ChangePasswordController@changePassword')->name('changePassword');
-    Route::resource('/editdescription', 'UserDescriptionController');
     // Admin chart stuff
     Route::get('/charts', 'ChartController@index')->name('chart.index');
     Route::get('/account','AccountController@index');
@@ -94,11 +94,7 @@ Route::post('/subscription/payment/finish', 'SubscriptionController@mollieWebhoo
 Route::get('/search',          'SearchController@search')->name('search');
 Route::get('/product/{id}',  'SearchController@product');
 Route::get('/admin', 'AdminController@index');
-Route::get('/adminproducts', 'AdminController@index');
-Route::get('/admin2/products/2018', 'AdminController@adminProducts2018');
-Route::get('/admin2/products/2019', 'AdminController@adminProducts2019');
-Route::get('/admin2/products/LastMonth', 'AdminController@adminProductsLastMonth');
-Route::get('/admin2/products/CurrentMonth', 'AdminController@adminProductsThisMonth');
+Route::get('/adminproducts', 'AdminController@adminProducts');
 Route::group(['middleware' => 'admin'], function() {
 });
 Auth::routes();

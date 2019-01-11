@@ -40,11 +40,11 @@ class SubscriptionController extends Controller
 		Log::error(json_encode($payment));
 		if ($payment->isPaid() && !$payment->hasRefunds() && !$payment->hasChargebacks()) {
 				$subscription = new Subscription;
-				if($payment->amount->value == 4.00) {
+				if($payment->amount->value == "4.00") {
 					$subscription->amount = 3;
-				} else if($payment->amount->value == 10.00) {
+				} else if($payment->amount->value == "10.00") {
 					$subscription->amount = 10;
-				} else if($payment->amount->value == 12.50) {
+				} else if($payment->amount->value == "12.50") {
 					$subscription->amount = 15;
 				}
 				$subscription->user_id = $payment->description;

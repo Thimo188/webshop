@@ -1,4 +1,5 @@
 <?php
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,8 +16,7 @@ Route::get('/cart', 'CartController@index');
 
 Route::get('/photography', 'PhotographyController@index')->name('PhotographyController.SortByFilter');
 Route::get('/illustrations', 'IllustrationsController@index')->name('IllustrationsController.SortByFilter');
-Route::get('/3DArt', 'ThreeDArtController@index')->name('ThreeDArtController.SortByFilter');;
-
+Route::get('/3DArt', 'ThreeDArtController@index')->name('ThreeDArtController.SortByFilter');
 Route::get('/', 'HomepageController@index')->name('home');
 Route::get('/photography/colors/{color}/{categoryid}', 'FilterController@index');
 Route::get('/illustrations/colors/{color}/{categoryid}', 'FilterController@illustrations');
@@ -51,9 +51,8 @@ Route::get('/tagsearch/{id}', 'DescriptionController@searchTag')->name('tagsearc
 // FOOTER
 Route::get('/faq', 'HomepageController@faq')->name('faq.footer');
 
-Route::get('contact', function(){
-  return View('contact');
-});
+Route::get('/contact', 'AccountController@contact')->name('contact.form');
+Route::post('/contact/sendmail', 'AccountController@sendMail')->name('contact.sendMail');
 
 Route::get('/privacypolicy', 'HomepageController@privacypolicy')->name('privacypolicy.footer');
 
@@ -67,7 +66,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('/addaddress', 'AddAddressController');
     Route::resource('/changepassword','ChangePasswordController');
     Route::post('/changepassword', 'ChangePasswordController@changePassword')->name('changePassword');
-    Route::resource('/editdescription', 'UserDescriptionController');
     // Admin chart stuff
     Route::get('/charts', 'ChartController@index')->name('chart.index');
     Route::get('/account','AccountController@index');
@@ -88,10 +86,10 @@ Route::get('/search',          'SearchController@search')->name('search');
 Route::get('/product/{id}',  'SearchController@product');
 Route::get('/admin', 'AdminController@index');
 Route::get('/adminproducts', 'AdminController@index');
-Route::get('/admin2/products/2018', 'AdminController@adminProducts2018');
-Route::get('/admin2/products/2019', 'AdminController@adminProducts2019');
-Route::get('/admin2/products/LastMonth', 'AdminController@adminProductsLastMonth');
-Route::get('/admin2/products/CurrentMonth', 'AdminController@adminProductsThisMonth');
+Route::get('/admin2/statistics/2018', 'AdminController@adminProducts2018');
+Route::get('/admin2/statistics/2019', 'AdminController@adminProducts2019');
+Route::get('/admin2/statistics/LastMonth', 'AdminController@adminProductsLastMonth');
+Route::get('/admin2/statistics/CurrentMonth', 'AdminController@adminProductsThisMonth');
 Route::group(['middleware' => 'admin'], function() {
 });
 Auth::routes();

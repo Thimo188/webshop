@@ -36,7 +36,7 @@
 								<p class="card-text">{{ str_limit($product->product_description, 80) }}</p>
 							</div>
 							<div class="card-footer">
-								<p style="float: right">€ {{ number_format($product->price, 2,'.',',')}}</p>
+                <p style="float: right; font-size: 18px; padding-top: 10px; color: grey;">€ {{ number_format($product->price, 2,'.',',')}}</p>
 								<a href="{{ Route('gallery.edit', $product->id) }}" class="fas fa-edit fa-2x"></a>
 
           @if(Carbon\Carbon::parse($product->created_at)->diffInHours() > 24)<a href="{{ Route('gallery.destroy', $product->id)}}" class="fas fa-trash-alt fa-2x"></a>@endif

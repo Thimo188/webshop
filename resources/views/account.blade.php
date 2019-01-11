@@ -25,9 +25,6 @@
                               <br />
                             <ul class="container details">
                               <li><p><i class="fa fa-envelope"></i> {{ Auth::user()->email }}</p></li>
-                              <li><p><span class="glyphicon glyphicon-new-window one" style="width:50px;"></span><a href="#">www.example.com</p></a>
-                              <b>_____________________________________________</b>
-
                             </ul>
 
                         </div>

@@ -57,6 +57,8 @@
                                <a href={{ url('/addaddress') }} class="btn">Add address</a>
                               <br />
                                <a href={{ url('/editmail') }} class="btn">Edit mail</a>
+                               <br />
+                               <a href={{ url('/editdescription') }} class="btn">Edit Description</a>
                               </div>
                            </div>
                          </div>

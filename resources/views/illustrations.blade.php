@@ -26,6 +26,16 @@
 								@empty
 								<p> no posts found </p>
 								@endforelse
+								<hr class="style10">
+								<form action="{{ Route('IllustrationsController.SortByFilter') }}" id="carform" method='get'>
+									@csrf
+									<select name="Sort" class="form-control">
+										<option value="Latest">Latest</option>
+										<option value="PriceLowToHigh" selected >Low to High</option>
+										<option value="PriceHighToLow">High to Low</option>
+									</select></br>
+									<input type="submit" value="Submit" class="form-control">
+								</form>
 						</div>
 					</div>
 				</div>

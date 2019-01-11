@@ -57,7 +57,7 @@ class FilterController extends Controller
       ->paginate(9);
       $colors = Color::all();
       $categories = Category::all();
-      
+
       return view('3DArtfilter', compact('productsview','products','colors'));
     }
 

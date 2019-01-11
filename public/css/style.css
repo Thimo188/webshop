@@ -1,6 +1,12 @@
 .table>tbody>tr>td, .table>tfoot>tr>td{
     vertical-align: middle;
 }
+.wrapper {
+  min-height: calc(100vh - 350px);
+}
+#footer {
+  height: 202px;
+}
 .loader {
   position: absolute;
   left: 50%;

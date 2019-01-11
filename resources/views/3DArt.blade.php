@@ -10,6 +10,7 @@
 				<div class="h-100">
 					<div class="card">
 						<div class="card-body">
+							<h2>Filters</h2>
 							<hr class="style10">
 							<label for='price'>Prijs:</label>
 							<input type="text" id="price" name="price_range" value="" />
@@ -17,41 +18,41 @@
 
 							<hr class="style10">
 							<h6><strong>Colors:</strong></h6>
-								@forelse($colors as $color)
-								<div class="form-check" onClick="window.location = 'http://127.0.0.1:8000/3DArt/colors/{{$color->name}}/3';">
-								  <label class="form-check-label">
-								    <input type="radio" class="form-check-input" name="optradio">{{$color->name}}
-								  </label>
-								</div>
-								@empty
-								<p> no posts found </p>
-								@endforelse
-
+							@forelse($colors as $color)
+							<div class="form-check" onClick="window.location = 'http://127.0.0.1:8000/3DArt/colors/{{$color->name}}/3';">
+								<label class="form-check-label">
+									<input type="radio" class="form-check-input" name="optradio">{{$color->name}}
+								</label>
+							</div>
+							@empty
+							<p> no posts found </p>
+							@endforelse
+							<hr class="style10">
+							<form action="{{ Route('ThreeDArtController.SortByFilter') }}" id="carform" method='get'>
+								@csrf
+								<select name="Sort" class="form-control">
+									<option value="Latest">Latest</option>
+									<option value="PriceLowToHigh" selected >Low to High</option>
+									<option value="PriceHighToLow">High to Low</option>
+								</select><br/>
+								<input type="submit" value="Submit" class="form-control">
+							</form>
 						</div>
 					</div>
 				</div>
 			</div>
-
 			<div class="col-md-9">
 				<div class="row">
 					@forelse($productsview as $product)
 					<div class="col-md-4 card-margin d-flex align-items-stretch">
 						<div class="card">
-							<a href="/description/{{$product->id}}">
-							<img class="card-img-top" src="{{asset($product->file)}}" alt="Card image cap"></a>
+						<a href="/description/{{$product->product_id}}"><img class="card-img-top" src="{{asset($product->file)}}" alt="Card image cap"></a>
 							<div class="card-body">
 								<h5 class="card-title">{{$product->product_name}}</h5>
             					<p class="card-text">{{ str_limit($product->product_description, 80) }}</p>
 							</div>
 							<div class="card-footer">
-								<div class="center" style="margin:50px;">
-								  <button class="planebtn">
-								    <span>SEND</span>
-								    <i class="fa fa-paper-plane fa-lg replace"></i>
-								    <i class="fa fa-paper-plane plane fa-lg hidden"></i>
-								  </button>
-								</div>
-								<a href="{{ url('/addToCart', $product->id) }}" class="btn btn-lg btn-light"><i class="fas fa-shopping-cart top" id="carticon"></i></a>
+							  <a href="{{ url('/addToCart', $product->id) }}" class="btn btn-lg btn-light"><i class="fas fa-shopping-cart top" id="carticon"></i></a>
 								<p style="float: right">€ {{ number_format($product->price, 2,'.',',')}}</p>
 								<a href="{{ Route('wishlist.add', $product->id) }}" class="btn btn-lg btn-light">
 									<img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="25" class="hello" alt=""/></a>
@@ -63,7 +64,6 @@
 					@endforelse
 				</div>
 			</div>
-
 		</div>
 	</div>
 </div>

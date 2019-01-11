@@ -8,10 +8,10 @@
 <div class="row">
   <div class="col-md-6">
 <a href="{{ url('/adminproducts')}}" class="btn btn-primary btn-lg">General Overview</a>
-<a href="{{ url('/admin2/products/2018')}}" class="btn btn-primary btn-lg">Last Year</a>
-<a href="{{ url('/admin2/products/2019')}}" class="btn btn-primary btn-lg">Current Year</a>
-<a href="{{ url('/admin2/products/LastMonth')}}" class="btn btn-primary btn-lg">Last Month</a>
-<a href="{{ url('/admin2/products/CurrentMonth')}}" class="btn btn-primary btn-lg">Current month</a>
+<a href="{{ url('/admin2/statistics/2018')}}" class="btn btn-primary btn-lg">Last Year</a>
+<a href="{{ url('/admin2/statistics/2019')}}" class="btn btn-primary btn-lg">Current Year</a>
+<a href="{{ url('/admin2/statistics/LastMonth')}}" class="btn btn-primary btn-lg">Last Month</a>
+<a href="{{ url('/admin2/statistics/CurrentMonth')}}" class="btn btn-primary btn-lg">Current month</a>
   </div>
 <div class="col-md-12">
    {!! $chart->html() !!}

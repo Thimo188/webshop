@@ -85,7 +85,11 @@ Route::post('/subscription/payment/finish', 'SubscriptionController@mollieWebhoo
 Route::get('/search',          'SearchController@search')->name('search');
 Route::get('/product/{id}',  'SearchController@product');
 Route::get('/admin', 'AdminController@index');
-Route::get('/adminproducts', 'AdminController@adminProducts');
+Route::get('/adminproducts', 'AdminController@index');
+Route::get('/admin2/statistics/2018', 'AdminController@adminProducts2018');
+Route::get('/admin2/statistics/2019', 'AdminController@adminProducts2019');
+Route::get('/admin2/statistics/LastMonth', 'AdminController@adminProductsLastMonth');
+Route::get('/admin2/statistics/CurrentMonth', 'AdminController@adminProductsThisMonth');
 Route::group(['middleware' => 'admin'], function() {
 });
 Auth::routes();

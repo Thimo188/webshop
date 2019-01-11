@@ -60,7 +60,7 @@ class UploadController extends Controller
     $subscription = Subscription::where('user_id', Auth::user()->id)->first();
     if(!empty($subscription)) {
 			if($subscription->amount > 1) {
-                $subscription->amount = $subscription->amount--;
+                $subscription->amount = $subscription->amount - 1;
                 $subscription->save();
             } else {
                 $subscription->delete();

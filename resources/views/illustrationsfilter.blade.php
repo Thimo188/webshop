@@ -43,9 +43,8 @@
 							</div>
 							<div class="card-footer">
 								<a href="{{ url('/addToCart', $product->id) }}" class="btn btn-lg btn-light"><i class="fas fa-shopping-cart top" id="carticon"></i></a>
-								<p style="float: right">€ {{ number_format($product->price, 2,'.',',')}}</p>
-								<a href="{{ Route('wishlist.add', $product->product_id) }}" class="btn btn-lg btn-light">
-									<img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="25" class="hello" alt=""/></a>
+								<p style="float: right; font-size: 18px; padding-top: 10px; color: grey;">€ {{ number_format($product->price, 2,'.',',')}}</p>
+								<a href="{{ Route('wishlist.add', $product->id) }}" class="btn btn-lg btn-light"><i class="far fa-heart top" id="wishlisticon"></i></a>
 							</div>
 						</div>
 					</div>

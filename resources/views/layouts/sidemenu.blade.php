@@ -35,7 +35,7 @@
 
 </head>
 <body>
-  <div id="app">
+  <div class='wrapper' id="app">
     @include('flash-message')
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="{{ url('/')}}">MUZEN</a>
@@ -43,90 +43,109 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url('/photography')}}">Photography<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url('/illustrations')}}">Illustrations</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url('3DArt')}}">3DArt</a>
-          </li>
-          </ul>
-          {{-- <form class="form-inline" action="{{route('search')}}" method="get">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form> --}}
-          @guest
-          <li class="nav-item dropdown-expand-sm">
-            <a class="nav-link dropdown-toggle top" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-user-circle"></i>
-            </a>
-            <div class="dropdown-menu">
-              <form method="POST" action="{{ route('login') }}" class="px-4 py-3">
-                {{ csrf_field() }}
-                <div class="form-group">
-                  <label for="exampleDropdownFormEmail1">Email address</label>
-                  <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="email@example.com" required>
-                  <!-- <input type="email" class="form-control" id="exampleDropdownFormEmail1" > -->
-                </div>
-                <div class="form-group">
-                  <label for="exampleDropdownFormPassword1">Password</label>
-                  <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Password" required>
-                  <!-- <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password"> -->
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url('/photography')}}">Photography<span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url('/illustrations')}}">Illustrations</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url('3DArt')}}">3DArt</a>
+					</li>
+				</ul>
+				<div class="right-menu">
+				<li class="fancy nav-item">
+					<p class="fancy" id="upload">Upload</p><a href="{{ url('/upload')}}"><i class="fas fa-plus-circle top" id="uploadicon"></i></a>
+				</li>
+			</div>
+				{{-- <form class="form-inline" action="{{route('search')}}" method="get">
+				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				</form> --}}
+				@guest
+				<li class="nav-item dropdown-expand-sm">
+					<a class="nav-link dropdown-toggle top" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fas fa-user-circle"></i>
+					</a>
+					<div class="dropdown-menu">
+						<form method="POST" action="{{ route('login') }}" class="px-4 py-3">
+							{{ csrf_field() }}
+							<div class="form-group">
+								<label for="exampleDropdownFormEmail1">Email address</label>
+								<input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="email@example.com" required>
+								<!-- <input type="email" class="form-control" id="exampleDropdownFormEmail1" > -->
+							</div>
+							<div class="form-group">
+								<label for="exampleDropdownFormPassword1">Password</label>
+								<input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Password" required>
+								<!-- <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password"> -->
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                  <label class="form-check-label" for="remember">
-                    {{ __('Remember Me') }}
-                  </label>
-                </div>
-                <button type="submit" class="btn btn-primary">Sign in</button>
-              </form>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{{ url('/register') }}">New around here? Sign up</a>
-              <a class="dropdown-item" href="#">Forgot password?</a>
-            </div>
-          </li>
-          @else
-          <li class="nav-item dropdown">
-            <a id="navbarDropdown" class="nav-link dropdown-toggle top" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-              <i class="far fa-user-circle"></i> {{ Auth::user()->name }} <span class="caret"></span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{url('/account')}}"><i class="fas fa-user"></i> Account</a>
-              <a class="dropdown-item" href="{{ route('logout') }}"
-              onclick="event.preventDefault();
+								<label class="form-check-label" for="remember">
+									{{ __('Remember Me') }}
+								</label>
+							</div>
+							<button type="submit" class="btn btn-primary">Sign in</button>
+						</form>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="{{ url('/register') }}">New around here? Sign up</a>
+						<a class="dropdown-item" href="#">Forgot password?</a>
+					</div>
+				</li>
+				@else
+				<li class="nav-item dropdown">
+					<a id="navbarDropdown" class="nav-link dropdown-toggle top" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+						<i class="far fa-user-circle"></i> {{ Auth::user()->name }} <span class="caret"></span>
+					</a>
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="{{url('/account')}}"><i class="fas fa-user"></i> Account</a>
+						<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
               document.getElementById('logout-form').submit();"> <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
-            </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-              @csrf
-            </form>
-          </div>
-        </li>
-        @endguest
-		<li class="nav-item dropdown-expand-md">
-		  <a class="nav-link dropdown-toggle top" href="#" id="navbarDropdownLeft" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			<i class="fas fa-search top"></i>
-		  </a>
-		  <div class="dropdown-menu" style="padding: 10px;">
-			  <form action="{{route('search')}}" method="get">
-				  <input type="text" placeholder="Search..." name="search" class="form-control">
-				  <br/>
-				  <input type="submit" value="Search" class="btn btn-primary" style="width: 100%;">
-			  </form>
-		  </div>
-		</li>
-        <div class="right-menu">
-            <li class="fancy nav-item"><p class="fancy" id="upload">Upload</p><a href="{{ url('/upload')}}"><i class="fas fa-plus-circle top" id="uploadicon"></i></a></li>
-            <li class="fancy nav-item"><p class="fancy" id="cart">Cart</p><a href="{{ url('/cart')}}"><i class="fas fa-shopping-cart top" id="carticon"></i></a></li>
-            <li class="fancy nav-item"><p class="fancy" id="wishlist">Wishlist</p><a href="{{ url('/wishlist')}}"><i class="far fa-heart top" id="wishlisticon"></i></a></li>
-        </div>
-    </div>
-  </nav>
+						</a>
+						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+							@csrf
+						</form>
+					</div>
+				</li>
+				@endguest
+				<li class="nav-item dropdown-expand-md">
+					<a class="nav-link dropdown-toggle top" href="#" id="navbarDropdownLeft" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fas fa-search top"></i>
+					</a>
+					<div class="dropdown-menu" style="padding: 10px;width:300px;">
+						<form action="{{route('search')}}" method="get" >
+							<input type="text" placeholder="Search..." name="search" class="form-control" required>
+							<br />
+							<input type="submit" value="Search" class="btn btn-primary" style="width: 100%;">
+						</form>
+					</div>
+				</li>
+				<div class="right-menu">
+					{{-- <li class="fancy nav-item"><p class="fancy" id="cart">Cart</p><a href="{{ url('/cart')}}"><i class="fas fa-shopping-cart top" id="carticon"></i></a></li> --}}
+					<?php $ip = isset($_SERVER['HTTP_CLIENT_IP'])?$_SERVER['HTTP_CLIENT_IP']:isset($_SERVER['HTTP_X_FORWARDED_FOR'])?$_SERVER['HTTP_X_FORWARDED_FOR']:$_SERVER['REMOTE_ADDR']; ?>
+					<a href="{{ url('/wishlist')}}">
+						<div id="ex4" style="display: inline; font-size: 8px;color: rgba(0, 0, 0, 0.5);">
+							<span class="p1 fa-stack fa-2x has-badge" data-count="@if(Auth::guest()) {{ App\Wishlist::where('ip', $ip)->count() }} @else {{ App\Wishlist::where('user_id', Auth::user()->id)->count() }} @endif">
+								<!--<i class="p2 fa fa-circle fa-stack-2x"></i>-->
+								<i class="far fa-heart top" id="wishlisticon"></i>
+							</span>
+						</div>
+					</a>
+					<a href="{{ url('/cart')}}">
+						<div id="ex4" style="display: inline; font-size: 8px;color: rgba(0, 0, 0, 0.5);">
+							<span class="p1 fa-stack fa-2x has-badge" data-count="@if(Auth::guest()) {{ App\Cart::where('ip', $ip)->count() }} @else {{ App\Cart::where('user_id', Auth::user()->id)->count() }} @endif">
+								<!--<i class="p2 fa fa-circle fa-stack-2x"></i>-->
+								<i class="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse" data-count="4b"></i>
+							</span>
+						</div>
+					</a>
+				</div>
+			</div>
+		</nav>
   @yield('sidecontent')
   <div class="container">
     <div class="row">

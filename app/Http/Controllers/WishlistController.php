@@ -9,6 +9,7 @@ use App\Product_Images;
 use App\Products;
 use Auth;
 
+
 class WishlistController extends Controller
 {
     public function index()
@@ -21,10 +22,6 @@ class WishlistController extends Controller
 		return view('wishlist', compact('wished'));
 	}
 
-  public function create()
-  {
-      //
-  }
 
   public function store(Request $request)
   {

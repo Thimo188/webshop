@@ -57,13 +57,18 @@ class UploadController extends Controller
   public function store(Request $request)
   {
 
-    $subscription = Subscription::where('user_id', Auth::user()->id);
-    $orders = Order::where('created_at', '>=', Carbon::now()->addMonths(-1))->count();
-    // if($subscription->count() > 0) {
-    //   if($orders >= $subscription->get()->amount) {
-    //     return redirect()->back()->withErrors(['msg', 'You have reached your subscription limit for this month']);
-    //   }
-    // }
+    $subscription = Subscription::where('user_id', Auth::user()->id)->first();
+    if(!empty($subscription)) {
+			if($subscription->amount > 1) {
+                $subscription->amount = $subscription->amount--;
+                $subscription->save();
+            } else {
+                $subscription->delete();
+            }
+		} else {
+            return redirect()->back()->withErrors('You have got no uploads left to use');
+        }
+
     $validatedData = $this->validate($request, [
       'name' => 'required|max:255',
       'description' => 'required|max:300',
@@ -138,7 +143,8 @@ class UploadController extends Controller
       $product_image->save();
     }
 
-      return redirect(url('/upload'));
+      return redirect(url('/gallery'))->with('success', 'Your upload was successfully');
+
 
 } //catch(Exception $error) {
     //return redirect()->back()->withErrors(['Bitch issa broken '.$error]);

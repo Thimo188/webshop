@@ -18,22 +18,13 @@
  </div>
 </div> -->
 
-<div class="container mt-1">
+<div class="container mt-5" id="product-section">
+  <div class="col-md-12">
   <div class="row">
-    <div class="col-md-4">
-      <h3>Your wishlist</h3>
-    </div>
-  </div>
-</div>
-
-<div class="container mt-2" id="product-section">
-
-<div class="row">
     @forelse($wished as $wishlistitem)
-      <div class="col-md-4">
-
+    <div class="col-md-4 card-margin d-flex align-items-stretch">
 <!-- {{$wishlistitem->User()->first()->name}} -->
-      <div class="card mt-3" style="width: 18rem">
+      <div class="card mt-5" style="width: 18rem">
       <img class="card-img-top" src="{{ $wishlistitem->Product()->first()->ProductImages()->first()->file }}" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{ $wishlistitem->Product()->first()->product_name }}</h5>
@@ -46,11 +37,13 @@
         </div>
       </div>
     </div>
-  @empty
-    <p>No favourites yet</p>
 
-@endforelse
-</div>
-</div>
+      @empty
+        <p>No favourites yet</p>
 
+
+        @endforelse
+      </div>
+    </div>
+  </div>
 @endsection

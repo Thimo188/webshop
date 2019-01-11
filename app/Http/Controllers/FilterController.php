@@ -21,10 +21,16 @@ class FilterController extends Controller
       ->join('product_images', 'products.id', '=', 'product_images.product_id')
       ->join('product_categories', 'products.id', '=' , 'product_categories.product_id')
       ->join('categories', 'categories.id' , '=' , 'product_categories.category_id')
-      ->where('colors.name', '=', $color->name)->where('category_id', $categoryid)
-      ->paginate(9);
+      ->where('colors.name', '=', $color->name)->where('category_id', $categoryid);
       $colors = Color::all();
       $categories = Category::all();
+      if(!empty(session()->get('min-price'))) {
+      $productsview = $productsview->where('price', '>=', session()->get('min-price'));
+      }
+      if(!empty(session()->get('max-price'))) {
+      $productsview  = $productsview->where('price', '<=', session()->get('max-price'));
+      }
+      $productsview = $productsview->paginate(9);
       return view('photographyfilter', compact('productsview','products','colors'));
     }
 
@@ -37,10 +43,16 @@ class FilterController extends Controller
       ->join('product_images', 'products.id', '=', 'product_images.product_id')
       ->join('product_categories', 'products.id', '=' , 'product_categories.product_id')
       ->join('categories', 'categories.id' , '=' , 'product_categories.category_id')
-      ->where('colors.name', '=', $color->name)->where('category_id', $categoryid)
-      ->paginate(9);
+      ->where('colors.name', '=', $color->name)->where('category_id', $categoryid);
       $colors = Color::all();
       $categories = Category::all();
+      if(!empty(session()->get('min-price'))) {
+      $productsview = $productsview->where('price', '>=', session()->get('min-price'));
+      }
+      if(!empty(session()->get('max-price'))) {
+      $productsview  = $productsview->where('price', '<=', session()->get('max-price'));
+      }
+      $productsview = $productsview->paginate(9);
       return view('illustrationsfilter', compact('productsview','products','colors'));
     }
 
@@ -53,11 +65,16 @@ class FilterController extends Controller
       ->join('product_images', 'products.id', '=', 'product_images.product_id')
       ->join('product_categories', 'products.id', '=' , 'product_categories.product_id')
       ->join('categories', 'categories.id' , '=' , 'product_categories.category_id')
-      ->where('colors.name', '=', $color->name)->where('category_id', $categoryid)
-      ->paginate(9);
+      ->where('colors.name', '=', $color->name)->where('category_id', $categoryid);
       $colors = Color::all();
       $categories = Category::all();
-
+      if(!empty(session()->get('min-price'))) {
+      $productsview = $productsview->where('price', '>=', session()->get('min-price'));
+      }
+      if(!empty(session()->get('max-price'))) {
+      $productsview  = $productsview->where('price', '<=', session()->get('max-price'));
+      }
+      $productsview = $productsview->paginate(9);
       return view('3DArtfilter', compact('productsview','products','colors'));
     }
 

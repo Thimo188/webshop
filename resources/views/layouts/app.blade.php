@@ -38,7 +38,7 @@
 </head>
 
 <body>
-  <div id="app">
+  <div class='wrapper' id="app">
     @include('flash-message')
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="{{ url('/')}}">MUZEN</a>
@@ -148,6 +148,7 @@
 			</div>
 		</nav>
 		@yield('content')
+	</div>
 		<footer>
 			<div class="fixed-bottom footer mt-5" id="footer">
 				<div class="container">
@@ -155,10 +156,10 @@
 						<div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
 							<h3> Quick Links </h3>
 							<ul>
-								<li> <a href="#"> F.A.Q </a> </li>
-								<li> <a href="#"> Contact </a> </li>
-								<li> <a href="#"> Orders & Delivery </a> </li>
-								<li> <a href="#"> Payments </a> </li>
+								<li> <a href="{{ url('/faq') }}"> F.A.Q </a> </li>
+								<li> <a href="{{ url('/contact')}}"> Contact </a> </li>
+								<li> <a href="{{ url('/privacypolicy')}}"> Privacy Policy </a> </li>
+								<li> <a href="{{ url('/payments')}}"> Payments </a> </li>
 							</ul>
 						</div>
 					</div>
@@ -170,7 +171,7 @@
 
 			<!--/.footer-bottom-->
 		</footer>
-	</div>
+
 </body>
 
 </html>

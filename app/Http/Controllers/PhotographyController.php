@@ -71,6 +71,12 @@ class PhotographyController extends Controller
         ->latest('products.created_at');
         break;
       }
+	  if(!empty(session()->get('min-price'))) {
+		$sqlbuilder = $sqlbuilder->where('price', '>=', session()->get('min-price'));
+	  }
+	  if(!empty(session()->get('max-price'))) {
+		$sqlbuilder  = $sqlbuilder->where('price', '<=', session()->get('max-price'));
+	  }
       $productsview = $sqlbuilder->paginate(9);
     }
 

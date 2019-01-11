@@ -54,8 +54,7 @@
           <h5 class="card-title">One month</h5>
         </div>
           <div class="card-footer">
-             <a href="{{ route('subscription.buy', 1)}}" class="btn btn-primary">Buy</button>
-              <img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="25" class="hello" alt=""/></a>
+             <a href="{{ route('subscription.buy', 1)}}" class="btn btn-primary">Buy</a>
           </div>
       </div>
     </div>
@@ -66,8 +65,7 @@
           <h5 class="card-title">One month</h5>
         </div>
           <div class="card-footer">
-             <a href="{{ route('subscription.buy', 2)}}" class="btn btn-primary">Buy</button>
-              <img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="25" class="hello" alt=""/></a>
+             <a href="{{ route('subscription.buy', 2)}}" class="btn btn-primary">Buy</a>
           </div>
       </div>
     </div>
@@ -78,8 +76,7 @@
           <h5 class="card-title">One month</h5>
         </div>
           <div class="card-footer">
-             <a href="{{ route('subscription.buy', 3)}}" class="btn btn-primary">Buy</button>
-              <img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-1-2/512/heart-outline-512.png" height="25" class="hello" alt=""/></a>
+             <a href="{{ route('subscription.buy', 3)}}" class="btn btn-primary">Buy</a>
           </div>
       </div>
     </div>

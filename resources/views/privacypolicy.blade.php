@@ -19,12 +19,11 @@
       <br />
       <p class="font-weight-bold">Website operator</p>
       <br />
-      The JUNIQE website is operated by:
+      The MUZEN website is operated by:
       Kollwitz Internet GmbH
       Köpenicker Straße 126,
-      10179 Berlin, Germany (hereinafter "JUNIQE")
-      Contact: service@juniqe.com
-      You can reach our data protection officer at data-privacy@juniqe.com
+      10179 Berlin, Germany (hereinafter "MUZEN")
+      You can reach our data protection officer at data-privacy@muzen.com
       <br />
       <br />
       <p class="font-weight-bold">Data collection and storage</p>

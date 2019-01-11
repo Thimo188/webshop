@@ -94,14 +94,6 @@ $("#price").ionRangeSlider({
 });
 </script>
 
-<script>
-	 $(function(){
-		 $("input[type='radio']").click(function(){
-				alert($('input:radio:checked').val());
-		});
-	 });
-</script>
-
 
 <div class="text-center" id="pagination">
 	{!!$productsview->render();!!}
